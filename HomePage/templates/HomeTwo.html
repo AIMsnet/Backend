@@ -1,0 +1,1068 @@
+{% extends 'model.html' %}
+{% load static %}
+
+
+{%block cssBlock %}
+    <link rel="stylesheet" href="{%static 'pageCss/HomeTwo.css'%}">
+{% endblock %}
+
+{% block mainblock %}
+<!-- ------------Categories -->
+<div class="container categories">
+    <h3>Categories</h3>
+    <div class="row m-0 categoriesCompart">     
+        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+          <a class = "categoriesAnchor" href="SubCategories/sub/Farming Tools, Equipment & Machines/">
+            <img src="{%static 'assets/shovel-svgrepo-com.svg' %}" alt="Shovel icon" class="img-fluid">
+            <h5>Farming Tools, <br> Equipment & Machines</h5>
+          </a>
+        </div>
+        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+            <img src="{%static 'assets/plant.svg' %}" alt="Shovel icon" class="img-fluid">
+           <h5>Flowers, Plants <br> & Trees</h5>
+        </div>
+        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+            <img src="{%static 'assets/seed.svg' %}" alt="Shovel icon" class="img-fluid">
+            <h5>Seeds Plants <br> & Saplings</h5>
+        </div>
+        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+            <img src="{%static 'assets/tractor.svg' %}" alt="Shovel icon" class="img-fluid">
+            <h5>Tractor, Tractor Parts <br> & Assemblies</h5>
+        </div>
+    </div>
+
+    <div class="row m-0 categoriesCompart">
+        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+           <img src="{%static 'assets/cow.svg' %}" alt="Shovel icon" class="img-fluid">
+           <h5>Bird Food, Poultry <br> & Animal Food</h5>
+        </div>
+        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+            <img src="{%static 'assets/harvester.svg' %}" alt="Shovel icon" class="img-fluid">
+           <h5>Irrigation & <br> Harvesting Machines</h5>
+        </div>
+        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+            <img src="{%static 'assets/fertilizer.svg' %}" alt="Shovel icon" class="img-fluid">
+            <h5>Fertilizers and Soil Additives</h5>
+        </div>
+        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+            <img src="{%static 'assets/coir.svg' %}" alt="Shovel icon" class="img-fluid">
+            <h5>Coir and Agro Products</h5>
+        </div>
+    </div>
+
+    <div class="row m-0 categoriesCompart">
+        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+           <img src="{%static 'assets/chicken.svg' %}" alt="Shovel icon" class="img-fluid">
+           <h5>Farming and Pet Animals</h5>
+        </div>
+        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+            <img src="{%static 'assets/rupee.svg' %}" alt="Shovel icon" class="img-fluid">
+           <h5>Agri Finance</h5>
+        </div>
+        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+            <img src="{%static 'assets/insurance.svg' %}" alt="Shovel icon" class="img-fluid">
+            <h5>Agri Insurance</h5>
+        </div>
+        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+            <img src="{%static 'assets/agriBussiness.svg'%}" alt="Shovel icon" class="img-fluid">
+            <h5>Agri Related Business </h5>
+        </div>               
+    </div>
+</div>
+
+<!-- ---------RegisterWithUs -->
+
+<div class="row m-0 text-center registerWithUs">
+    <div class="col-sm blockOne">
+        <button data-toggle="modal" data-target=".supplierSignUp" >Register here & List Your Business</button>
+    </div>
+
+    <div class="col-sm blockTwo">
+        <button data-toggle="modal" data-target=".customerSignUp" > Become Member & Join Us</button>
+    </div>
+</div>
+
+<!-- ----------Featured Advertisement -->
+<div class="container-fluid py-3 bg-white">
+  <h3 class="text-center">Featured</h3>
+  <ul class="nav justify-content-center tabset">
+    <li class="active"><a data-toggle="tab" href="#home"> <h4>New Launch</h4></a></li>
+    <li><a data-toggle="tab" href="#menu1"><h4>Offers</h4></a></li>
+    <li><a data-toggle="tab" href="#menu2"><h4>Popular</h4></a></li>
+  </ul>
+  
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade show active">
+     <!-- -----------------------------------------------Carousel Starts Here -->
+     <div class="container my-4 advertiseContainer">
+      <hr class="my-4"> 
+    
+      <!--Carousel Wrapper-->
+      <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+    
+        <!--Controls-->
+        <div class="controls-top text-center">
+          <a class="btn-floating" href="#multi-item-example" data-slide="prev"><img src="assets/LeftArrow.svg" class = "img-fluid navArrow" alt=""></a>
+          <a class="btn-floating" href="#multi-item-example" data-slide="next"><img src="assets/RightArrow.svg" class = "img-fluid navArrow" alt=""></a>
+        </div>
+        <!--/.Controls-->
+    
+        <!--Indicators-->
+        <ol class="carousel-indicators">
+          <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+          <li data-target="#multi-item-example" data-slide-to="1"></li>
+          <li data-target="#multi-item-example" data-slide-to="2"></li>
+        </ol>
+        <!--/.Indicators-->
+    
+        <!--Slides-->
+        <div class="carousel-inner" role="listbox">
+    
+          <!--First slide-->
+          <div class="carousel-item active">
+    
+            <div class="row">
+              <div class="col-4 advertiseCardColumn">
+                <a href="">
+                  <div class="card">
+                    <img src="https://4.imimg.com/data4/TO/CE/ANDROID-2674668/product-500x500.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body advertiseCardBody">
+                      <h5>Maxi Paw Popup Sprinkler for Landscape</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              
+              <div class="col-4 advertiseCardColumn">
+                <a href="">
+                  <div class="card">
+                    <img src="https://5.imimg.com/data5/AQ/XT/MY-25286959/irrigation-sprinkler-500x500.jpg" class="card-img-top" alt="...">
+                    <div class="card-body advertiseCardBody">
+                      <h5>Brass Sprinkler Nozzle F/HT - 20</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+    
+              <div class="col-4 advertiseCardColumn">
+              <a href="">
+                <div class="card">
+                  <img src="https://5.imimg.com/data5/LF/XP/ZU/ANDROID-21647869/1565250949571-jpg-500x500.jpg" class="card-img-top" alt="...">
+                  <div class="card-body advertiseCardBody">
+                    <h5>Netafim 2.5 mm D-Net 8550 Sprinkler</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
+              </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/.Slides-->
+      </div>
+      <!--/.Carousel Wrapper-->
+    </div>
+      <!-- -----------------------------------------------Carousel Ends Here -->
+    </div>  
+    <div id="menu1" class="tab-pane fade">
+      <h3 class="text-center">Offers</h3>
+      <p>Some content in menu 1.</p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h3 class="text-center">Popular</h3>
+      <p>Some content in menu 2.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- -------Requirement Form -->
+<div class="container-fluid text-center requirement">
+  <h2>Get Verified Sellers</h2>
+  <span> Tell us what you need & recive seller details on phone and email </span>
+
+    <div class="container requirementNestedForm">
+      <form action="/">
+       <div class="form-group requirementFormGroup">
+           <input type="text" name="txtProduct" id="txtProduct" placeholder="Product Name.." class="form-control">
+       </div>
+
+       <div class="form-group requirementFormGroup">
+           <input type="text" name="txtRequirement" id="txtRequirement" placeholder="Requirement.." class="form-control">
+       </div>
+
+       <div class="form-group">
+           <input type="submit" value="Get Sellers" class="btn-primary">
+       </div>
+      </form>
+  
+  </div>
+</div>
+
+<!-- ----------Advertisement -->
+<div class="container-fluid py-4">
+  <div class="row">
+    <div class="col-sm-3 col-md-6 col-lg-3">
+      <div class="card">
+        <img class="card-img-top" src="https://5.imimg.com/data5/LN/GA/MY-2664323/mini-power-tillers-500x500.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Bheem Mini Power Tillers, Engine Model: 600d</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3 col-md-6 col-lg-3">
+      <div class="card">
+        <img class="card-img-top" src="https://5.imimg.com/data5/RM/MN/MY-3865272/rotary-disc-harrow-500x500.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Mild Steel Rotary Disc Harrow</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3 col-md-6 col-lg-3">
+      <div class="card">
+        <img class="card-img-top" src="https://5.imimg.com/data5/LZ/XY/YX/SELLER-1450162/golf-and-cricket-ground-fertilizer-spreader-top-dresser-similar-to-toro-turfco-500x500.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Golf and Cricket Ground Fertilizer Spreader, Top Dresser, Similar To Toro, Turfco</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3 col-md-6 col-lg-3">
+      <div class="card">
+        <img class="card-img-top" src="https://5.imimg.com/data5/OR/ST/BB/SELLER-27483913/petrol-power-reaper-500x500.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Vardhman Power Reaper, Model Name/Number: 2fp, Capacity: Honda Gx 200 Engine</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- --------------------Location Model -->
+<div class="modal fade" id="locationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Select Location</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <select class="custom-select" id="selectDisrtict">
+          <option selected>Location..</option>
+          <option value="Ahmadnagar">Ahmadnagar (Ahmednagar)</option>
+          <option value="Akola">Akola</option>
+          <option value="Amravati">Amravati</option>
+          <option value="Aurangabad">Aurangabad</option>
+          <option value="Bhandara">Bhandara</option>
+          <option value="Beed">Beed</option>
+          <option value="Buldana (Buldhana)">Buldana (Buldhana)</option>
+          <option value="Chandrapur">Chandrapur</option>
+          <option value="Dhule">Dhule</option>
+          <option value="Gadchiroli">Gadchiroli</option>
+          <option value="Gondiya">Gondiya (Gondia)</option>
+          <option value="Hingoli">Hingoli</option>
+          <option value="Jalgaon">Jalgaon</option>
+          <option value="Jalna">Jalna</option>
+          <option value="Kolhapur">Kolhapur</option>
+          <option value="Latur">Latur</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Mumbai Suburban">Mumbai Suburban</option>
+          <option value="Nagpur">Nagpur</option>
+          <option value="Nanded">Nanded</option>
+          <option value="Nandurbar">Nandurbar</option>
+          <option value="Nashik">Nashik</option>
+          <option value="Osmanabad">Osmanabad</option>
+          <option value="Parbhani">Parbhani</option>
+          <option value="Pune">Pune</option>
+          <option value="Raigad">Raigad</option>
+          <option value="Ratnagiri">Ratnagiri</option>
+          <option value="Sangli">Sangli</option>
+          <option value="Satara">Satara</option>
+          <option value="Sindhudurg">Sindhudurg</option>
+          <option value="Solapur">Solapur</option>
+          <option value="Thane">Thane</option>
+          <option value="Wardha">Wardha</option>
+          <option value="Washim">Washim</option>
+          <option value="Yavatmal">Yavatmal</option>                  
+        </select>
+
+        <select class="custom-select" id="selectCity">
+          <option value="Achalpur">Achalpur</option> 
+          <option value="Aheri">Aheri</option> 
+          <option value="Ahmadnagar ">Ahmadnagar </option>
+          <option value="Ahmadnagar">Ahmadnagar</option>  
+          <option value="Ahmadpur ">Ahmadpur </option>
+          <option value="Ajra">Ajra</option> 
+          <option value="Akkalkot">Akkalkot</option> 
+          <option value="Akkalkuwa">Akkalkuwa</option> 
+          <option value="Akluj">Akluj</option> 
+          <option value="Akola">Akola</option> 
+          <option value="Akot">Akot</option> 
+          <option value="Alandi">Alandi</option> 
+          <option value="Alibag">Alibag</option> 
+          <option value="Amalner">Amalner</option> 
+          <option value="Ambad">Ambad</option> 
+          <option value="Ambarnath">Ambarnath</option> 
+          <option value="Ambejogai ">Ambejogai </option> 
+          <option value="Ambepur">Ambepur</option> 
+          <option value="Ambivali">Ambivali</option>  
+          <option value="Amgaon">Amgaon</option>  bk.
+          <option value="Amgaon">Amgaon</option>  kh.
+          <option value="Amravati">Amravati</option> 
+          <option value="Anantpur">Anantpur</option> 
+          <option value="Anjangaon">Anjangaon</option> 
+          <option value="Arvi">Arvi</option> 
+          <option value="Arvi">Arvi</option> 
+          <option value="Asangaon">Asangaon</option> 
+          <option value="Ashta">Ashta</option> 
+          <option value="Ashti">Ashti</option> 
+          <option value="Ashti">Ashti</option> 
+          <option value="Aurangabad">Aurangabad</option> 
+          <option value="Aurangabad">Aurangabad</option> 
+          <option value="Ausa">Ausa</option> 
+          <option value="Awadhan">Awadhan</option> 
+          <option value="Awalpur">Awalpur</option> 
+          <option value="Badlapur">Badlapur</option> 
+          <option value="Balapur">Balapur</option> 
+          <option value="Balirampur">Balirampur</option> 
+          <option value="Ballarpur">Ballarpur</option> 
+          <option value="Bamhni">Bamhni</option> 
+          <option value="Banda">Banda</option> 
+          <option value="Baramati">Baramati</option> 
+          <option value="Barshi">Barshi</option> 
+          <option value="Basmath">Basmath</option> 
+          <option value="Bela">Bela</option> 
+          <option value="Bhadgaon">Bhadgaon</option> 
+          <option value="Bhadravati">Bhadravati</option> 
+          <option value="Bhagur">Bhagur</option> 
+          <option value="Bhandara">Bhandara</option> 
+          <option value="Bhiwandi Nizampur">Bhiwandi Nizampur</option> 
+          <option value="Bhokar">Bhokar</option> 
+          <option value="Bhokara">Bhokara</option> 
+          <option value="Bhokardan">Bhokardan</option> 
+          <option value="Bhor">Bhor</option> 
+          <option value="Bhum">Bhum</option> 
+          <option value="Bhusawal">Bhusawal</option> 
+          <option value="Bhuwaneshwar">Bhuwaneshwar</option> 
+          <option value="Bid ">Bid </option> (Beed)
+          <option value="Bid">Bid</option>  Rural
+          <option value="Biloli">Biloli</option> 
+          <option value="Birwadi">Birwadi</option> 
+          <option value="Boisar">Boisar</option> 
+          <option value="Borgaon (Meghe)">Borgaon(Meghe)</option> 
+          <option value="Bori">Bori</option> 
+          <option value="Borivali Tarf Rahur">BorivaliTarf Rahur</option>  
+          <option value="Borkhedi">Borkhedi</option> 
+          <option value="Borli">Borli</option>  Panchtan
+          <option value="Brahmapuri (Bramhapuri)">Brahmapuri (Bramhapuri)</option> 
+          <option value="Budhgaon">Budhgaon</option> 
+          <option value="Buldana (Buldhana)">Buldana (Buldhana)</option> 
+          <option value="Burhanagar">Burhanagar</option> 
+          <option value="Chakan">Chakan</option> 
+          <option value="Chalisgaon">Chalisgaon</option> 
+          <option value="Chandkapur">Chandkapur</option> 
+          <option value="Chandrapada">Chandrapada</option> 
+          <option value="Chandrapur">Chandrapur</option> 
+          <option value="Chandur">Chandur</option> 
+          <option value="Chandurbazar">Chandurbazar</option> 
+          <option value="Chandur Railway">Chandur Railway</option>  
+          <option value="Chandvad (Chandwad)">Chandvad (Chandwad)</option> 
+          <option value="Chanje">Chanje</option> 
+          <option value="Chendhare">Chendhare</option> 
+          <option value="Chicholi">Chicholi</option> 
+          <option value="Chikhala">Chikhala</option> 
+          <option value="Chikhaldara">Chikhaldara</option> 
+          <option value="Chikhli">Chikhli</option> 
+          <option value="Chinchani">Chinchani</option>
+          <option value="Chiplun">Chiplun</option> 
+          <option value="Chitegaon">Chitegaon</option> 
+          <option value="Chopda">Chopda</option> 
+          <option value="Dabhol">Dabhol</option> 
+          <option value="Dadar">Dadar</option> 
+          <option value="Dahanu">Dahanu</option> 
+          <option value="Dandi">Dandi</option> 
+          <option value="Dapoli Camp">Dapoli Camp</option>  
+          <option value="Darewadi">Darewadi</option> 
+          <option value="Darwha">Darwha</option> 
+          <option value="Daryapur (Banosa)">Daryapur (Banosa)</option> 
+          <option value="Dattapur Dhamangaon">Dattapur Dhamangaon</option>  
+          <option value="Daund">Daund</option> 
+          <option value="Daund">Daund</option> 
+          <option value="Davlameti">Davlameti</option> 
+          <option value="Deglur">Deglur</option> 
+          <option value="Dehu">Dehu</option> 
+          <option value="Dehu Road">Dehu Road</option>  
+          <option value="Deogiri">Deogiri</option> 
+          <option value="Deolali">Deolali Cantonment</option>  
+          <option value="Deolali Pravara">Deolali Pravara</option>  
+          <option value="Deoli">Deoli</option> 
+          <option value="Deori">Deori</option> 
+          <option value="Desaiganj">Desaiganj</option> 
+          <option value="Deulgaon Raja">Deulgaon Raja</option>  
+          <option value="Devrukh">Devrukh</option> 
+          <option value="Dhanegaon">Dhanegaon</option> 
+          <option value="Dharangaon">Dharangaon</option> 
+          <option value="Dharmabad">Dharmabad</option> 
+          <option value="Dharni">Dharni</option> 
+          <option value="Dharur">Dharur</option> 
+          <option value="Dhatau">Dhatau</option> 
+          <option value="Dhopatala">Dhopatala</option> 
+          <option value="Dhule">Dhule</option> 
+          <option value="Digdoh">Digdoh</option> 
+          <option value="Digras">Digras</option> 
+          <option value="Dondaicha-Warwade">Dondaicha-Warwade</option> 
+          <option value="Dudhani">Dudhani</option> 
+          <option value="Durgapur">Durgapur</option> 
+          <option value="Dyane">Dyane</option> 
+          <option value="Eklahare">Eklahare</option> 
+          <option value="Erandol">Erandol</option> 
+          <option value="Faizpur">Faizpur</option> 
+          <option value="Fulchur">Fulchur</option> 
+          <option value="Gadchiroli">Gadchiroli</option> 
+          <option value="Gadhinglaj">Gadhinglaj</option> 
+          <option value="Gandhinagar">Gandhinagar</option> 
+          <option value="Ganeshpur">Ganeshpur</option> 
+          <option value="Gangakhed">Gangakhed</option> 
+          <option value="Gangapur">Gangapur</option> 
+          <option value="Georai (Gevrai)">Georai (Gevrai)</option> 
+          <option value="Ghatanji">Ghatanji</option> 
+          <option value="Ghoti Budruk">Ghoti Budruk</option>  
+          <option value="Ghugus">Ghugus</option> 
+          <option value="Ghulewadi">Ghulewadi</option> 
+          <option value="Gimhavane">Gimhavane</option> 
+          <option value="Godoli">Godoli</option> 
+          <option value="Gokul Shirgaon">Gokul Shirgaon</option>  
+          <option value="Gokunda">Gokunda</option> 
+          <option value="Gondiya (Gondia)">Gondiya (Gondia)</option> 
+          <option value="Gondpipri">Gondpipri</option> 
+          <option value="Goregaon">Goregaon</option> 
+          <option value="Gotheghar">Gotheghar</option> 
+          <option value="Greater  Mumbai [Bombay]">Greater Mumbai [Bombay]</option> 
+          <option value="Hadgaon">Hadgaon</option> 
+          <option value="Hajarmachi">Hajarmachi</option> 
+          <option value="Harsul">Harsul</option> 
+          <option value="Hinganghat">Hinganghat</option> 
+          <option value="Hingoli">Hingoli</option> 
+          <option value="Hinjavadi">Hinjavadi</option> 
+          <option value="Hudkeshwar bk.">Hudkeshwar bk.</option>  
+          <option value="Hupari">Hupari</option> 
+          <option value="Ichalkaranji">Ichalkaranji</option> 
+          <option value="Igatpuri">Igatpuri</option> 
+          <option value="Indapur">Indapur</option> 
+          <option value="Isasani">Isasani</option> 
+          <option value="Jalgaon">Jalgaon</option> 
+          <option value="Jalgaon">Jalgaon</option> 
+          <option value="Jalgaon Jamod">Jalgaon Jamod</option>  
+          <option value="Jalna">Jalna</option> 
+          <option value="Jalochi">Jalochi</option> 
+          Jamkhed
+          Jamner
+          Jasai
+          Jawhar
+          Jaysingpur
+          Jejuri
+          Jintur
+          Junnar
+          Kabnur
+          Kagal
+          Kaij
+          Kalamb
+          Kalambe Turf Thane
+          Kalameshwar
+          Kalamnuri
+          Kalher
+          Kalmath
+          Kalundre
+          Kalyan-Dombivli (Kalyan-Dombivali)
+          Kambe (in: Bhiwandi subdistrict)
+          Kambe (in: Kalyan subdistrict)
+          Kamptee
+          Kamptee Cantonment
+          Kandari
+          Kandhar
+          Kandri (in: Parseoni subdistrict)
+          Kandri (in: Ramtek subdistrict)
+          Kanhan (Pipri)
+          Kankavli
+          Kannad
+          Karad
+          Karad Rural
+          Karanja (Karanja Lad)
+          Karanje Tarf Satara (Karanje Turf Satara)
+          Karivali
+          Karjat
+          Karjat
+          Karle
+          Karmala
+          Kasara Budruk
+          Katai
+          Katangi Kala
+          Katkar
+          Katol
+          Kegaon
+          Khadkale
+          Khadki Bk
+          Khaira
+          Khamari
+          Khamgaon
+          Khandbara
+          Khapa
+          Khapar
+          Kharabwadi
+          Kharbav
+          Khardi
+          Kharghar
+          Khed
+          Khed
+          Kherdi
+          Khoni
+          Khopoli
+          Khuldabad
+          Kinwat
+          Kirkee Cantonment (Khadki)
+          Kodoli
+          Kolhapur
+          Kolki
+          Kon
+          Kondumal
+          Kopargaon
+          Koradi
+          Koregaon
+          Koregaon Bhima
+          Korochi
+          Kudal
+          Kudus
+          Kudwa
+          Kundalwadi
+          Kurduvadi
+          Kurkheda
+          Kurul
+          Kurundvad (Kuruntwad)
+          Kusgaon Budruk
+          Kuwarbav
+          Lanja
+          Lasalgaon
+          Latur
+          Loha
+          Lohara
+          Lonand
+          Lonar
+          Lonavala (Lonavla)
+          Madhavnagar
+          Mahabaleshwar
+          Mahad
+          Mahadula
+          Mahapoli
+          Mahindale
+          Maindargi
+          Majgaon
+          Makranifali
+          Maldhe
+          Malegaon
+          Malkapur
+          Malkapur
+          Malkapur
+          Malkapur
+          Malwan
+          Manchar
+          Mangalvedhe (Mangalwedha)
+          Mangrulpir
+          Manjlegaon
+          Manmad
+          Manor
+          Manwath
+          Masala
+          Matheran
+          Medankarwadi
+          Medha
+          Mehkar
+          Mharal Bk
+          Mhasla
+          Mhaswad
+          Mira-Bhayandar
+          Mohpa
+          Mohpada (Wasambe)
+          Morewadi
+          Morshi
+          Mouda
+          Mouje Anjanvel
+          Mowad
+          Mudkhed
+          Mukhed
+          Mul
+          Murbad
+          Murgud
+          Murmadi
+          Murtijapur (Murtajapur)
+          Murud Janjira
+          Murum
+          Nachane
+          Nadgaon Tarf Birwadi
+          Nagalwadi
+          Nagapur
+          Nagardeole
+          Nagothane (Nagothana)
+          Nagpur
+          Nakoda
+          Naldurg
+          Nalwadi
+          Nanda
+          Nanded Waghala
+          Nandgaon
+          Nandgaon Pode
+          Nandura
+          Nandurbar
+          Nanekarwadi
+          Narkhed
+          Narsala
+          Nashik [Nasik]
+          Natepute
+          Navghar
+          Navi Mumbai
+          Navi Mumbai Panvel Raigarh
+          Nawapur (Navapur)
+          Ner
+          Neral
+          Nideban
+          Nijampur
+          Nilanga
+          Nildoh
+          Nimbhore Budruk
+          Osmanabad
+          Owle
+          Ozar
+          Pachgaon
+          Pachora
+          Pachora Rural
+          Padagha
+          Padoli
+          Paithan
+          Palghar
+          Pali
+          Palidevad
+          Panchgani
+          Pandharkaoda
+          Pandharpur
+          Pandharpur
+          Panhala
+          Panvel
+          Paranda
+          Parbhani
+          Parli
+          Parola
+          Partur
+          Pasthal
+          Patan
+          Pathardi
+          Pathri
+          Patur
+          Pauni
+          Pen
+          Peth Umri
+          Phaltan
+          Pimpalgaon
+          Pimpalgaon Najik
+          Pimpri Chinchwad
+          Pipri
+          Pirangut
+          Poladpur
+          Pulgaon
+          Pune (Poona) [Poona]
+          Pune Cantonment (Pune Camp)
+          Purna
+          Purne
+          Pusad
+          Rahanal
+          Rahimatpur
+          Rahta Pimplas
+          Rahuri
+          Rajapur
+          Rajgurunagar (Khed)
+          Rajur
+          Rajur
+          Rajura
+          Ramtek
+          Ranjangaon S
+          Ratnagiri
+          Raver
+          Rees
+          Risama
+          Risod
+          Roha Ashtami
+          Saidapur
+          Sailu
+          Sakoli
+          Sakri
+          Salwad
+          Samangaon
+          Sanaswadi
+          Sangameshwar
+          Sangamner
+          Sangli Miraj Kupwad
+          Sangole
+          Sangramnagar
+          Sansari
+          Saravali
+          Sasti
+          Sasvad (Saswad)
+          Satana
+          Satara
+          Satara
+          Savda
+          Savner (Saoner)
+          Sawangi (Meghe)
+          Sawantwadi
+          Sawari Jawharnagar
+          Shahade (Shahada)
+          Shahapur
+          Shahapur
+          Shegaon
+          Shelar
+          Shendurjana
+          Shirdi
+          Shirgaon
+          Shirpur-Warwade
+          Shirur
+          Shivaji Nagar
+          Shivani
+          Shivar
+          Shivatkar (Nira)
+          Shrigonda
+          Shrirampur
+          Shrirampur
+          Shrivardhan
+          Sillewada
+          Sillod
+          Sindi
+          Sindi Turf Hindnagar
+          Sindkhed Raja
+          Sinnar
+          Sironcha Ry.
+          Solapur [Sholapur]
+          Sonegaon (Nipani)
+          Songirwadi Rural
+          Sonpeth
+          Soyagaon
+          Sundarkhed
+          Surgana
+          Tadali
+          Takalghat
+          Takali Pr. Chalisgaon
+          Talegaon Dabhade
+          Talode
+          Talode Panchnad (Taloje Panchnad)
+          Tamgaon
+          Tarapur
+          Tasgaon
+          Tekadi
+          Telhara
+          Thana
+          Thane
+          Tirora
+          Trimbak
+          Tuljapur
+          Tumsar
+          Uchgaon
+          Udgir
+          Ujalaiwadi
+          Ulhasnagar
+          Umarga
+          Umari Pr. Akola
+          Umarkhed
+          Umarsara
+          Umbar Pada Nandade
+          Umred
+          Umri Pragane Balapur
+          Uran
+          Uran Islampur
+          Urjanagar
+          Utekhol
+          Vada
+          Vadfalya
+          Vadgaon Kasba (Peth Vadgaon)
+          Vadghar
+          Vaijapur
+          Vangani
+          Varangaon
+          Vasai-Virar City
+          Vashind
+          Vengurla
+          Vikramgad
+          Vilholi
+          Visapur
+          Vita
+          Wadagaon (Vadgaon)
+          Waddhamana
+          Wadgaon Kolhati
+          Wadgaon Road
+          Wadi
+          Wadi Ratnagiri
+          Waghapur
+          Waghoda
+          Wagholi
+          Wai
+          Wajegaon
+          Walani
+          Waluj Bk.
+          Walwadi
+          Wanadongri
+          Wani
+          Wardha
+          Warora
+          Warthi
+          Warud
+          Warud
+          Washim
+          Yavatmal
+          Yavatmal R
+          Yawal
+          Yerkheda
+          Yevla (Yeola)
+          Yewalewadi
+          Zadgaon
+          Zotirpada
+          
+        </select>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Save Location</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ------------Supplier Sign In Model -->
+<div class="modal fade" id="supplierSignIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Supplier Sign In</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" method = "POST" style="text-align: -webkit-center;">
+            {% csrf_token %}
+
+          <div class="form-group">
+              <!-- <label for="txtProduct">Email Id</label> -->
+              {{supplierLoginForm.username}}
+          </div>
+
+          <div class="form-group">
+            <!-- <label for="txtProduct">Email Id</label> -->
+            {{supplierLoginForm.password}}
+         </div>
+
+         <div class="form-group">
+          <input type="submit" value="Sign In" class="btn btn-primary">
+         </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+            New Seller ?<a href="" class = "px-3" data-toggle="modal" data-target=".supplierSignUp">Start Here</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- ------------Supplier Sign Up Model -->
+<div class="modal fade supplierSignUp" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">   
+        <div class="modal-header">
+            <h5 class="modal-title">Sign Up Supplier</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body" style="padding: 2vh 6vw;">
+            <form id = "createNewSupplier" method = "POST">
+              {% csrf_token %}
+                <div class="form-group">
+                     <label for="txtProduct">
+                        <svg class="bi bi-person inputGroupSvg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 00.014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 00.022.004zm9.974.056v-.002.002zM8 7a2 2 0 100-4 2 2 0 000 4zm3-2a3 3 0 11-6 0 3 3 0 016 0z" clip-rule="evenodd"/>
+                          </svg>   
+                        Full Name</label>
+                    {{supplierProfileForm.full_name}}
+                </div>
+                <div class="form-group">
+                    <label for="txtProduct">
+                        <svg class="bi bi-envelope-open inputGroupSvg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M.243 6.929l.514-.858L8 10.417l7.243-4.346.514.858L8 11.583.243 6.93z" clip-rule="evenodd"/>
+                            <path fill-rule="evenodd" d="M7.184 10.68L.752 14.432l-.504-.864L6.68 9.816l.504.864zm1.632 0l6.432 3.752.504-.864L9.32 9.816l-.504.864z" clip-rule="evenodd"/>
+                            <path fill-rule="evenodd" d="M8.47 1.318a1 1 0 00-.94 0l-6 3.2A1 1 0 001 5.4V14a1 1 0 001 1h12a1 1 0 001-1V5.4a1 1 0 00-.53-.882l-6-3.2zM7.06.435a2 2 0 011.882 0l6 3.2A2 2 0 0116 5.4V14a2 2 0 01-2 2H2a2 2 0 01-2-2V5.4a2 2 0 011.059-1.765l6-3.2z" clip-rule="evenodd"/>
+                          </svg>
+                        Email</label>
+                    {{supplierProfileForm.email}}
+                </div>
+                <div class="form-group">
+                    <label for="txtProduct">
+                        <svg class="bi bi-shield-lock inputGroupSvg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M5.443 1.991a60.17 60.17 0 00-2.725.802.454.454 0 00-.315.366C1.87 7.056 3.1 9.9 4.567 11.773c.736.94 1.533 1.636 2.197 2.093.333.228.626.394.857.5.116.053.21.089.282.11A.73.73 0 008 14.5c.007-.001.038-.005.097-.023.072-.022.166-.058.282-.111.23-.106.525-.272.857-.5a10.197 10.197 0 002.197-2.093C12.9 9.9 14.13 7.056 13.597 3.159a.454.454 0 00-.315-.366c-.626-.2-1.682-.526-2.725-.802C9.491 1.71 8.51 1.5 8 1.5c-.51 0-1.49.21-2.557.491zm-.256-.966C6.23.749 7.337.5 8 .5c.662 0 1.77.249 2.813.525a61.09 61.09 0 012.772.815c.528.168.926.623 1.003 1.184.573 4.197-.756 7.307-2.367 9.365a11.191 11.191 0 01-2.418 2.3 6.942 6.942 0 01-1.007.586c-.27.124-.558.225-.796.225s-.526-.101-.796-.225a6.908 6.908 0 01-1.007-.586 11.192 11.192 0 01-2.417-2.3C2.167 10.331.839 7.221 1.412 3.024A1.454 1.454 0 012.415 1.84a61.11 61.11 0 012.772-.815z" clip-rule="evenodd"/>
+                            <path d="M9.5 6.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+                            <path d="M7.411 8.034a.5.5 0 01.493-.417h.156a.5.5 0 01.492.414l.347 2a.5.5 0 01-.493.585h-.835a.5.5 0 01-.493-.582l.333-2z"/>
+                          </svg>
+                        Password</label>
+                    {{supplierProfileForm.password}}
+                </div>
+                <div class="form-group">
+                    <label for="txtProduct">Confirm Password</label>
+                    {{supplierProfileForm.confirm_password}}
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">I agree to the Terms of User</label>
+                </div>
+                <div class="form-group text-center">
+                    <input type="submit" value="Sign In" class="btn btn-primary">
+                </div>
+              </form>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- ------------Customer Sign In Model -->
+<div class="modal fade" id="customerSignIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Sign In</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/" style="text-align: -webkit-center;">
+            <div class="form-group">
+                <!-- <label for="txtProduct">Email Id</label> -->
+                <input type="number" class="form-control supplierSignInFormControl" name="customerContact" id="customerContact" placeholder="Contact Number">
+            </div>
+            <div class="form-group">
+                <!-- <label for="txtProduct">Email Id</label> -->
+                <input type="password" class="form-control supplierSignInFormControl" name="customerPassword" id="customerPassword" placeholder="Password ">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Sign In" class="btn btn-primary">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+            New Here ?<a href="" class = "px-3" data-toggle="modal" data-target=".customerSignUp">Join Us</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- ------------Customer Sign Up Model -->
+<div class="modal fade customerSignUp" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">   
+        <div class="modal-header">
+            <h5 class="modal-title">Customer Sign Up</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body" style="padding: 2vh 6vw;">
+            <form action="/">
+                <div class="form-group">
+                     <label for="txtProduct">
+                        <svg class="bi bi-person inputGroupSvg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 00.014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 00.022.004zm9.974.056v-.002.002zM8 7a2 2 0 100-4 2 2 0 000 4zm3-2a3 3 0 11-6 0 3 3 0 016 0z" clip-rule="evenodd"/>
+                          </svg>   
+                        Full Name</label>
+                    <input type="text" class="form-control supplierrSignInFormControl" name="customerName" id="customerName" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="txtProduct"><svg class="bi bi-phone" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M11 1H5a1 1 0 00-1 1v12a1 1 0 001 1h6a1 1 0 001-1V2a1 1 0 00-1-1zM5 0a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V2a2 2 0 00-2-2H5z" clip-rule="evenodd"/>
+                        <path fill-rule="evenodd" d="M8 14a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+                      </svg>
+                        Mobile Number</label>
+                    <input type="text" class="form-control supplierrSignInFormControl" name="customerMobile" id="customerMobile" placeholder="Mobile Number">
+                </div>
+                <div class="form-group">
+                    <label for="txtProduct">
+                        <svg class="bi bi-house" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 00.5.5h9a.5.5 0 00.5-.5V7h1v6.5a1.5 1.5 0 01-1.5 1.5h-9A1.5 1.5 0 012 13.5zm11-11V6l-2-2V2.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5z" clip-rule="evenodd"/>
+                            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 011.414 0l6.647 6.646a.5.5 0 01-.708.708L8 2.207 1.354 8.854a.5.5 0 11-.708-.708L7.293 1.5z" clip-rule="evenodd"/>
+                          </svg>
+                        Address</label>
+                    <input type="text" class="form-control supplierrSignInFormControl" name="customerAddress" id="customerAddress" placeholder="Address">
+                </div>
+                <div class="form-group">
+                    <label for="txtProduct"><svg class="bi bi-map" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M15.817.613A.5.5 0 0116 1v13a.5.5 0 01-.402.49l-5 1a.502.502 0 01-.196 0L5.5 14.51l-4.902.98A.5.5 0 010 15V2a.5.5 0 01.402-.49l5-1a.5.5 0 01.196 0l4.902.98 4.902-.98a.5.5 0 01.415.103zM10 2.41l-4-.8v11.98l4 .8V2.41zm1 11.98l4-.8V1.61l-4 .8v11.98zm-6-.8V1.61l-4 .8v11.98l4-.8z" clip-rule="evenodd"/>
+                      </svg>
+                        Taluka</label>
+                    <input type="text" class="form-control supplierrSignInFormControl" name="customerTaluka" id="customerTaluka" placeholder="Taluka">
+                </div>
+                <div class="form-group">
+                    <label for="txtProduct"><svg class="bi bi-envelope-open inputGroupSvg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M.243 6.929l.514-.858L8 10.417l7.243-4.346.514.858L8 11.583.243 6.93z" clip-rule="evenodd"/>
+                        <path fill-rule="evenodd" d="M7.184 10.68L.752 14.432l-.504-.864L6.68 9.816l.504.864zm1.632 0l6.432 3.752.504-.864L9.32 9.816l-.504.864z" clip-rule="evenodd"/>
+                        <path fill-rule="evenodd" d="M8.47 1.318a1 1 0 00-.94 0l-6 3.2A1 1 0 001 5.4V14a1 1 0 001 1h12a1 1 0 001-1V5.4a1 1 0 00-.53-.882l-6-3.2zM7.06.435a2 2 0 011.882 0l6 3.2A2 2 0 0116 5.4V14a2 2 0 01-2 2H2a2 2 0 01-2-2V5.4a2 2 0 011.059-1.765l6-3.2z" clip-rule="evenodd"/>
+                      </svg>
+                        
+                        Post</label>
+                    <input type="text" class="form-control supplierrSignInFormControl" name="customerPost" id="customerTaluka" placeholder="Taluka">
+                </div>
+                <div class="form-group">
+                    <label for="txtProduct"><svg class="bi bi-building" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M15.285.089A.5.5 0 0115.5.5v15a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5V14h-1v1.5a.5.5 0 01-.5.5H1a.5.5 0 01-.5-.5v-6a.5.5 0 01.418-.493l5.582-.93V3.5a.5.5 0 01.324-.468l8-3a.5.5 0 01.46.057zM7.5 3.846V8.5a.5.5 0 01-.418.493l-5.582.93V15h8v-1.5a.5.5 0 01.5-.5h2a.5.5 0 01.5.5V15h2V1.222l-7 2.624z" clip-rule="evenodd"/>
+                        <path fill-rule="evenodd" d="M6.5 15.5v-7h1v7h-1z" clip-rule="evenodd"/>
+                        <path d="M2.5 11h1v1h-1v-1zm2 0h1v1h-1v-1zm-2 2h1v1h-1v-1zm2 0h1v1h-1v-1zm6-10h1v1h-1V3zm2 0h1v1h-1V3zm-4 2h1v1h-1V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm-2 2h1v1h-1V7zm2 0h1v1h-1V7zm-4 0h1v1h-1V7zm0 2h1v1h-1V9zm2 0h1v1h-1V9zm2 0h1v1h-1V9zm-4 2h1v1h-1v-1zm2 0h1v1h-1v-1zm2 0h1v1h-1v-1z"/>
+                      </svg>
+                        
+                        District</label>
+                    <input type="text" class="form-control supplierrSignInFormControl" name="customerDistrict" id="customerDistrict" placeholder="Taluka">
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">I agree to the Terms of User</label>
+                </div>
+                <div class="form-group text-center">
+                    <input type="submit" value="Sign Up" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).on('submit', '#createNewSupplier' function(e){
+        console.log("Inside Ajax Method");
+        e.preventDefault();
+        $.ajax({
+          type : 'POST',
+          url : '/SupplierSignUp',
+          data : {
+            firstName : $('firstName').val()
+            email : $('email').val()
+            password : $('password').val()
+            confirmPassword : $('confirmPassword').val()
+            csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
+          },
+          success:function(){
+            alert("Created Supplier !")
+          }
+        });
+    });
+
+</script>
+{% endblock %}
+

@@ -1,0 +1,505 @@
+{% extends 'model.html' %}
+{% load static %}
+
+{% block scriptBlock%}
+  <link rel="stylesheet" href="{%static 'bootstrapTable/bootstrap-table.min.css'%}">
+  <script src="{%static 'bootstrapTable/bootstrap-table.min.js'%}"></script>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+{% endblock %}
+
+{% block cssBlock %}
+  <link rel="stylesheet" href="{%static 'pageCss/SupplierProfile.css'%}">
+{% endblock cssBlock %}
+
+
+{% block mainblock %}
+<div class = "container-fluid p-0 mainFrame">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">     
+        <li class="nav-item">
+          <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="txab" aria-controls="contact" aria-selected="false">Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Subscription</a>
+          </li>
+    </ul>
+    
+    <div class="tab-content" id="myTabContent">
+      
+        <!-- Tab One -->
+        <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">    
+          <!-- Comapny  Card -->
+          <div class="container comapnyCard">
+            <div class="row comapnyCardParent">
+              <div class="col-md-3 companyLogo">
+                <img src="https://5.imimg.com/data5/HK/QU/MY-47419749/agriconic-machineries-private-limited-120x120.png" alt="Comapny Logo">
+              </div>
+              <div class="col-md-9 comapnyDescription">
+                <h4 class="text-center">Agriconic Machineries Private Limited</h4>
+                <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit.  pariatur provident delectus possimus eligendi tenetur? Ipsa.
+                </span>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <!-- Identification Information -->
+
+          <div class="container IdentificationInfo">
+            <h4 class="text-center">Identification Number</h4>
+
+            <div class="row">
+              <div class="col-sm col-md col-lg">
+                <h6 class="text-center">GST</h6>
+                <h6 class="text-center">22 AAAAA0000A 1Z5</h6>
+              </div>
+              <div class="col-sm col-md col-lg">
+                <h6 class="text-center">PAN</h6>
+                <h6 class="text-center">BBNPS 12015465</h6>
+              </div>
+              <div class="col-sm col-md col-lg">
+                <h6 class="text-center">CIN</h6>
+                <h6 class="text-center">L-27100-MH-1907-PLC-000260</h6>
+              </div>
+              <div class="col-sm col-md col-lg">
+                <h6 class="text-center">DGFT</h6>
+                <h6 class="text-center">RIS 702041 BBV</h6>
+              </div>
+            </div>
+          </div>
+
+           <!-- Business Information -->
+          <div class="container-fluid organizationInfo mt-3">
+
+            <div class="text-center">
+              <span class="infomationTitle">
+                Business Details
+              </span>
+              <button class="float-right btn-primary" data-toggle="modal" data-target = ".editBusinessDetail">Edit</button>
+            </div>
+
+
+            <div class="row pt-3">
+              <div class="col-sm col-md col-lg">
+                <table>
+                  <tr>
+                    <td>Business Type</td>
+                    <td class="tableData">Ganesh Shivaji Solanke</td>
+                  </tr>
+
+                  <tr>
+                    <td>Business Email</td>
+                    <td class="tableData">020 - 411023</td>
+                  </tr>
+
+                  <tr>
+                    <td>Organization Name</td>
+                    <td class="tableData">8766518297</td>
+                  </tr>
+
+                  <tr>
+                    <td>Ownership Type</td>
+                    <td class="tableData">hasnainshaikh21@gmail.com</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="col-sm col-md col-lg">
+                <table>
+                  <tr>
+                    <td>Website Link</td>
+                    <td>ganeshsolanke40@gmail.com</td>
+                  </tr>
+
+                  <tr>
+                    <td>Address</td>
+                    <td>Bhosari C1 - 308</td>
+                  </tr>
+
+                  <tr>
+                    <td>Year Of Establishment</td>
+                    <td>Sneha Vihar</td>
+                  </tr>
+
+                  <tr>
+                    <td>Description</td>
+                    <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. pariatur provident delectus possimus eligendi tenetur? Ipsa.</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+           <!-- Personal Information -->
+          <div class="container-fluid personalInfo mt-3">
+            <div class="text-center">
+              <span class="infomationTitle">
+                Personal Details
+              </span>
+              <button class="float-right btn-primary">Edit</button>
+            </div>
+
+            <div class="row pt-3">
+              <div class="col-sm col-md col-lg">
+               <table>
+                 <tr>
+                   <td>Name</td>
+                   <td class="tableData">Ganesh Shivaji Solanke</td>
+                 </tr>
+
+                  <tr>
+                    <td>Phone Number</td>
+                    <td class="tableData">020 - 411023</td>
+                  </tr>
+
+                  <tr>
+                    <td>Mobile Number</td>
+                    <td class="tableData">8766518297</td>
+                  </tr>
+
+                  <tr>
+                    <td>Email</td>
+                    <td class="tableData">hasnainshaikh21@gmail.com</td>
+                  </tr>
+               </table>
+              </div>
+              <div class="col-sm col-md col-lg">
+                <table>
+                  <tr>
+                    <td>Optional Email</td>
+                    <td>ganeshsolanke40@gmail.com</td>
+                  </tr>
+
+                  <tr>
+                    <td>Address</td>
+                    <td>Bhosari C1 - 308</td>
+                  </tr>
+
+                  <tr>
+                    <td>Area</td>
+                    <td>Sneha Vihar</td>
+                  </tr>
+
+                  <tr>
+                    <td>City</td>
+                    <td>Pune</td>
+                  </tr>
+
+                </table>
+              </div>
+
+              <div class="col-sm col-md col-lg">
+                <table>
+                  <tr>
+                    <td>District</td>
+                    <td>Pune</td>
+                  </tr>
+
+                  <tr>
+                    <td>Taluka</td>
+                    <td>Haveli</td>
+                  </tr>
+
+                  <tr>
+                    <td>State</td>
+                    <td>Maharashtra</td>
+                  </tr>
+
+                  <tr>
+                    <td>Pincode</td>
+                    <td>411023</td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Tab Two -->
+        <div class="tab-pane fade active show p-2" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <div class="container-fluid dashboardMainFrame">
+            <h6>Application / Dashboard</h6>
+
+            <!-- Cards -->
+            <div class="container p-2">
+              <div class="row">
+                <div class="col-sm-12 col-md-3 col-lg-3">
+                  <div class="card" style="background-color: #02ABC0">
+                    <div class="card-body">
+                      <img src="{%static 'assets/ArrowUp.svg' %}" alt="Shovel icon" class="img-fluid imgCard">
+                      <h5>5</h5>
+                      <h5>Leads</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3">
+                  <div class="card" style="background-color: #DC1B5E;">
+                    <div class="card-body">
+                      <img src="{%static 'assets/click.svg' %}" alt="Shovel icon" class="img-fluid imgCard">
+                      <h5>5</h5>
+                      <h5>Clicks</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3">
+                  <div class="card" style="background-color: #FB8B0D;">
+                    <div class="card-body">
+                      <img src="{%static 'assets/quotes.svg' %}" alt="Shovel icon" class="img-fluid imgCard">
+                      <h5>5</h5>
+                      <h5>Total Prodcuts</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3">
+                  <div class="card" style="background-color: #8E24A8;">
+                    <div class="card-body">
+                      <img src="{%static 'assets/person.svg' %}" alt="Shovel icon" class="img-fluid imgCard">
+                      <h5>5</h5>
+                      <h5>Total Profile Views</h5>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+
+            </div>
+
+            <!-- Chart.js -->
+
+            <div class="container-fluid mt-5">
+              <div class="row">
+                <div class="col-sm -col-md col-lg clickChart">
+                  <h5 class="p-3">Clicks</h5>
+                  <img src="https://s3.amazonaws.com/assets.fullstack.io/n/20200309095518221_react-chartjs.png" alt="Graph Will be Here" style="padding: 12px;">
+                </div>
+                <div class="col-sm -col-md col-lg quotesChart">
+                  <h5 class="p-3">Quotes</h5>
+                  <img src="https://cdn.october.codes/images/dataviz-1.png" alt="" style="height: 15vw;">
+                </div>
+              </div>
+            </div>
+
+            <!-- Quotes Table -->
+            <div class="container-fluid quotesTable mt-5">
+              <h6 class="p-2">Quotes Requested By </h6>      
+              
+                  <!-- Tableeeeee -->
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Contact</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                      </tr>
+                    </thead>
+    
+                    <tbody>
+                      <tr>
+                        <th scope="row">Ganesh Solanke</th>
+                        <td>8766518297</td>
+                        <td>Chicken Ham</td>
+                        <td>2K</td>
+                      </tr>
+    
+                      <tr>
+                        <th scope="row">Shahid Shaikh</th>
+                        <td>8087486605</td>
+                        <td>Compact Rice Mill Plant</td>
+                        <td>1 Set</td>
+                      </tr>
+    
+                      <tr>
+                        <th scope="row">Komal Yadav</th>
+                        <td>7507968424</td>
+                        <td>Pizaa Base</td>
+                        <td>7 Carrot</td>
+                       </tr>
+    
+                      <tr>
+                        <th scope="row">Varsha</th>
+                        <td>7721875738</td>
+                        <td>Janshakti Grinder</td>
+                        <td>7 Pieces</td>
+                      </tr>
+    
+                    </tbody>
+                  </table>
+    
+    
+        <!-- Tableeeeeeeeee End -->
+
+            </div>
+
+          </div>
+        </div>
+
+         <!-- Tab Three -->
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+          <div class="container-fluid productManagement">
+            <h6>Product Management</h6>
+
+            <div class="container-fluid mt-2 mb-2 productTable">
+              <table class = "table-striped" data-toggle="table" data-pagination="true" data-search="true"
+              data-search-align="left" data-show-fullscreen="true" data-show-toggle="true">
+                
+                <thead>
+                  <tr>
+                    <th data-field="productName" data-sortable="true">Product Name</th>
+                    <th data-field="createddate" data-sortable="true">Created Date</th>
+                    <th data-field="category" data-sortable="true">Category</th>
+                    <th data-field="price" data-sortable="true">Price</th>
+                    <th data-field="clicks" data-sortable="true">Clicks</th>
+                    <th>Edit</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <th>Tiler</th>
+                    <td>May 08 2019</td>
+                    <td>Agro Machineries</td>
+                    <td>2000/Machine</td>
+                    <td>7</td>
+                    <th>Edit</th>
+                  </tr>
+
+                  <tr>
+                    <th>Seeds</th>
+                    <td>March 11 2020</td>
+                    <td>Farming</td>
+                    <td>2000/Bag</td>
+                    <td>30</td>
+                    <th>Edit</th>
+                  </tr>
+
+                  <tr>
+                    <th>PVC Pipes</th>
+                    <td>May 10 2019</td>
+                    <td>Pipes</td>
+                    <td>70/Meter</td>
+                    <td>15</td>
+                    <th>Edit</th>
+                   </tr>
+
+                  <tr>
+                    <th>Harvester</th>
+                    <td>18 June 2020</td>
+                    <td>Agro Machineries</td>
+                    <td>100000/Machine</td>
+                    <td>8</td>
+                    <th>Edit</th>
+                  </tr>
+                </tbody>
+               
+                <tfoot>
+                    <tr>
+                      <th>Tiler</th>
+                      <td>January 20 2019</td>
+                      <td>Farming</td>
+                      <td>2000/Machine</td>
+                      <td>7</td>
+                    </tr>
+                </tfoot>
+
+              </table>
+            </div>
+
+          </div>
+        </div>  
+    </div>
+</div>
+
+  <!-- Edit Business Detail Modal -->
+<div class="modal fade editBusinessDetail" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Business Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form action="" method="POST">
+          {% csrf_token %}
+
+          <div class="form-group">
+            {{supplierProfileForm.first_name}}
+          </div>
+
+          <div class="form-group">
+            {{supplierProfileForm.middle_name}}
+          </div>
+
+          <div class="form-group">
+            {{supplierProfileForm.last_name}}
+          </div>
+
+          <div class="form-group">
+            {{supplierProfileForm.designation}}
+          </div>
+
+          <div class="form-group">
+            {{supplierProfileForm.phone_number}}
+          </div>
+
+          <div class="form-group">
+            {{supplierProfileForm.mobile_number}}
+          </div>
+
+          <div class="form-group">
+            {{supplierProfileForm.email}}
+          </div>
+
+          <div class="form-group">
+            {{supplierProfileForm.email_optional}}
+          </div>
+
+          <div class="form-group">
+            {{supplierProfileForm.address}}
+          </div>
+
+          <div class="form-group">
+            {{supplierProfileForm.area_street}}
+          </div>
+
+          <div class="form-group">
+            {{supplierProfileForm.city}}
+          </div>
+
+          <div class="form-group">
+            {{supplierProfileForm.district}}
+          </div>
+
+          <div class="form-group">
+            {{supplierProfileForm.taluka}}
+          </div>
+
+          <div class="form-group">
+            {{supplierProfileForm.state}}
+          </div>
+
+          <div class="form-group">
+            {{supplierProfileForm.pincode}}
+          </div>
+
+          <div class="form-group text-center">
+            <input type="submit" value="Sign In" class="btn btn-primary">
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

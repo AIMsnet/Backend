@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap');
+
+.mainFrame{
+    font-family: 'Baloo Tammudu 2', cursive;
+}
+
+#home, #profile{
+    padding: 20px 10px;
+    background-color: #EDF1F5;
+}
+
+.comapnyCard{
+    background-color: #ffffff;
+}
+
+.comapnyCardParent{
+    padding: 10px;
+    background-color: #303A52;
+    color: aliceblue;
+    border-radius: 8px;
+}
+
+.companyLogo{
+    padding: 10px;
+    background-color: white;
+    border-radius: 12px;
+}
+
+.companyLogo img{
+    height: 9vh;
+}
+
+.comapnyDescription{
+    padding: 12px 20px;
+}
+
+.personalInfo, .organizationInfo, .IdentificationInfo {
+    color: #646568;
+    background-color: white;
+    padding: 10px;
+}
+
+.infomationTitle{
+    font-size: 1.5rem;
+}
+
+table{
+    margin: 0 auto;
+}
+
+th, td {
+    padding: 10px 2.5vw;
+}
+
+
+/* Dashboard CSS */
+.card{
+    width: 16vw;
+    color: white;
+    text-align: end;
+}
+
+.imgCard{
+    padding: 5px;
+    height: 4vw;
+    float: left;
+    opacity: 0.7;
+}
+
+.dashboardMainFrame{
+    padding: 12px;
+}
+
+.clickChart {
+    background-color: #ffffff;
+    margin-right: 5px;
+}
+
+.quotesChart {
+    background-color: #ffffff;
+}
+
+.quotesTable {
+    background-color: #ffffff;
+    padding-top: 10px;
+}
+
+/* Product Management CSS */
+
+.productManagement{
+    padding: 12px;
+    background-color: #EDF1F5;
+}
+
+.productTable{
+    background-color: #ffffff;
+}
+
+.search-input{
+    border: none;
+    border-bottom: 1px solid #a39f9f;
+}

@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
+
+/* Copied Till Here */
+
+.categories{
+    text-align: center;
+    padding: 3vh 0px;
+    background-color: #fff;
+}
+
+.categories .categoriesCompart{
+    padding: 4vh 0px 0px;
+}
+
+.categories img{
+    height: 9vh;
+}
+
+.categories h5{
+    padding: 3vh 0px 0px;
+}
+
+.registerWithUs{
+    background-color: #9e579d;
+    font-size: 2.2vh;
+    color: white;
+    padding: 1vh 3px;
+}
+
+.blockOne button{
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+.blockTwo button{
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+
+.advertiseCardBody p{
+    color: black;
+}
+
+.card-img-top{
+    height: 30vh;
+}
+
+.requirement{
+    background-color: #574b90;
+    padding: 5vh;
+    color: white;
+}
+
+.requirement span{
+    font-size: 2.5vh;
+}
+
+.requirementNestedForm form{
+    display: inline-block;
+    justify-content: center;
+}
+
+.requirementFormGroup > input{
+    background-color: #574b90;
+    border: none;
+    border-bottom: 1px solid white;
+    transition: .4s;
+}
+
+.requirementFormGroup > input::placeholder{
+    color: #fff;
+}
+
+.requirementFormGroup > input::-ms-input-placeholder {
+    color: #fff;
+}
+.btn-primary{
+    padding: 1vh 13px 0px;
+    border-radius: 13px;
+}
+.navArrow{
+    height: 24px;
+    padding: 0px 51px 3px;
+}
+
+.form-group{
+    padding: 1vh 0px;
+}
+
+.card{
+    height: 100%;
+}
+
+.tabset{
+    font-size: 2.3vh;
+    padding: 2vh 0px 0px;
+} 
+
+/* Footer Css */
+.inputGroupSvg{
+    transform: translateY(3px);
+}
+
+.tabset li{
+    padding:0px 2vw 0px;
+}
+
+/*Media Query*/
+
+@media only screen and (max-width : 600px){
+
+    .blockOne{
+        border-bottom: 10px solid white;
+    }
+
+    .blockTwo button{
+        transform: translateY(30%);
+    }
+
+    .advertiseContainer{
+        padding: 5px 0px;
+    }
+
+    .advertiseCardColumn{
+        padding: 0px;
+    }
+
+    .advertiseCardBody{
+        padding: 5px;
+    }
+
+    .advertiseCardBody h5{
+        padding-bottom: 0px;
+        padding-left: 15px;
+    }
+
+    .advertiseCardBody p{
+        padding-bottom: 0px;
+        padding-left: 15px;
+    }
+}
+
+@media only screen and (min-width : 600px){
+
+
+    .supplierSignInFormControl{
+        width: 22vw;
+    }
+
+    .blockOne{
+        border-right: 1px solid rgba(211, 206, 206, 0.836);
+    }
+
+    .requirementFormGroup{
+        width: 30vw;
+    }
+}

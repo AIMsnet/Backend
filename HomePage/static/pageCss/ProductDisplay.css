@@ -1,0 +1,123 @@
+
+.categoriesAnchor{
+    color: black;
+}
+    
+.categoriesBelt{
+    background-color: white ;
+    border-right: 1px solid #ced4da;
+}
+
+.productFrame{
+    background-color: white;
+}
+
+.rowProduct{
+    padding: 0px 50px 0px;
+    border-bottom: 1px solid #ced4da;
+}
+
+.productImage img{
+    max-width: 100%;
+    max-height: 100%;
+    height: -webkit-fill-available;
+}
+
+.productDescription{
+    padding: 26px 0px 0px;
+
+}
+
+.productDescription > .row{
+    padding-top: 15px;
+}
+
+.productPara{
+    margin: 0px;
+}
+
+.companyAddress{
+    font-size: 13px;
+    color: #666;
+}
+
+.productCompany{
+    border-left: 1px solid #ced4da;
+    padding: 0px 38px;
+}
+
+.productCompany .btn-primary{
+    background: transparent;
+    color: #0062cc;
+    border: none;
+    border-bottom: 1px solid #0062cc;
+    margin: 10px 0px;
+    padding: 0px;
+}
+
+.checked {
+    color: orange;
+}
+
+.quoteControl{
+    width: unset;
+    display: unset;
+    margin: 0px 15px;
+    border: unset;
+    border-bottom: 1px solid #495057;
+}
+
+
+@media only screen and (max-width : 800px){
+    .quoteImg img{
+        width: 100%;
+    }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px){
+ 
+    .categoriesBelt{
+        font-size: 1.5vw;
+    }
+
+    .dropdown-item{
+        padding: 0px;
+    }
+
+    .rowProduct{
+        padding-right: 0px;
+        padding-left: 20px;
+    }
+
+    .productImage{
+        padding: 0px;
+    }
+
+    .productDescription .card-title{
+        font-size: 1.8vw;
+    }
+
+    .productDescription .card-text{
+        font-size: 1.5vw;
+    }
+    
+    .productDetails{
+        padding-right: 0px;
+        padding-left: 20px;
+    }
+
+    .productPara{
+        font-size: 1.5vw;
+    }
+
+    .productCompany .btn{
+        font-size: 1.5vw;
+    }
+}
+
+
+@media only screen and (min-width : 800px){
+    .quoteImg img{
+        width: 14vw;
+    }
+}
