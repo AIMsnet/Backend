@@ -39,12 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #Third Party
-    
+    'phonenumber_field',
+
     #Own
     'HomePage',
     'Supplier',
     'Categories',
     'Products',
+    'Customer',
 ]
 
 MIDDLEWARE = [

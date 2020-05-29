@@ -849,17 +849,15 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="" method = "POST" style="text-align: -webkit-center;">
+          <form id = "supplierSignIn" method = "POST" style="text-align: -webkit-center;">
             {% csrf_token %}
 
           <div class="form-group">
-              <!-- <label for="txtProduct">Email Id</label> -->
-              {{supplierLoginForm.username}}
+            <input type="text" class="form-control supplierSignInFormControl" name="emailId" id="emailId" placeholder="Email">
           </div>
 
           <div class="form-group">
-            <!-- <label for="txtProduct">Email Id</label> -->
-            {{supplierLoginForm.password}}
+            <input type="text" class="form-control supplierSignInFormControl" name="password" id="password" placeholder="Password">
          </div>
 
          <div class="form-group">
@@ -944,14 +942,11 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="/" style="text-align: -webkit-center;">
+          <form id = "customerSignIn" style="text-align: -webkit-center;">
+          {% csrf_token %}
             <div class="form-group">
                 <!-- <label for="txtProduct">Email Id</label> -->
                 <input type="number" class="form-control supplierSignInFormControl" name="customerContact" id="customerContact" placeholder="Contact Number">
-            </div>
-            <div class="form-group">
-                <!-- <label for="txtProduct">Email Id</label> -->
-                <input type="password" class="form-control supplierSignInFormControl" name="customerPassword" id="customerPassword" placeholder="Password ">
             </div>
             <div class="form-group">
                 <input type="submit" value="Sign In" class="btn btn-primary">
@@ -976,14 +971,15 @@
             </button>
         </div>
         <div class="modal-body" style="padding: 2vh 6vw;">
-            <form action="/">
+            <form id = "customerSignUp">
+            {% csrf_token %}
                 <div class="form-group">
                      <label for="txtProduct">
                         <svg class="bi bi-person inputGroupSvg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 00.014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 00.022.004zm9.974.056v-.002.002zM8 7a2 2 0 100-4 2 2 0 000 4zm3-2a3 3 0 11-6 0 3 3 0 016 0z" clip-rule="evenodd"/>
                           </svg>   
                         Full Name</label>
-                    <input type="text" class="form-control supplierrSignInFormControl" name="customerName" id="customerName" placeholder="Name">
+                    {{customerSignUpForm.full_name}}
                 </div>
                 <div class="form-group">
                     <label for="txtProduct"><svg class="bi bi-phone" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -991,7 +987,7 @@
                         <path fill-rule="evenodd" d="M8 14a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
                       </svg>
                         Mobile Number</label>
-                    <input type="text" class="form-control supplierrSignInFormControl" name="customerMobile" id="customerMobile" placeholder="Mobile Number">
+                    {{customerSignUpForm.mobile_number}}
                 </div>
                 <div class="form-group">
                     <label for="txtProduct">
@@ -1000,14 +996,14 @@
                             <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 011.414 0l6.647 6.646a.5.5 0 01-.708.708L8 2.207 1.354 8.854a.5.5 0 11-.708-.708L7.293 1.5z" clip-rule="evenodd"/>
                           </svg>
                         Address</label>
-                    <input type="text" class="form-control supplierrSignInFormControl" name="customerAddress" id="customerAddress" placeholder="Address">
+                    {{customerSignUpForm.address}}
                 </div>
                 <div class="form-group">
                     <label for="txtProduct"><svg class="bi bi-map" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M15.817.613A.5.5 0 0116 1v13a.5.5 0 01-.402.49l-5 1a.502.502 0 01-.196 0L5.5 14.51l-4.902.98A.5.5 0 010 15V2a.5.5 0 01.402-.49l5-1a.5.5 0 01.196 0l4.902.98 4.902-.98a.5.5 0 01.415.103zM10 2.41l-4-.8v11.98l4 .8V2.41zm1 11.98l4-.8V1.61l-4 .8v11.98zm-6-.8V1.61l-4 .8v11.98l4-.8z" clip-rule="evenodd"/>
                       </svg>
                         Taluka</label>
-                    <input type="text" class="form-control supplierrSignInFormControl" name="customerTaluka" id="customerTaluka" placeholder="Taluka">
+                    {{customerSignUpForm.taluka}}
                 </div>
                 <div class="form-group">
                     <label for="txtProduct"><svg class="bi bi-envelope-open inputGroupSvg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -1015,9 +1011,8 @@
                         <path fill-rule="evenodd" d="M7.184 10.68L.752 14.432l-.504-.864L6.68 9.816l.504.864zm1.632 0l6.432 3.752.504-.864L9.32 9.816l-.504.864z" clip-rule="evenodd"/>
                         <path fill-rule="evenodd" d="M8.47 1.318a1 1 0 00-.94 0l-6 3.2A1 1 0 001 5.4V14a1 1 0 001 1h12a1 1 0 001-1V5.4a1 1 0 00-.53-.882l-6-3.2zM7.06.435a2 2 0 011.882 0l6 3.2A2 2 0 0116 5.4V14a2 2 0 01-2 2H2a2 2 0 01-2-2V5.4a2 2 0 011.059-1.765l6-3.2z" clip-rule="evenodd"/>
                       </svg>
-                        
                         Post</label>
-                    <input type="text" class="form-control supplierrSignInFormControl" name="customerPost" id="customerTaluka" placeholder="Taluka">
+                      {{customerSignUpForm.post}}
                 </div>
                 <div class="form-group">
                     <label for="txtProduct"><svg class="bi bi-building" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -1027,7 +1022,7 @@
                       </svg>
                         
                         District</label>
-                    <input type="text" class="form-control supplierrSignInFormControl" name="customerDistrict" id="customerDistrict" placeholder="Taluka">
+                    {{customerSignUpForm.district}}
                 </div>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -1045,6 +1040,7 @@
 
 <script type="text/javascript">
    
+//SupplierSignUp
 $(document).on('submit','#createNewSupplier', function(e){
     e.preventDefault();
     $.ajax({
@@ -1055,6 +1051,78 @@ $(document).on('submit','#createNewSupplier', function(e){
         email:$('#email').val(),
         password:$('#supplierPassword').val(),
         confirm_password:$('#confirmPassword').val(),
+        csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
+      },
+      success:function(response){
+        console.log("response")
+        console.log(response)
+        alert(response.responseText)
+      },
+      error:function(response){
+        console.log(response)
+        alert(response.responseText)
+      }
+    });
+  });
+
+// Supplier Sign In
+$(document).on('submit','#supplierSignIn', function(e){
+    e.preventDefault();
+    $.ajax({
+      type:'POST',
+      url:'SupplierSignIn',
+      data:{
+        email:$('#emailId').val(),
+        password:$('#password').val(),
+        csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
+      },
+      success:function(response){
+        console.log("response")
+        console.log(response)
+        alert(response.responseText)
+      },
+      error:function(response){
+        console.log(response)
+        alert(response.responseText)
+      }
+    });
+  });
+
+
+
+// Customer Sign Up
+$(document).on('submit','#customerSignUp', function(e){
+    e.preventDefault();
+    $.ajax({
+      type:'POST',
+      url:'CustomerSignUp',
+      data:{
+        fullName:$('#full_name').val(),
+        mobileNumber:$('#mobile_number').val(),
+        address:$('#address').val(),
+        taluka:$('#taluka').val(),
+        post:$('#post').val(),
+        district:$('#district').val(),
+        csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
+      },
+      success:function(response){
+        alert(response.responseText)
+      },
+      error:function(response){
+        alert(response.responseText)
+      }
+    });
+  });
+
+// Customer Sign In
+
+$(document).on('submit','#customerSignIn', function(e){
+    e.preventDefault();
+    $.ajax({
+      type:'POST',
+      url:'CustomerSignIn',
+      data:{
+        contact:$('#customerContact').val(),
         csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
       },
       success:function(response){
