@@ -886,7 +886,7 @@
             </button>
         </div>
         <div class="modal-body" style="padding: 2vh 6vw;">
-            <form id = "createNewSupplier" method = "POST">
+            <form id="createNewSupplier">
               {% csrf_token %}
                 <div class="form-group">
                      <label for="txtProduct">
@@ -1044,25 +1044,31 @@
 
 
 <script type="text/javascript">
-    $(document).on('submit', '#createNewSupplier' function(e){
-        console.log("Inside Ajax Method");
-        e.preventDefault();
-        $.ajax({
-          type : 'POST',
-          url : '/SupplierSignUp',
-          data : {
-            firstName : $('firstName').val()
-            email : $('email').val()
-            password : $('password').val()
-            confirmPassword : $('confirmPassword').val()
-            csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
-          },
-          success:function(){
-            alert("Created Supplier !")
-          }
-        });
+   
+$(document).on('submit','#createNewSupplier', function(e){
+    e.preventDefault();
+    $.ajax({
+      type:'POST',
+      url:'SupplierSignUp',
+      data:{
+        fullname:$('#firstName').val(),
+        email:$('#email').val(),
+        password:$('#supplierPassword').val(),
+        confirm_password:$('#confirmPassword').val(),
+        csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
+      },
+      success:function(response){
+        alert(response.responseText)
+      },
+      error:function(response){
+        alert(response.responseText)
+      }
     });
+  });
 
 </script>
+
+
 {% endblock %}
+
 

@@ -22,7 +22,7 @@ class SupplierProfileForm(forms.ModelForm):
                 'phone_number' : forms.NumberInput(attrs = {'class' : 'form-control', 'placeholder' : 'Phone Number'}),
                 'mobile_number' : forms.NumberInput(attrs = {'class' : 'form-control', 'placeholder' : 'Mobile Number'}),
                 'email' : forms.EmailInput(attrs = {'id' : 'email', 'class' : 'form-control', 'placeholder' : 'Email'}),
-                'password' : forms.PasswordInput(attrs = {'class' : 'form-control', 'placeholder' : 'Password'}),
+                'password' : forms.PasswordInput(attrs = {'id' : 'supplierPassword', 'class' : 'form-control', 'placeholder' : 'Password'}),
                 'email_optional' : forms.EmailInput(attrs = {'class' : 'form-control', 'placeholder' : 'Optional Email'}),
                 'address' : forms.TextInput(attrs={'class' : 'form-control', 'placeholder' : 'Address'}),
                 'area_street' : forms.TextInput(attrs={'class' : 'form-control', 'placeholder' : 'Area/Street'}),
