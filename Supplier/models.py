@@ -8,7 +8,7 @@ class Supplier(models.Model):
     mobile_number = models.DecimalField(max_digits = 10, decimal_places = 0, blank = False, null = False)
     email = models.EmailField(max_length = 255, blank = False, null = False)
     password = models.CharField(max_length = 32, blank = False, null = False)
-    email_optional = models.EmailField(max_length = 255, blank = True)
+    email_optional = models.EmailField( default = "-", max_length = 255, blank = True)
     address = models.TextField(blank = False, null = False)
     area_street = models.TextField(blank = False, null = False)
     city = models.CharField(max_length = 255, blank = False, null = False)

@@ -13,6 +13,7 @@
 
 
 {% block mainblock %}
+
 <div class = "container-fluid p-0 mainFrame">
     <ul class="nav nav-tabs" id="myTab" role="tablist">     
         <li class="nav-item">
@@ -26,8 +27,30 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Subscription</a>
-          </li>
+        </li>
+        <li class="nav-item ml-auto">
+           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #303A52;">
+          Hello ! {{supplier.full_name}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Logout</a>
+        </div>
+      </li>
     </ul>
+    
+    {% if business == "Not Found" %}
+    
+    <div class="container-fluid">
+      <div class="container"  style="padding-bottom: 15%; padding-top: 15%; text-align: center;">
+        <h3>Your profile is incomplete please add following details</h3>
+        <ul style="list-style: none;">
+          <li><button class=" p-1 btn-primary" data-toggle="modal" data-target = ".editPersonalDetail">Add Personal Information</button></li>
+          <li><button class=" p-1 mt-2 btn-primary" data-toggle="modal" data-target = ".editBusinessDetail">Add Business Information</button></li>
+        </ul>
+      </div>
+    </div>
+
+    {% else %}
     
     <div class="tab-content" id="myTabContent">
       
@@ -40,9 +63,8 @@
                 <img src="https://5.imimg.com/data5/HK/QU/MY-47419749/agriconic-machineries-private-limited-120x120.png" alt="Comapny Logo">
               </div>
               <div class="col-md-9 comapnyDescription">
-                <h4 class="text-center">Agriconic Machineries Private Limited</h4>
-                <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit.  pariatur provident delectus possimus eligendi tenetur? Ipsa.
-                </span>
+                <h4 class="text-center">{{business.name}}</h4>
+                <span>{{business.description}}</span>
               </div>
             </div>
           </div>
@@ -55,19 +77,19 @@
             <div class="row">
               <div class="col-sm col-md col-lg">
                 <h6 class="text-center">GST</h6>
-                <h6 class="text-center">22 AAAAA0000A 1Z5</h6>
+                <h6 class="text-center">{{business.GST}}</h6>
               </div>
               <div class="col-sm col-md col-lg">
                 <h6 class="text-center">PAN</h6>
-                <h6 class="text-center">BBNPS 12015465</h6>
+                <h6 class="text-center">{{business.PAN}}</h6>
               </div>
               <div class="col-sm col-md col-lg">
                 <h6 class="text-center">CIN</h6>
-                <h6 class="text-center">L-27100-MH-1907-PLC-000260</h6>
+                <h6 class="text-center">{{business.CIN}}</h6>
               </div>
               <div class="col-sm col-md col-lg">
                 <h6 class="text-center">DGFT</h6>
-                <h6 class="text-center">RIS 702041 BBV</h6>
+                <h6 class="text-center">{{business.DGFT}}</h6>
               </div>
             </div>
           </div>
@@ -88,22 +110,22 @@
                 <table>
                   <tr>
                     <td>Business Type</td>
-                    <td class="tableData">Ganesh Shivaji Solanke</td>
+                    <td class="tableData">{{business.business_type}}</td>
                   </tr>
 
                   <tr>
                     <td>Business Email</td>
-                    <td class="tableData">020 - 411023</td>
+                    <td class="tableData">{{business.business_email}}</td>
                   </tr>
 
                   <tr>
-                    <td>Organization Name</td>
-                    <td class="tableData">8766518297</td>
+                    <td>Organization Type</td>
+                    <td class="tableData">{{business.organisation_type}}</td>
                   </tr>
 
                   <tr>
                     <td>Ownership Type</td>
-                    <td class="tableData">hasnainshaikh21@gmail.com</td>
+                    <td class="tableData">{{business.ownership_type}}</td>
                   </tr>
                 </table>
               </div>
@@ -111,22 +133,22 @@
                 <table>
                   <tr>
                     <td>Website Link</td>
-                    <td>ganeshsolanke40@gmail.com</td>
+                    <td>business_type</td>
                   </tr>
 
                   <tr>
                     <td>Address</td>
-                    <td>Bhosari C1 - 308</td>
+                    <td>{{business.address}}</td>
                   </tr>
 
                   <tr>
                     <td>Year Of Establishment</td>
-                    <td>Sneha Vihar</td>
+                    <td>{{business.year_of_establishment}}</td>
                   </tr>
 
                   <tr>
                     <td>Description</td>
-                    <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. pariatur provident delectus possimus eligendi tenetur? Ipsa.</td>
+                    <td>{{business.description}}</td>
                   </tr>
                 </table>
               </div>
@@ -147,22 +169,22 @@
                <table>
                  <tr>
                    <td>Name</td>
-                   <td class="tableData">Ganesh Shivaji Solanke</td>
+                   <td class="tableData">{{supplier.full_name}}</td>
                  </tr>
 
                   <tr>
                     <td>Phone Number</td>
-                    <td class="tableData">020 - 411023</td>
+                    <td class="tableData">{{supplier.phone_number}}</td>
                   </tr>
 
                   <tr>
                     <td>Mobile Number</td>
-                    <td class="tableData">8766518297</td>
+                    <td class="tableData">{{supplier.mobile_number}}</td>
                   </tr>
 
                   <tr>
                     <td>Email</td>
-                    <td class="tableData">hasnainshaikh21@gmail.com</td>
+                    <td class="tableData">{{supplier.email}}</td>
                   </tr>
                </table>
               </div>
@@ -170,22 +192,22 @@
                 <table>
                   <tr>
                     <td>Optional Email</td>
-                    <td>ganeshsolanke40@gmail.com</td>
+                    <td>{{supplier.email_optional}}</td>
                   </tr>
 
                   <tr>
                     <td>Address</td>
-                    <td>Bhosari C1 - 308</td>
+                    <td>{{supplier.address}}</td>
                   </tr>
 
                   <tr>
                     <td>Area</td>
-                    <td>Sneha Vihar</td>
+                    <td>{{supplier.area_street}}</td>
                   </tr>
 
                   <tr>
                     <td>City</td>
-                    <td>Pune</td>
+                    <td>{{supplier.city}}</td>
                   </tr>
 
                 </table>
@@ -195,22 +217,22 @@
                 <table>
                   <tr>
                     <td>District</td>
-                    <td>Pune</td>
+                    <td>{{supplier.district}}</td>
                   </tr>
 
                   <tr>
                     <td>Taluka</td>
-                    <td>Haveli</td>
+                    <td>{{supplier.taluka}}</td>
                   </tr>
 
                   <tr>
                     <td>State</td>
-                    <td>Maharashtra</td>
+                    <td>{{supplier.state}}</td>
                   </tr>
 
                   <tr>
                     <td>Pincode</td>
-                    <td>411023</td>
+                    <td>{{supplier.pincode}}</td>
                   </tr>
                 </table>
               </div>
@@ -414,33 +436,29 @@
           </div>
         </div>  
     </div>
+
+  {% endif %}
 </div>
 
+
+
   <!-- Edit Business Detail Modal -->
-<div class="modal fade editBusinessDetail" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+<div class="modal fade editPersonalDetail" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Business Details</h5>
+        <h5 class="modal-title">Personal Details</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
 
       <div class="modal-body">
-        <form action="" method="POST">
+        <form id = "personalDetail">
           {% csrf_token %}
 
           <div class="form-group">
-            {{supplierProfileForm.first_name}}
-          </div>
-
-          <div class="form-group">
-            {{supplierProfileForm.middle_name}}
-          </div>
-
-          <div class="form-group">
-            {{supplierProfileForm.last_name}}
+            {{supplierProfileForm.full_name}}
           </div>
 
           <div class="form-group">
@@ -492,7 +510,7 @@
           </div>
 
           <div class="form-group text-center">
-            <input type="submit" value="Sign In" class="btn btn-primary">
+            <input type="submit" value="Save" class="btn btn-primary">
           </div>
 
         </form>
@@ -501,5 +519,41 @@
     </div>
   </div>
 </div>
+
+
+<script>
+$(document).on('submit','#personalDetail', function(e){
+    e.preventDefault();
+    $.ajax({
+      type:'POST',
+      url:'SupplierSignIn',
+      data:{
+        desgination : $('#designation').val(),
+        phone  : $('#phone_number').val(),
+        mobile : $('#mobile_number').val(),
+        email : $('#email').val(),
+        emailOptional : $('#email_optional').val(),
+        address : $('#address').val(),
+        area : $('#area_street').val(),
+        city : $('#city').val(),
+        district : $('#district').val(),
+        taluka : $('#taluka').val(),
+        state : $('#state').val(),
+        pincode : $('#pincode').val(),
+        csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
+      },
+      success:function(response){
+        if(response.status == 0){
+          console.log(response.supplier)
+          window.location = response.supplier
+        }
+        else{
+          alert(response.message)
+        }
+      }
+    });
+  });
+</script>
+
 
 {% endblock %}

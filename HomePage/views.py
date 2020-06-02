@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, HttpResponse, redirect
-from django.http import JsonResponse
 #from .models import Supplier
 from .forms import SupplierLogInForm
 
@@ -12,7 +11,7 @@ from Customer.forms import CustomerSignUpForm
 from Customer.models import Customer
 
 import re #imported to check for password validatiors
-
+import json #imported for json dumps
 # Create your views here.
 
 def home(request, *args, **kwargs):
@@ -28,44 +27,35 @@ def supplierSignUp(request):
     password = str(request.POST['password'])
     confirmPassword = str(request.POST['confirm_password'])
     emailToVerify = request.POST['email']
-    message = ''
-    status = 0
     flag = True
     if(request.method == "POST"):
         try:
             if(len(password) < 8):
                 flag = False
-                message = 'Password must have length 8 or more than 8'
-                status_code = 406
+                response = {'status': 1, 'message': ("Password must have length 8 or more than 8")}
             elif not re.search("[a-z]", password):
-                message = "Password must have atleast a small character"
-                status_code = 406
                 flag = False
+                response = {'status': 1, 'message': ("Password must have atleast a small character")}
             elif not re.search("[A-Z]", password): 
-                message = "Password must have atleast a captial character"
-                status_code = 406
                 flag = False
+                response = {'status': 1, 'message': ("Password must have atleast a captial character")}
             elif not re.search("[0-9]", password): 
-                message = "Password must have atleast a number"
-                status_code = 406
                 flag = False
+                response = {'status': 1, 'message': ("Password must have atleast a number")}
             elif (password != confirmPassword):
-                message = "Password & Confirm password dosent match"
-                status_code = 406
                 flag = False
+                response = {'status': 1, 'message': ("Password & Confirm password dosent match")}
             elif Supplier.objects.filter(email = emailToVerify).exists():
-                message = "You cannot register with this Email (Existing Email)"
-                status_code = 406
                 flag = False
+                response = {'status': 1, 'message': ("You cannot register with this Email (Existing Email)")}
         except Exception:
             print (Exception)
 
         if(flag):
             Supplier.objects.create(full_name = full_name, email = emailToVerify, password = password)
-            message = "Account Created"
-            status_code = 201
-    
-    return JsonResponse(status = status_code, data = {'message':message})
+            response = {'status': 0, 'message': ("Account Created")}
+
+    return HttpResponse(json.dumps(response), content_type='application/json')
 
 
 def supplierSignIn(request, *args, **kwargs):
@@ -75,17 +65,16 @@ def supplierSignIn(request, *args, **kwargs):
 
         if Supplier.objects.filter(email = email).exists():
             supplier = Supplier.objects.get(email = email)
-            print(supplier.password)
+            location = '/Supplier/'+email
+            print("Location will be", location)
             if(supplier.password == password):
-                return render(request, '/Supplier')
+                response = {'status': 0, 'supplier': location}                
             else:
-                message = "Invalid Password !"
-                status_code = 401
-                return JsonResponse(status = status_code, data = {'message':message})
+                response = {'status': 1, 'message': ("Invalid Password")}
         else:
-                message = "No Account Found"
-                status_code = 401
-                return JsonResponse(status = status_code, data = {'message':message})
+                response = {'status': 1, 'message': ("No Account Found")}
+    
+    return HttpResponse(json.dumps(response), content_type='application/json')
 
 def customerSignUp(request):
     print("Inside Customer Sign Up")
@@ -98,8 +87,7 @@ def customerSignUp(request):
         district = request.POST['district']
 
         if Customer.objects.filter(mobile_number = mobileNumber).exists():
-            message = "You cannot register with this number (Already Existing)"
-            status_code = 406
+            response = {'status': 0, 'message': ("You cannot register with this number (Already Existing)")}
         else :
             Customer.objects.create(
                 full_name = fullName,
@@ -109,21 +97,18 @@ def customerSignUp(request):
                 post = post,
                 district = district
             )
-            message = "Account Created"
-            status_code = 200
-    print(message)
-    print(status_code)
-    return JsonResponse(status = status_code, data = {'message':message})
-    
+            response = {'status': 0, 'message': ("Account Created")}
+    return HttpResponse(json.dumps(response), content_type='application/json')
+
 
 def customerSignIn(request):
     if(request.method == "POST"):
         mobileNumber = request.POST['contact']
 
         if Customer.objects.filter(mobile_number = mobileNumber).exists():
-            message = "Successfull Login"
-            status_code = 200
+            response = {'status': 1, 'message': ("Successfull Login")}
+
         else :
-            message = "No User found with this Mobile Number"
-            status_code = 401
-    return JsonResponse(status = status_code, data = {'message':message})
+            response = {'status': 1, 'message': ("No User found with this Mobile Number")}
+
+    return HttpResponse(json.dumps(response), content_type='application/json')

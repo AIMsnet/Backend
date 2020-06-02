@@ -1054,13 +1054,7 @@ $(document).on('submit','#createNewSupplier', function(e){
         csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
       },
       success:function(response){
-        console.log("response")
-        console.log(response)
-        alert(response.responseText)
-      },
-      error:function(response){
-        console.log(response)
-        alert(response.responseText)
+        alert(response.message)
       }
     });
   });
@@ -1077,18 +1071,16 @@ $(document).on('submit','#supplierSignIn', function(e){
         csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
       },
       success:function(response){
-        console.log("response")
-        console.log(response)
-        alert(response.responseText)
-      },
-      error:function(response){
-        console.log(response)
-        alert(response.responseText)
+        if(response.status == 0){
+          console.log(response.supplier)
+          window.location = response.supplier
+        }
+        else{
+          alert(response.message)
+        }
       }
     });
   });
-
-
 
 // Customer Sign Up
 $(document).on('submit','#customerSignUp', function(e){
@@ -1106,11 +1098,8 @@ $(document).on('submit','#customerSignUp', function(e){
         csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
       },
       success:function(response){
-        alert(response.responseText)
+        alert(response.message)
       },
-      error:function(response){
-        alert(response.responseText)
-      }
     });
   });
 
