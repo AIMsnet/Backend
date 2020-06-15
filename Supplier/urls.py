@@ -3,5 +3,8 @@ from . import views
 app_name = 'Supplier'
 
 urlpatterns = [
-    url('(?P<email>[\w\s,@.]+)', views.showSupplier, name = "showSupplier")
+    url('businessDetail', views.businessUpdate, name = "businessUpdate"),
+    url('personalDetail', views.personalUpdate, name = "personalDetails"),
+    url('', views.returnPage, name = "returnPage"),
+    
 ]

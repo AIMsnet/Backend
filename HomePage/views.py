@@ -18,7 +18,6 @@ def home(request, *args, **kwargs):
     supplierLogInForm = SupplierLogInForm()
     supplierProfileForm = SupplierProfileForm()
     customerSignUpForm = CustomerSignUpForm
-
     context = {'supplierLoginForm' : supplierLogInForm, 'supplierProfileForm' : supplierProfileForm, 'customerSignUpForm' : customerSignUpForm}
     return render(request, 'HomeTwo.html', context)
 
@@ -60,14 +59,14 @@ def supplierSignUp(request):
 
 def supplierSignIn(request, *args, **kwargs):
     if(request.method == "POST"):
+        print("After Passwordd-------------------------------------------------", request.POST['email'])
         email = request.POST['email']
         password = request.POST['password']
-
         if Supplier.objects.filter(email = email).exists():
             supplier = Supplier.objects.get(email = email)
-            location = '/Supplier/'+email
-            print("Location will be", location)
             if(supplier.password == password):
+                request.session['email'] = email
+                location = '/Supplier/'
                 response = {'status': 0, 'supplier': location}                
             else:
                 response = {'status': 1, 'message': ("Invalid Password")}
@@ -75,6 +74,7 @@ def supplierSignIn(request, *args, **kwargs):
                 response = {'status': 1, 'message': ("No Account Found")}
     
     return HttpResponse(json.dumps(response), content_type='application/json')
+
 
 def customerSignUp(request):
     print("Inside Customer Sign Up")

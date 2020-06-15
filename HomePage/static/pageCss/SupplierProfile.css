@@ -100,3 +100,26 @@ th, td {
     border: none;
     border-bottom: 1px solid #a39f9f;
 }
+
+.updateStatus{
+    margin-left: 3rem;
+    color: green;
+    font-size: 1rem;
+}
+
+.form-group{
+    padding: 0.8vh 0px;
+}
+
+.btn-primary{
+    background: transparent;
+    color: #0062cc;
+    border: none;
+    border-bottom: 1px solid #0062cc;
+    margin: 10px 0px;
+    padding: 9px 21px 2px;
+}
+
+#upload, #upload-label{
+    display: none;
+}

@@ -25,7 +25,7 @@ SECRET_KEY = 'nv9ko6ctr-rx_5)6b^bd*+@ivnpv_drgde#)e$2trjs3qdjbmu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #Third Party
+    'clear_cache',
     'phonenumber_field',
 
     #Own

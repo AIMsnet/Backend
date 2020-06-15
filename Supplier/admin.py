@@ -6,3 +6,6 @@ from . import models
 admin.site.register(models.Supplier)
 admin.site.register(models.Business)
 admin.site.register(models.Product)
+admin.site.register(models.Main_Categories)
+admin.site.register(models.Sub_Main_Category)
+admin.site.register(models.Category)
