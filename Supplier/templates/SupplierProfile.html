@@ -3,8 +3,11 @@
 
 {% block scriptBlock%}
   <link rel="stylesheet" href="{%static 'bootstrapTable/bootstrap-table.min.css'%}">
-  <script src="{%static 'bootstrapTable/bootstrap-table.min.js'%}"></script>
+  {% comment %} <script src="{%static 'bootstrapTable/bootstrap-table.min.js'%}"></script> {% endcomment %}
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script>
+  <script src="{%static 'bootstrapTable/bootstrap-table.js'%}" type="text/javascript"></script>
 {% endblock %}
 
 {% block cssBlock %}
@@ -379,73 +382,43 @@
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
           <div class="container-fluid productManagement">
             <h6>Product Management</h6>
-
-            <div class="container" id = >
+            <div class="container">
               <button class="btn btn-primary" data-toggle = "modal" data-target=".addProduct"> New Product </button>
             </div>
-
             <div class="container-fluid mt-2 mb-2 productTable">
-              <table class = "table table-striped table-bordered" data-toggle="table" data-pagination="true" data-search="true"
+              <table class = "table table-striped table-bordered" id = "productTable" data-toggle="table" data-pagination="true" data-search="true"
               data-search-align="left" data-show-fullscreen="true" data-show-toggle="true">
                 
                 <thead>
                   <tr>
+                    <th data-field="productcode" data-sortable="true">Code</th>
                     <th data-field="productName" data-sortable="true">Product Name</th>
-                    <th data-field="createddate" data-sortable="true">Created Date</th>
                     <th data-field="category" data-sortable="true">Category</th>
                     <th data-field="price" data-sortable="true">Price</th>
+                    <th data-field="arrival" data-sortable="true">New Arrival</th>
+                    <th data-field="unit" data-sortable="true">Unit</th>
+                    <th data-field="brand" data-sortable="true">Brand</th>
                     <th data-field="clicks" data-sortable="true">Clicks</th>
-                    <th>Edit</th>
+                    <th data-field="createddate" data-sortable="true">Created Date</th>
                   </tr>
                 </thead>
 
                 <tbody>
-                  <tr>
-                    <th>Tiler</th>
-                    <td>May 08 2019</td>
-                    <td>Agro Machineries</td>
-                    <td>2000/Machine</td>
-                    <td>7</td>
-                    <th>Edit</th>
-                  </tr>
-
-                  <tr>
-                    <th>Seeds</th>
-                    <td>March 11 2020</td>
-                    <td>Farming</td>
-                    <td>2000/Bag</td>
-                    <td>30</td>
-                    <th>Edit</th>
-                  </tr>
-
-                  <tr>
-                    <th>PVC Pipes</th>
-                    <td>May 10 2019</td>
-                    <td>Pipes</td>
-                    <td>70/Meter</td>
-                    <td>15</td>
-                    <th>Edit</th>
-                   </tr>
-
-                  <tr>
-                    <th>Harvester</th>
-                    <td>18 June 2020</td>
-                    <td>Agro Machineries</td>
-                    <td>100000/Machine</td>
-                    <td>8</td>
-                    <th>Edit</th>
-                  </tr>
+                  {% for p in products %}
+                    <tr>
+                      <th>{{p.code}}</th>
+                      <td>{{p.name}}</td>
+                      <td>{{p.category}}</td>
+                      <td>{{p.price}}</td>
+                      <td>{{p.arrival}}</td>
+                      <td>{{p.unit}}</td>
+                      <td>{{p.brand}}</td>
+                      <td>{{p.clicks}}</td>
+                      <td>{{p.created_date}}</td>
+                    </tr>
+                  {% endfor %}
                 </tbody>
                
-                <tfoot>
-                    <tr>
-                      <th>Tiler</th>
-                      <td>January 20 2019</td>
-                      <td>Farming</td>
-                      <td>2000/Machine</td>
-                      <td>7</td>
-                    </tr>
-                </tfoot>
 
               </table>
             </div>
@@ -458,8 +431,6 @@
 </div>
 
 
-
-  <!-- EditModal -->
 {% if designation == "Not Found" %}
 <div class="modal fade editPersonalDetail" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -524,6 +495,76 @@
           </div>
 
           <div class="form-group">
+            {{supplierProfileForm.pincode}}
+          </div>
+
+          <div class="form-group text-center">
+            <input type="submit" value="Save" class="btn btn-primary">
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% else %}
+<div class="modal fade updatePersonalDetail" id = "updatePersonalDetail" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Personal Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form id = "updatePersonalDetail">
+          {% csrf_token %}
+
+          <div class="form-group">
+            <label for="Full Name">Full Name</label>
+            {{supplierProfileForm.full_name}}
+          </div>
+
+          <div class="form-group">
+            <label for="emailOptional">Email Optional</label>
+            {{supplierProfileForm.email_optional}}
+          </div>
+
+          <div class="form-group">
+            <label for="address">Address</label>
+            {{supplierProfileForm.address}}
+          </div>
+
+          <div class="form-group">
+            <label for="area_street">Area/Street</label>
+            {{supplierProfileForm.area_street}}
+          </div>
+
+          <div class="form-group">
+            <label for="city">City</label>
+            {{supplierProfileForm.city}}
+          </div>
+
+          <div class="form-group">
+            <label for="district">District</label>
+            {{supplierProfileForm.district}}
+          </div>
+
+          <div class="form-group">
+            <label for="taluka">Taluka</label>
+            {{supplierProfileForm.taluka}}
+          </div>
+
+          <div class="form-group">
+            <label for="state">State</label>
+            {{supplierProfileForm.state}}
+          </div>
+
+          <div class="form-group">
+            <label for="pincode">Pincode</label>
             {{supplierProfileForm.pincode}}
           </div>
 
@@ -615,180 +656,7 @@
     </div>
   </div>
 </div>
-{% endif %}
-
-
-<!-- ------------Add Product -->
-<div class="modal fade addProduct" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Add New Product</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form id = "addProduct">
-          <div class="form-group">
-            <div class="row">
-              <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
-                <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0">
-                <label id="upload-label" for="upload" class="font-weight-light text-muted">Upload Product Image</label>
-                <div class="input-group-append">
-                    <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Upload Product Image</small></label>
-                </div>
-                <img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block">
-              </div>
-            </div>
-            <div class="form-group">
-                <label for="product_name">Product Name</label>
-                <input class="form-control" type="text" name="product_name" id="product_name">
-            </div>
-
-            <div class="form-group">
-              <label for="price">Price</label>
-              <input type="number" name="prodcut_price" id="prodcut_price">
-            </div>
-
-            <div class="form-group">
-              <label for="prodcut_arrival">Arrival</label>
-              <select class="form-control" id="prodcut_arrival">
-                <option value="">---------</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="prodcut_unit">Unit</label>
-              <select class="form-control" id="prodcut_unit">
-                <option value="">---------</option>
-                <option value="Kg">Kg</option>
-                <option value="pack">pack</option>
-                <option value="Unit">Unit</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="description">Description</label>
-              <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
-            </div>
-
-            <div class="form-group">
-              <label for="main_category">Main Category</label>
-              <select class="form-control" name="main_category" id="main_category" onselect = getCategory(this.value)>
-
-                {% for m in mainCategories%}
-                  <option value = {{m.pk}}>{{m.name}}</option>
-                {% endfor %}
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="sub_main_category">Sub Category</label>
-              <select class="form-control" name="sub_main_category" id="sub_main_category"></select>
-            </div>
-
-            <div class="form-group">
-              <label for="category">Category</label>
-              <select class="form-control" name="category" id="category"></select>
-            </div>
-
-            <div class="form-group">
-              <label for="brand">Brand</label>
-              <input class="form-control" type="text" name="product_brand" id="product_brand">
-            </div>
-
-            <div class="form-group">
-              <label for="code">Code</label>
-              <input class="form-control" type="text" name="product_code" id="product_code">
-            </div>
-
-            <div class="form-group">
-              <label for="additional_information">Additional Information</label>
-              <input class="form-control" type="text" name="product_additional_information" id="product_additional_information">
-            </div>
-
-          </div>
-        </form>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- Update Modals -->
-<div class="modal fade updatePersonalDetail" id = "updatePersonalDetail" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Personal Details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-
-      <div class="modal-body">
-        <form id = "updatePersonalDetail">
-          {% csrf_token %}
-
-          <div class="form-group">
-            <label for="Full Name">Full Name</label>
-            {{supplierProfileForm.full_name}}
-          </div>
-
-          <div class="form-group">
-            <label for="emailOptional">Email Optional</label>
-            {{supplierProfileForm.email_optional}}
-          </div>
-
-          <div class="form-group">
-            <label for="address">Address</label>
-            {{supplierProfileForm.address}}
-          </div>
-
-          <div class="form-group">
-            <label for="area_street">Area/Street</label>
-            {{supplierProfileForm.area_street}}
-          </div>
-
-          <div class="form-group">
-            <label for="city">City</label>
-            {{supplierProfileForm.city}}
-          </div>
-
-          <div class="form-group">
-            <label for="district">District</label>
-            {{supplierProfileForm.district}}
-          </div>
-
-          <div class="form-group">
-            <label for="taluka">Taluka</label>
-            {{supplierProfileForm.taluka}}
-          </div>
-
-          <div class="form-group">
-            <label for="state">State</label>
-            {{supplierProfileForm.state}}
-          </div>
-
-          <div class="form-group">
-            <label for="pincode">Pincode</label>
-            {{supplierProfileForm.pincode}}
-          </div>
-
-          <div class="form-group text-center">
-            <input type="submit" value="Save" class="btn btn-primary">
-          </div>
-
-        </form>
-      </div>
-
-    </div>
-  </div>
-</div>
-
+{% else %}
 <div class="modal fade updateBusinessDetail" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -842,9 +710,116 @@
     </div>
   </div>
 </div>
+{% endif %}
+<!-- ------------Add Product -->
+<div class="modal fade addProduct" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLongTitle">Add New Product</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mt-3">
+        <form id = "addProduct" action="Supplier/product" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group">
+            <div class="row border-bottom border-light pb-2">
+              <div class="col-6 justify-content-between">
+                <input type="file" name="product_image" id="product_image">
+              </div>
+              <div class="form-group col-6 mt-4">
+                  <label for="product_name">Product Name</label>
+                  <input class="form-control form-control-sm" type="text" name="product_name" id="product_name">
+                  <div class="row justify-content-start mt-2">
+                    <div class="form-group col-6">
+                      <label for="brand">Brand</label>
+                      <input class="form-control form-control-sm" type="text" name="product_brand" id="product_brand">
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="code">Code</label>
+                      <input class="form-control form-control-sm" type="text" name="product_code" id="product_code">
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="row mt-4">
+              <div class="form-group col-4">
+                <label for="price">Price</label>
+                <input class="form-control form-control-sm" type="number" name="prodcut_price" id="prodcut_price">
+              </div>
+              <div class="form-group col-4">
+                <label for="prodcut_arrival">Arrival</label>
+                <select class="form-control form-control-sm" id="prodcut_arrival" name = "prodcut_arrival">
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div class="form-group col-4">
+                <label for="prodcut_unit">Unit</label>
+                <select class="form-control form-control-sm" id="prodcut_unit" name = "prodcut_unit">
+                  <option value="Kg">Kg</option>
+                  <option value="pack">pack</option>
+                  <option value="Unit">Unit</option>
+                   <option value="Meter">Meter</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group mb-4">
+              <label for="description">Description</label>
+              <textarea class="form-control form-control-sm" id = "product_description" name="product_description" cols="20" rows="5" ></textarea>
+            </div>
+
+            <div class="form-group">
+              <h5 class="category-head text-center border-bottom border-top border-light pt-2 pb-3"> Select Category</h5>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-4">
+                <label for="main_category">Main Category</label>
+                <select class="form-control form-control-sm" name="main_category" id="main_category" onchange = getSubCategory(this.value)>
+                  <option value="" selected>----------------------------</option>
+                  {% for m in mainCategories%}
+                    <option value = {{m.pk}}>{{m.name}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+
+              <div class="form-group col-4">
+                <label for="sub_main_category">Sub Category</label>
+                <select class="form-control" name="sub_main_category" id="sub_main_category" onchange = getCategory(this.value)></select>
+              </div> 
+
+              <div class="form-group col-4">
+                <label for="category">Category</label>
+                <select class="form-control" name="category" id="category"></select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="additional_information">Additional Information</label>
+              <input class="form-control form-control-sm" type="text" name="product_additional_information" id="product_additional_information">
+            </div>
+          </div>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Update Modals -->
+
 
 <!--Script For Update-->
 {% if business == "Not Found" or desgination == "Not Found"%}
+
 <script>
 $(document).on('submit','#personalDetail', function(e){
     e.preventDefault();
@@ -997,11 +972,82 @@ $(document).on('submit','#updateBusinessDetail', function(e){
     });
   });
 
-// Product Fetch categories...
 
-function getCategory(value){
-  console.log("Selected Value" + value)
+// To Add Product
+$(document).on('submit','#addProduct', function(e){
+  console.log("Form Submitted")
+  e.preventDefault()
+  $('#addProduct').ajaxForm({
+      success:function(response){
+        console.log(response)
+        if(response.status == "0")
+        {
+         alert(response.message)
+         var table = $('#productTable').DataTable();
+         table.row.add({
+           "code" : response.code,
+           "productName" : response.name,
+           "category" : response.category,
+           "price" : response.price,
+           "arrival" : response.arrival,
+           "unit" : response.unit,
+           "brand" : response.brand,
+           "clicks" : response.click,
+           "createddate" : response.createDate,
+         })
+        }
+        return false;
+      }
+  });
+});
+
+//To Fetch Sub Category
+function getSubCategory(value){
+    $.ajax({
+      type:'POST',
+      url:'Supplier/getCategory',
+      data:{
+        request : "sub",
+        value : value,
+        csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
+      },
+      success:function(response){
+        $('#sub_main_category').empty()
+        console.log(response)
+        var res = response.subCategory
+        for(var i = 0; i < res['length']; i++)
+        {
+          $('#sub_main_category').append($("<option></option>").attr("value", res[i]['fields'].name).text(res[i]['fields'].name));
+        }
+     }
+    });
 }
+
+//To get Category
+function getCategory(value){
+    $.ajax({
+      type:'POST',
+      url:'Supplier/getCategory',
+      data:{
+        request : "category",
+        value : value,
+        csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
+      },
+      success:function(response){
+        $('#category').empty()
+        console.log(response)
+        var res = response.category
+        for(var i = 0; i < res['length']; i++)
+        {
+          $('#category').append($("<option></option>").attr("value", res[i]['fields'].pk).text(res[i]['fields'].name));
+        }
+     }
+    });
+}
+
+
+
+
 
 //To review Image
 function readURL(input) {
@@ -1009,7 +1055,7 @@ function readURL(input) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            $('#imageResult')
+            $('#productImage')
                 .attr('src', e.target.result);
         };
         reader.readAsDataURL(input.files[0]);

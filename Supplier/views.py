@@ -1,10 +1,14 @@
 from django.shortcuts import render, get_object_or_404, HttpResponse, redirect
+from django.contrib import messages
 from django.shortcuts import render
-from .models import Supplier, Business, Main_Categories
+from .models import Supplier, Business, Main_Categories, Sub_Main_Category, Category, Product
 from .forms import SupplierProfileForm, BusinessProfileForm
 from django.core import serializers
 import json
 import re
+import base64
+from django.utils import timezone
+
 
 # Create your views here.
 def returnPage(request):
@@ -40,18 +44,22 @@ def returnPage(request):
     
     if supplier.designation == "":
         designation = "Not Found"
-  
+
+    if designation !=  "Not Found" and business!= "Not Found":
+        product = Product.objects.filter(business = business)
+
     context = {
         'supplier' : supplier,
         'business' : business,
         'designation' : designation,
         'supplierProfileForm' : supplierProfileForm,
         'businessProfileForm' : businessProfileForm,
-        'mainCategories' : mainCategories
+        'mainCategories' : mainCategories,
+        "products" : product
     }
     print("Redirected")
+    print("Product List", product[0].name)
     return render(request, 'SupplierProfile.html', context)
-
 
 def personalUpdate(request):
     if request.method == 'POST':
@@ -189,3 +197,52 @@ def businessUpdate(request):
                 response = {'status': 0, "profileComplete" : "1",'message': ("Details Updated")}
             
             return HttpResponse(json.dumps(response), content_type='application/json')
+
+def addProduct(request):
+    print(request.POST, request.FILES)
+    productImage = request.FILES['product_image']
+    productName = request.POST['product_name']
+    productBrand = request.POST['product_brand']
+    productCode = request.POST['product_code']
+    productPrice = request.POST['prodcut_price']
+    productArrival = request.POST['prodcut_arrival']
+    productUnit = request.POST['prodcut_unit']
+    productDescription = request.POST['product_description']
+    productMainCategory = request.POST['main_category']
+    productSubMainCategory = request.POST['sub_main_category']
+    productCategory = request.POST['category']
+    productAdditionalInfo = request.POST['product_additional_information']
+
+    supplierEmail = request.session.get('email', False)
+    supplier = Supplier.objects.get(email = supplierEmail)
+    business = Business.objects.get(supplier = supplier)
+    product = Product.objects.create(image = productImage, name = productName, price = productPrice, 
+    arrival = productArrival, unit = productUnit, description = productDescription,
+    main_category = productMainCategory, sub_main_category = productSubMainCategory,
+    category = productCategory, brand = productBrand, code = productCode, additional_information = productAdditionalInfo,
+    created_date = timezone.now(), updated_date = timezone.now(), clicks = 0, requested_quote = 0, business = business)
+    print("Products saved------", product)
+
+    #date = json.loads(str(product.created_date))
+    response = {'status': 0, 'code' : productCode, 'name' : productName
+    ,'category' : productCategory,'price' : productPrice, 'arrival' : productArrival,
+    'unit' : productUnit, 'brand' : productBrand, 'clicks' : 0,
+    'createDate' : product.created_date.strftime("%m%d%y")}
+    return HttpResponse(json.dumps(response), content_type='application/json')
+
+def getCategory(request):
+    category = ""
+    if request.method == "POST":
+        value = request.POST['value']
+        if request.POST['request'] == "sub":
+            subCategory = Sub_Main_Category.objects.filter(main_categories = value)
+            subCategory = serializers.serialize('json', subCategory)
+            subCategory = json.loads(subCategory)
+            response = {'subCategory' : subCategory}
+        elif request.POST['request'] == "category":
+            subMainCategory = Sub_Main_Category.objects.get(name = value)
+            category = Category.objects.filter(sub_main_category = subMainCategory)
+            category = serializers.serialize('json', category)
+            category = json.loads(category)
+            response = {'category' : category}
+    return HttpResponse(json.dumps(response), content_type = 'application/json')

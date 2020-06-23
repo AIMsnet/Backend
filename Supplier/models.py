@@ -58,6 +58,7 @@ class Business(models.Model):
     
 
 class Product(models.Model):
+    image = models.FileField(upload_to = 'ProductImage', default = "")
     name = models.CharField(max_length = 255, null = False, blank = False)
     price = models.DecimalField(null = False, blank = False)
     arrivalChoices = [('Yes', 'Yes'), ('No', 'No')]
@@ -78,7 +79,7 @@ class Product(models.Model):
     updated_date = models.DateField(("DD/MM/YYYY"), auto_now_add = False)
     price = models.DecimalField(decimal_places = 2, max_digits = 12, blank = False, null = False)
     clicks = models.DecimalField(decimal_places = 0, max_digits = 12, blank = False, null = False)
-    requested_quote = models.DecimalField(max_digits = 256, decimal_places = 0, default = 0)
+    requested_quote = models.DecimalField(max_digits = 64, decimal_places = 0, default = 0)
     business = models.ForeignKey(Business, on_delete = models.CASCADE)
 
     def __str__(self):
@@ -86,7 +87,7 @@ class Product(models.Model):
 
 class Main_Categories(models.Model):
     name = models.CharField(max_length = 255)
-    image = image = models.FileField(upload_to = 'Pics')
+    image = models.FileField(upload_to = 'Pics')
 
     def __str__(self):
         return str(self.pk) + "|" + self.name
@@ -95,8 +96,16 @@ class Main_Categories(models.Model):
 class Sub_Main_Category(models.Model):
     name = models.CharField(max_length = 255)
     main_categories = models.ForeignKey(Main_Categories, on_delete = models.CASCADE)
-    image = image = models.FileField(upload_to = 'Pics')
+    image = models.FileField(upload_to = 'Pics')
+
+    def __str__(self):
+        return self.name + " | Main Category ==>  " + str(self.main_categories.pk)
+    
 
 class Category(models.Model):
     name = models.CharField(max_length = 255)
     sub_main_category = models.ForeignKey(Sub_Main_Category, on_delete = models.CASCADE)
+
+    def __str__(self):
+        return self.name + "| Sub Main ==>  " + str(self.sub_main_category.name)
+    

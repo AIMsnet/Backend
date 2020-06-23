@@ -107,9 +107,9 @@ th, td {
     font-size: 1rem;
 }
 
-.form-group{
+/* .form-group{
     padding: 0.8vh 0px;
-}
+} */
 
 .btn-primary{
     background: transparent;
@@ -122,4 +122,16 @@ th, td {
 
 #upload, #upload-label{
     display: none;
+}
+
+.addProduct{
+	padding: 10px;
+	font-size: 14px;
+}
+
+.uploadbox{
+	background-color: #cccccc;
+	height: 180px;
+	text-align: center;
+	margin-left: 0px;
 }
