@@ -94,9 +94,15 @@ th, td {
 
 .productTable{
     background-color: #ffffff;
+    padding: 12px;
 }
 
 .search-input{
+    border: none;
+    border-bottom: 1px solid #a39f9f;
+}
+
+#productTable_filter > label > input[type=search]{
     border: none;
     border-bottom: 1px solid #a39f9f;
 }
@@ -134,4 +140,12 @@ th, td {
 	height: 180px;
 	text-align: center;
 	margin-left: 0px;
+}
+
+#productTable_info{
+    display: none;
+}
+
+#productTable_paginate{
+    display: none;
 }

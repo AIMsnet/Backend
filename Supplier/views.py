@@ -226,7 +226,7 @@ def addProduct(request):
     #date = json.loads(str(product.created_date))
     response = {'status': 0, 'code' : productCode, 'name' : productName
     ,'category' : productCategory,'price' : productPrice, 'arrival' : productArrival,
-    'unit' : productUnit, 'brand' : productBrand, 'clicks' : 0,
+    'unit' : productUnit, 'brand' : productBrand, 'clicks' : str(0),
     'createDate' : product.created_date.strftime("%m%d%y")}
     return HttpResponse(json.dumps(response), content_type='application/json')
 
