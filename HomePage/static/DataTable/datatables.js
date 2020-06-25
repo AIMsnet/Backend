@@ -1,3 +1,6 @@
+
+(function(window, document, $, undefined){
+
 /*
  * This combined file was created by the DataTables downloader builder:
  *   https://datatables.net/download
@@ -25916,5 +25919,5 @@ DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, bu
 
 return DataTable;
 }));
-
+}(window, document, jQuery))
 

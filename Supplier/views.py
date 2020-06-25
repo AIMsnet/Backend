@@ -246,3 +246,34 @@ def getCategory(request):
             category = json.loads(category)
             response = {'category' : category}
     return HttpResponse(json.dumps(response), content_type = 'application/json')
+
+
+def getCategoryUpdate(request):
+    if request.method == "POST":
+        categoryName = request.POST['category']
+        print("Category Name from Updateee", categoryName)
+        category = Category.objects.get(name = categoryName)
+        print("Sub Category got Name ------------", category.sub_main_category.name)
+        subCategory = Sub_Main_Category.objects.get(name = category.sub_main_category.name)
+        mainCategory = Main_Categories.objects.get(name = subCategory.main_categories.name)
+
+        mainCategoryName = mainCategory.pk
+        subCategoryName = subCategory.name
+
+        allSubCategory = Sub_Main_Category.objects.filter(main_categories = mainCategory)
+        allCategory = Category.objects.filter(sub_main_category = subCategory)
+
+        allSubCategory = serializers.serialize('json', allSubCategory)
+        allSubCategory = json.loads(allSubCategory)
+
+        allCategory = serializers.serialize('json', allCategory)
+        allCategory = json.loads(allCategory)
+
+        response = {'mainCategoryName' : mainCategoryName,
+        'subCategoryName' : subCategoryName,
+        'allSubCategory' : allSubCategory,
+        'allCategory' : allCategory
+        }
+        return HttpResponse(json.dumps(response), content_type = 'application/json')
+
+        
