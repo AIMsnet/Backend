@@ -2,9 +2,15 @@
 {% load static %}
 
 {% block scriptBlock%}
-<link rel="stylesheet" type="text/css" href="{%static 'DataTable/datatables.min.css'%}"/>
+<link rel="stylesheet" type="text/css" href="{%static 'DataTable/datatables.css'%}"/>
 <script type="text/javascript" src="{%static 'DataTable/datatables.js'%}"></script> 
+
+<link rel="stylesheet" type="text/css" href="{%static 'DataTable/DataTables/css/select.jqueryui.min.css'%}"/>
+<script type="text/javascript" src="{%static 'DataTable/DataTables/js/select.jqueryui.min.js'%}"></script> 
+
 <script src="{%static 'js/jquery.form.min.js'%}"></script>
+
+
 {% endblock %}
 
 {% block cssBlock %}
@@ -107,7 +113,7 @@
             </div>
           </div>
 
-           <!-- Business Information -->
+          <!-- Business Information -->
           <div class="container-fluid organizationInfo mt-3">
 
             <div class="text-center">
@@ -821,7 +827,7 @@
         </button>
       </div>
       <div class="modal-body mt-3">
-        <form id = "updateProduct" action="Supplier/product" method="post" enctype="multipart/form-data">
+        <form id = "updateProduct" action="Supplier/productUpdate" method="post" enctype="multipart/form-data">
           {% csrf_token %}
           <div class="form-group">
             <div class="row border-bottom border-light pb-2">
@@ -879,7 +885,7 @@
             <div class="row">
               <div class="form-group col-4">
                 <label for="main_category">Main Category</label>
-                <select class="form-control form-control-sm" name="update_main_category" id="update_main_category" onchange = getSubCategory(this.value)>
+                <select class="form-control form-control-sm" name="update_main_category" id="update_main_category" onchange = getUpdateSubCategory(this.value)>
                   <option value="" selected>----------------------------</option>
                   {% for m in mainCategories%}
                     <option value = {{m.pk}}>{{m.name}}</option>
@@ -889,7 +895,7 @@
 
               <div class="form-group col-4">
                 <label for="sub_main_category">Sub Category</label>
-                <select class="form-control" name="update_sub_main_category" id="update_sub_main_category" onchange = getCategory(this.value)></select>
+                <select class="form-control" name="update_sub_main_category" id="update_sub_main_category" onchange = getUpdateCategory(this.value)></select>
               </div> 
 
               <div class="form-group col-4">
@@ -999,17 +1005,33 @@ $(document).on('submit','#businessDetail', function(e){
 
 <!--Script For Edit-->
 <script>
-
 $(document).ready(function(){
-  $('#productTable').DataTable({
+  // $('#productTable').DataTable({
+    
+  //   select:true,
+  // })
+
+  var table = $('#productTable').DataTable({
+    select: true,
     filter : false,
-    deferRender: false,
     scroller : true,
     searching : true,
     paging : true,
     info : true,
-    autoWidth : true
-  })
+  });
+
+  $('#productTable tbody').on('dblclick', 'tr', function () {
+        // $(this).toggleClass('selected');
+        if ( $(this).hasClass('selected') ) {
+            $(this).removeClass('selected');
+            
+        } 
+        else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+            
+        }
+    } );  
 })
 
 $(document).on('submit','#updatePersonalDetail', function(e){
@@ -1081,7 +1103,6 @@ $(document).on('submit','#updateBusinessDetail', function(e){
     });
   });
 
-
 // To Add Product
 $(document).on('submit','#addProduct', function(e){
   console.log("Form Submitted")
@@ -1093,9 +1114,9 @@ $(document).on('submit','#addProduct', function(e){
         {
          alert(response.message)
          var table = $('#productTable').DataTable();
-          table.row.add([response.code, response.name, response.category,
-                          response.price, response.arrival, response.unit,
-                          response.brand, response.clicks, response.createDate
+          table.row.add([response.code, response.name, response.brand,
+                          response.price, response.category, response.arrival,
+                          response.unit,response.clicks, "Today"
         ]).draw();
         }
         return false;
@@ -1103,7 +1124,33 @@ $(document).on('submit','#addProduct', function(e){
   });
 });
 
-//To Fetch Sub Category
+//To Update Product
+$(document).on('submit','#updateProduct', function(e){
+  console.log("Form Submitted")
+  $ = jQuery;
+  e.preventDefault()
+  $('#updateProduct').ajaxForm({
+      success:function(response){
+        if(response.status == 0)
+        {
+          console.log("Inside Update Response")
+          var myTable = $('#productTable').DataTable();
+          var rows = myTable.rows('.selected' );
+          console.log("Date", response.createDate)
+          rows.remove().draw()
+          myTable.row.add([response.code, response.name, response.brand,
+                          response.price, response.category, response.arrival,
+                          response.unit,response.clicks, "Today"
+        ]).draw();
+        }
+        return false;
+      }
+  });
+});
+
+
+
+//To Fetch Sub Category (Add Product)
 function getSubCategory(value){
     $.ajax({
       type:'POST',
@@ -1125,7 +1172,29 @@ function getSubCategory(value){
     });
 }
 
-//To get Category
+// To Fetch Sub Category (Update Product)
+function getUpdateSubCategory(value){
+    $.ajax({
+      type:'POST',
+      url:'Supplier/getCategory',
+      data:{
+        request : "sub",
+        value : value,
+        csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
+      },
+      success:function(response){
+        $('#update_sub_main_category').empty()
+        console.log(response)
+        var res = response.subCategory
+        for(var i = 0; i < res['length']; i++)
+        {
+          $('#update_sub_main_category').append($("<option></option>").attr("value", res[i]['fields'].name).text(res[i]['fields'].name));
+        }
+     }
+    });
+}
+
+//To get Category (Add Product)
 function getCategory(value){
   $.ajax({
       type:'POST',
@@ -1139,6 +1208,7 @@ function getCategory(value){
         $('#category').empty()
         console.log(response)
         var res = response.category
+        
         for(var i = 0; i < res['length']; i++)
         {
           $('#category').append($("<option></option>").attr("value", res[i]['fields'].pk).text(res[i]['fields'].name));
@@ -1147,28 +1217,49 @@ function getCategory(value){
     });
 }
 
-//Update Modal Insertions
+//To get Category (Update Product)
+function getUpdateCategory(value){
+  $.ajax({
+      type:'POST',
+      url:'Supplier/getCategory',
+      data:{
+        request : "category",
+        value : value,
+        csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
+      },
+      success:function(response){
+        $('#update_category').empty()
+        console.log(response)
+        var res = response.category
+        
+        for(var i = 0; i < res['length']; i++)
+        {
+          $('#update_category').append($("<option></option>").attr("value", res[i]['fields'].pk).text(res[i]['fields'].name));
+        }
+     }
+    });
+}
 
+//Update Modal Insertions
  $('table tbody tr td').on('dblclick', function () {
   console.log("Got table Call");
-
   jQuery.noConflict()
-
   var price = parseInt($(this).closest('tr').children()[3].textContent)
   var category = $(this).closest('tr').children()[4].textContent
-
+  var productCode = $(this).closest('tr').children()[0].textContent
   $.ajax({
       type:'POST',
       url:'Supplier/getUpdateCategory',
-      data:{ 
+      data:{
+        productCode : productCode,
         category : category,
         csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
       },
       success:function(response){
-       allSub = response.allSubCategory
-       allCat = response.allCategory
-       mainCategoryName = response.mainCategoryName
-       subCategoryName = response.subCategoryName
+      allSub = response.allSubCategory
+      allCat = response.allCategory
+      mainCategoryName = response.mainCategoryName
+      subCategoryName = response.subCategoryName
       console.log("Sub Category", allSub)
       console.log("Category", allCat)
 
@@ -1187,11 +1278,12 @@ function getCategory(value){
       console.log("Main Category"+ mainCategoryName)
       $('#update_main_category').val(mainCategoryName)
       $('#update_sub_main_category').val(subCategoryName)
-
+      $("#update_product_description").val(response.description)
+      $("#update_product_additional_information").val(response.additional)
       }
     });
   $('.updateProduct').modal('show');
-  $("#update_product_code").val($(this).closest('tr').children()[0].textContent);
+  $("#update_product_code").val(productCode);
   $("#update_product_name").val($(this).closest('tr').children()[1].textContent);
   $("#update_product_brand").val($(this).closest('tr').children()[2].textContent);
   $("#update_prodcut_price").attr('value', price);

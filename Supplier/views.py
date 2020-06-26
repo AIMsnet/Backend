@@ -26,7 +26,6 @@ def returnPage(request):
         'district' : supplier.district, 'taluka' : supplier.taluka, 'state' : supplier.state,
         'pincode' : supplier.pincode
     })
-
     try:
         business = Business.objects.get(supplier = supplier)
         businessProfileForm = BusinessProfileForm(initial = {
@@ -199,37 +198,87 @@ def businessUpdate(request):
             return HttpResponse(json.dumps(response), content_type='application/json')
 
 def addProduct(request):
-    print(request.POST, request.FILES)
-    productImage = request.FILES['product_image']
-    productName = request.POST['product_name']
-    productBrand = request.POST['product_brand']
-    productCode = request.POST['product_code']
-    productPrice = request.POST['prodcut_price']
-    productArrival = request.POST['prodcut_arrival']
-    productUnit = request.POST['prodcut_unit']
-    productDescription = request.POST['product_description']
-    productMainCategory = request.POST['main_category']
-    productSubMainCategory = request.POST['sub_main_category']
-    productCategory = request.POST['category']
-    productAdditionalInfo = request.POST['product_additional_information']
+    if request.method == "POST":
+        print(request.POST, request.FILES)
+        productImage = request.FILES['product_image']
+        productName = request.POST['product_name']
+        productBrand = request.POST['product_brand']
+        productCode = request.POST['product_code']
+        productPrice = request.POST['prodcut_price']
+        productArrival = request.POST['prodcut_arrival']
+        productUnit = request.POST['prodcut_unit']
+        productDescription = request.POST['product_description']
+        productMainCategory = request.POST['main_category']
+        productSubMainCategory = request.POST['sub_main_category']
+        productCategory = request.POST['category']
+        productAdditionalInfo = request.POST['product_additional_information']
 
-    supplierEmail = request.session.get('email', False)
-    supplier = Supplier.objects.get(email = supplierEmail)
-    business = Business.objects.get(supplier = supplier)
-    product = Product.objects.create(image = productImage, name = productName, price = productPrice, 
-    arrival = productArrival, unit = productUnit, description = productDescription,
-    main_category = productMainCategory, sub_main_category = productSubMainCategory,
-    category = productCategory, brand = productBrand, code = productCode, additional_information = productAdditionalInfo,
-    created_date = timezone.now(), updated_date = timezone.now(), clicks = 0, requested_quote = 0, business = business)
-    print("Products saved------", product)
+        supplierEmail = request.session.get('email', False)
+        supplier = Supplier.objects.get(email = supplierEmail)
+        business = Business.objects.get(supplier = supplier)
+        product = Product.objects.create(image = productImage, name = productName, price = productPrice, 
+        arrival = productArrival, unit = productUnit, description = productDescription,
+        main_category = productMainCategory, sub_main_category = productSubMainCategory,
+        category = productCategory, brand = productBrand, code = productCode, additional_information = productAdditionalInfo,
+        created_date = timezone.now(), updated_date = timezone.now(), clicks = 0, requested_quote = 0, business = business)
+        print("Products DAte before------", product.created_date)
+        print("Products DAte------", product.created_date.strftime("%m%d%y"))
 
-    #date = json.loads(str(product.created_date))
-    response = {'status': 0, 'code' : productCode, 'name' : productName
-    ,'category' : productCategory,'price' : productPrice, 'arrival' : productArrival,
-    'unit' : productUnit, 'brand' : productBrand, 'clicks' : str(0),
-    'createDate' : product.created_date.strftime("%m%d%y")}
-    return HttpResponse(json.dumps(response), content_type='application/json')
+        #date = json.loads(str(product.created_date))
+        response = {'status': 0, 'code' : productCode, 'name' : productName
+        ,'category' : productCategory,'price' : productPrice, 'arrival' : productArrival,
+        'unit' : productUnit, 'brand' : productBrand, 'clicks' : str(0),
+        'createDate' : product.created_date.strftime("%m%d%y")}
+        return HttpResponse(json.dumps(response), content_type='application/json')
 
+def updateProduct(request):
+    print("Inside Update Product------------")
+    print()
+    if request.method == "POST":
+        productImage = request.FILES['update_product_image']
+        productName = request.POST['update_product_name']
+        productBrand = request.POST['update_product_brand']
+        productCode = request.POST['update_product_code']
+        productPrice = request.POST['update_prodcut_price']
+        productArrival = request.POST['update_prodcut_arrival']
+        productUnit = request.POST['update_prodcut_unit']
+        productDescription = request.POST['update_product_description']
+        productMainCategory = request.POST['update_main_category']
+        productSubMainCategory = request.POST['update_sub_main_category']
+        productCategory = request.POST['update_category']
+        productAdditionalInfo = request.POST['update_product_additional_information']
+
+        supplierEmail = request.session.get('email')
+        supplier = Supplier.objects.get(email = supplierEmail)
+        business = Business.objects.get(supplier = supplier)
+        product = Product.objects.filter(business = business).filter(code = productCode)
+        product = product[0]
+        creationDate = product.created_date
+        print("Product_-------------___", product.code)
+
+        product.image = productImage
+        product.name = productName
+        product.brand = productBrand
+        product.code = productCode
+        product.price = productPrice
+        product.arrival = productArrival
+        product.unit = productUnit
+        product.description = productDescription
+        product.main_category = productMainCategory
+        product.sub_main_category = productSubMainCategory
+        product.category = productCategory
+        product.additional_information =  productAdditionalInfo
+        product.update_date = timezone.now()
+        
+        product.save()
+        print("Date berfore str", creationDate)
+        print("This is created date", creationDate.strftime("%m%d%y"))
+        response = {'status': 0, 'code' : productCode, 'name' : productName
+        ,'category' : productCategory,'price' : productPrice, 'arrival' : productArrival,
+        'unit' : productUnit, 'brand' : productBrand, 'clicks' : str(product.clicks),
+        'createDate' : product.created_date.strftime("%m%d%y")}
+        return HttpResponse(json.dumps(response), content_type='application/json')
+    
 def getCategory(request):
     category = ""
     if request.method == "POST":
@@ -246,7 +295,7 @@ def getCategory(request):
             category = json.loads(category)
             response = {'category' : category}
     return HttpResponse(json.dumps(response), content_type = 'application/json')
-
+        
 
 def getCategoryUpdate(request):
     if request.method == "POST":
@@ -269,11 +318,19 @@ def getCategoryUpdate(request):
         allCategory = serializers.serialize('json', allCategory)
         allCategory = json.loads(allCategory)
 
+        email = request.session.get('email', False)
+        supplier = Supplier.objects.get(email = email)
+        business = Business.objects.get(supplier = supplier)
+        product = Product.objects.filter(business = business).filter(code = request.POST['productCode'])
+        print("Product-----------", product[0].description)
         response = {'mainCategoryName' : mainCategoryName,
         'subCategoryName' : subCategoryName,
         'allSubCategory' : allSubCategory,
-        'allCategory' : allCategory
+        'allCategory' : allCategory,
+        'description' : product[0].description,
+        'additional' : product[0].additional_information
         }
         return HttpResponse(json.dumps(response), content_type = 'application/json')
+
 
         

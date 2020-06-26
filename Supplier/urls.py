@@ -3,6 +3,7 @@ from . import views
 app_name = 'Supplier'
 
 urlpatterns = [
+    url("productUpdate", views.updateProduct, name = "product"),
     url("getUpdateCategory", views.getCategoryUpdate, name = "getUpdateCategory"),
     url("product", views.addProduct, name = "product"),
     url('getCategory', views.getCategory, name="getCategory"),
