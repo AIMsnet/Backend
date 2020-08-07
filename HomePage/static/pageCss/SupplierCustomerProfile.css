@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+body{
+    font-family: 'Baloo Tammudu 2', cursive;
+    background-color:#fff;
+}
+
+/* header */
+
+.Seller-Details{
+  width: 100%;
+  height: 6rem;
+  background-color: #FFF;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.Seller-Name{
+  padding-top: 16px;
+  font-size: 34px;
+  text-align:left;
+  color: #4cc417;
+  font-family:  'Fredoka One', cursive;/*'Aclonica', sans-serif;*/
+}
+
+.SubHead{
+  padding-top: 32px;
+  font-size: 22px;
+  text-align:left;
+  color: #34282c;
+  font-family: 'Fredoka One', cursive;
+}
+
+.Seller-Details .Address{
+  padding-top: -6px;
+  color: #848482;
+  font-size: 13px;
+}
+
+.nav-tabs .nav-item a{
+  margin-top:  40px;
+  color: #848482;
+}
+
+.nav-tabs .nav-item :active , .nav-tabs .nav-item :hover{
+  color: #fff;
+  background-color: #4cc417;
+}
+
+.Call, .Email
+{ 
+  font-size: 13px;
+}
+
+/* /.header */
+
+
+/* tab */
+
+.tab-pane .Product-row{
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+/* /.tab*/
+
+/* card */
+
+.tab-pane .Pro-card{
+  border-color: #b6b6b4;
+  width: 11rem; 
+  height:15rem; 
+  margin: 13px;
+  align-items: center;
+  background-color: #f0f8ff;
+}
+
+.Pro-card img{
+  width: 95%;
+  height: 8rem;
+  margin-top: 5px; 
+}
+
+.Pro-card .title{
+  font-size: 14px;
+  font-weight: 600;
+  padding-left : 7px;
+  margin-top: 10px; 
+}
+
+.Pro-card .Product-Amount
+{
+  font-weight: 600;
+  font-size: 16px;
+  color:orange;
+  margin-top: 20px;
+}
+
+.Prod-overlay
+{
+  padding-top: 20px;
+  text-align: center;
+
+}
+
+.Prod-overlay .title{
+  padding-right: 9px;
+}
+
+.Prod-overlay .price p 
+{
+  padding-top:40px;
+  color:orange;
+  font-weight: bold;
+  text-align: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .2s ease;
+ background-color: #f0f8ff;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+  border:2px solid #orange;  
+}
+/* /.List Of Products */
+
+/* About Us */
+
+.tab-About p{
+  padding-top: 10px;
+}
+
+.basic{
+  padding:10px;
+}
+
+ .tab-About th, .tab-About td
+ { 
+ padding:15px;
+ }
+
+
+
+/*media*/
+
+@media (min-width: 320px) and (max-width: 520px) { 
+
+  .Seller-Details{
+    width: 100%;
+
+  }
+  .Seller-Name{
+    font-size: 17px;
+    padding-top: 10px;
+    padding-left: 20px;
+  }
+
+  .Seller-Details .Address{
+    font-size: 10px;
+    padding-left: 20px;
+    align-content: center;
+  }
+  .nav-tabs .nav-item a{
+    margin-top: 6px;
+    font-size:13px;
+    text-align: center;
+  }
+
+  .tab-pane .Product-row{
+    margin-left: 49px;
+    margin-right: 10px;
+  }
+  .Call, .Email
+  { 
+   font-size: 12px;
+  }
+
+  .SubHead{
+    font-size: 16px;
+    margin-top: -16px;
+  }
+  .tab-About p{
+    font-size: 14px;
+    margin-bottom: -2px;
+  }
+  .basic{
+    margin-left: 10px;
+    margin-top: 10px;
+    padding: 0px;
+    align-content: center;
+  }
+
+   .tab-About th
+   { 
+   padding:6px;
+   font-size: 11px;
+   }
+
+.tab-About td{
+  padding: 6px; 
+  font-size: 11px;
+}
+
+}

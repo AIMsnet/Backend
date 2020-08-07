@@ -58,7 +58,7 @@ class Business(models.Model):
     
 
 class Product(models.Model):
-    image = models.FileField(upload_to = 'ProductImage', default = "")
+    image = models.FileField()
     name = models.CharField(max_length = 255, null = False, blank = False)
     price = models.DecimalField(null = False, blank = False)
     arrivalChoices = [('Yes', 'Yes'), ('No', 'No')]
@@ -87,7 +87,7 @@ class Product(models.Model):
 
 class Main_Categories(models.Model):
     name = models.CharField(max_length = 255)
-    image = models.FileField(upload_to = 'Pics')
+    image = models.FileField()
 
     def __str__(self):
         return str(self.pk) + "|" + self.name
@@ -96,7 +96,7 @@ class Main_Categories(models.Model):
 class Sub_Main_Category(models.Model):
     name = models.CharField(max_length = 255)
     main_categories = models.ForeignKey(Main_Categories, on_delete = models.CASCADE)
-    image = models.FileField(upload_to = 'Pics')
+    image = models.FileField()
 
     def __str__(self):
         return self.name + " | Main Category ==>  " + str(self.main_categories.pk)

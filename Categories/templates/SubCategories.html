@@ -1,504 +1,69 @@
 {% extends 'model.html' %}
 {% load static %}
-
-
 {% block cssBlock %}
   <link rel="stylesheet" href="{%static 'pageCss/SubCategories.css'%}">
 {% endblock cssBlock %}
 
+{%block menu%}
+ <ul class="nav justify-content-center">
+            <li class="nav-item">
+            <a class="nav-link active" href="#">Blogs</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target=".supplierSignUp">List Business</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Get Quotes</a>
+            </li>
+            <li class="nav-item">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: transparent;
+                border: transparent; font-size: 2.5vh;">
+                    Login
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item" type="button" data-toggle="modal" data-target="#supplierSignIn">Seller</button>
+                    <button class="dropdown-item" type="button" data-toggle="modal" data-target="#customerSignIn">Customer</button>
+                </div>
+            </div>
+            </li>
+        </ul>
+
+{%endblock%}
+
 
 {% block mainblock%}
-
-<div class="container CategoryHead">
+<div class="container-fluid CategoryHead">
   <div class="heading justify-content-center input-group mt-1">
-    <h2 class="border-bottom mb-3">{{subCategory}}</h2>
+    <h2>{{category}}</h2>
   </div>
- 
-  <div class="ml-3 categoryList">
-    <h5>Agricultural Equipments</h5>
-    <div class="row categoriesCompart mx-3">     
-        <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-            <img src="assets/Agricultural Implements.jpeg" alt="Shovel icon" class="img-fluid">
-            <h6>Agricultural Implements</h6>
-        </div>
-        <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-            <img src="assets/Machinery.jpeg" alt="Shovel icon" class="img-fluid">
-            <h6>Agricultural Machinery</h6>
-        </div>
-        <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-            <img src="assets/Agricultural Machine Parts.jpeg" alt="Shovel icon" class="img-fluid">
-            <h6>Agricultural Machine Parts</h6>
-        </div>
-        <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-            <img src="assets/Agricultural Tools.jpeg" alt="Shovel icon" class="img-fluid">
-            <h6>Agricultural Tools</h6>
-        </div>    
-        <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-            <img src="assets/Farm Equipment.jpeg" alt="Shovel icon" class="img-fluid">
-            <h6>Farm Equipment</h6>
-        </div>
-        <div class="col-6 col-sm-2 col-md-2 col-lg-2 mt-3">
-          <h6 type="button" data-toggle="modal" data-target="#viewallModal1">View More...</h6>         
-        </div>
-      </div>
-  </div>  
 
-  <hr>
-
-  <div class="ml-3 categoryList">
-    <h5>Agriculture Pipes</h5>
-    <div class="row categoriesCompart mx-3">     
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/PVC Pipes.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>PVC Pipes </h6>
+  <section class="ftco-section ftco-no-pt ftco-intro mt-3">
+      <div class="container mt-3">
+      {% for sub in subCategory %}
+        {% if forloop.first %}<div class="row">{% endif %}
+          {% csrf_token %}
+          <div class="col-md-4 d-flex align-self-stretch subCategory" id = "{{sub.id}}">
+            <div class="d-block services text-center">
+              <div class="media-body">
+                <h3 class="heading" data-id = "{{sub.id}}">{{sub.name}}</h3>
+                <img src="{{ sub.image.url }}"/>
+                <h6>{{sub.image}}</h6>
+              </div>
+            </div>    
+          </div>
+        {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
+        {% if forloop.last %}</div>{% endif %}
+        {% endfor %}
+        
+      
       </div>
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/UPVC Pipes.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>UPVC Pipes</h6>
-      </div>
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/PVC Garden Pipes.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>PVC Garden Pipes</h6>
-      </div>
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/Agricultural HDPE Pipes.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>Agricultural HDPE Pipes</h6>
-      </div>    
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/LDPE Pipes.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>LDPE Pipes</h6>
-      </div>
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2 mt-3">
-        <h6 type="button" data-toggle="modal" data-target="#viewallModal2">View More...</h6>
-      </div>
-    </div>
-  </div>  
-  
-  <hr>
-
-  <div class="ml-3 categoryList"> 
-    <h5 >Agro Shade Nets</h5>       
-    <div class="row categoriesCompart mx-3">     
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/outdoorshadenet.jpg" alt="Shovel icon" class="img-fluid">
-          <h6>Outdoor Shade net </h6>
-      </div>
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/Greenhouse shading.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>Greenhouse shading </h6>
-      </div>
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/shade-net.jpg" alt="Shovel icon" class="img-fluid">
-          <h6>Shed Nets </h6>
-      </div>
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/nurseryshade.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>Nursery Shade nets </h6>
-      </div>    
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/antihailnet.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>Anti-Hail Nets </h6>
-      </div>
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2 mt-3">
-        <h6 type="button" data-toggle="modal" data-target="#viewallModal3">View More...</h6>
-      </div>
-    </div>
-  </div>  
-  
-  <hr>
-
-  <div class="ml-3 categoryList">
-    <h5>Agriculture Sprayers</h5>
-    <div class="row categoriesCompart mx-3">     
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/powerspray.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>Power Sprayer </h6>
-      </div>
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/Knapsack Sprayer.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>Knapsack Sprayer</h6>
-      </div>
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/Backpack Sprayer.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>Backpack Sprayer</h6>
-      </div>
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/Pressure Sprayer.jpg" alt="Shovel icon" class="img-fluid">
-          <h6>Pressure Sprayer</h6>
-      </div>    
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/Agriculture Hand Sprayer.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>Agriculture Hand Sprayer</h6>
-      </div>
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2 mt-3">
-        <h6 type="button" data-toggle="modal" data-target="#viewallModal4">View More...</h6>        
-      </div>
-    </div>
-  </div>  
-
-  <hr>
-
-  <div class="ml-3 categoryList">
-    <h5>Tiller </h5>
-
-    <div class="row categoriesCompart mx-3">     
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/Power Tiller.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>Power Tiller </h6>
-      </div>
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/Tiller Blades.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>Tiller Blades </h6>
-      </div>
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/Power Tillers Parts.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>Power Tillers Parts</h6>
-      </div>
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/Farm Tiller.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>Farm Tiller </h6>
-      </div>    
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/Spring Loaded Tiller.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>Spring Loaded Tiller </h6>
-      </div>
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2 mt-3">
-        <h6 type="button" data-toggle="modal" data-target="#viewallModal6">View More...</h6>
-      </div>
-    </div>
-  </div>  
-
-  <hr>
-
-  <div class="ml-3 categoryList">
-    <h5>Agriculture Machinery </h5>
-          
-    <div class="row categoriesCompart mx-3">     
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/Seeding Machine.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>Seeding Machine </h6>
-      </div>
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/Grain Processing Machines.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>Grain Processing Machines</h6>
-      </div>
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/Agriculture Cutting Machines.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>Agriculture Cutting Machines </h6>
-      </div>
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/Fertilizer Machinery.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>Fertilizer Machinery </h6>
-      </div>    
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-          <img src="assets/Planter Machine.jpeg" alt="Shovel icon" class="img-fluid">
-          <h6>Planter Machine </h6>
-      </div>
-      <div class="col-6 col-sm-2 col-md-2 col-lg-2 mt-3">
-        <h6 type="button" data-toggle="modal" data-target="#viewallModal7">View More...</h6>        
-      </div>
-    </div>
-  </div>  
-
-<hr>
-
-  <div class="ml-3 categoryList">
-      <h5>Green House Accessories </h5>
-    <div class="row categoriesCompart mx-3">     
-        <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-            <img src="assets/Mulching Film.jpeg" alt="Shovel icon" class="img-fluid">
-            <h6>Mulching Film </h6>
-        </div>
-        <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-            <img src="assets/Fabric Rolls.jpeg" alt="Shovel icon" class="img-fluid">
-            <h6>Mulching Fabric Rolls </h6>
-        </div>
-        <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-            <img src="assets/Biodegradable.jpeg" alt="Shovel icon" class="img-fluid">
-            <h6>Biodegradable </h6>
-        </div>
-        <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-            <img src="assets/Greenhouse Film.jpeg" alt="Shovel icon" class="img-fluid">
-            <h6>Greenhouse Film </h6>
-        </div>    
-        <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-            <img src="assets/Green House Fogger.jpeg" alt="Shovel icon" class="img-fluid">
-            <h6>Green House Fogger</h6>
-        </div>
-        <div class="col-6 col-sm-2 col-md-2 col-lg-2 mt-3">
-          <h6 type="button" data-toggle="modal" data-target="#viewallModal8">View More...</h6>
-        </div>
-    </div>
-  </div>  
-  
-<hr>
-
-  <div class="ml-3 categoryList mx-3">
-      <h5>Agriculture Ground & Crop Covers</h5>
-         
-      <div class="row categoriesCompart mx-3">     
-        <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-            <img src="assets/Crop Covers.jpeg" alt="Shovel icon" class="img-fluid">
-            <h6>Crop Covers </h6>
-        </div>
-        <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-            <img src="assets/PP Ground Cover.jpeg" alt="Shovel icon" class="img-fluid">
-            <h6>PP Ground Cover </h6>
-        </div>
-        <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-            <img src="assets/Woven Ground Cover.jpeg" alt="Shovel icon" class="img-fluid">
-            <h6>Woven Ground Cover </h6>
-        </div>
-        <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-            <img src="assets/pp Woven Ground.jpeg" alt="Shovel icon" class="img-fluid">
-            <h6>PP Woven Ground Cover </h6>
-        </div>    
-        <div class="col-6 col-sm-2 col-md-2 col-lg-2">
-            <img src="assets/antihailnet.jpeg" alt="Shovel icon" class="img-fluid">
-            <h6>Anti-Hail Nets </h6>
-        </div>
-        <div class="col-6 col-sm-2 col-md-2 col-lg-2 mt-3">
-          <h6 type="button" data-toggle="modal" data-target="#viewallModal9">View More...</h6>
-        </div>
-      </div>
-  </div>  
+    </section>
+</div>  
+<!--/. Sub Categories-->
 
 
-<!-- -------------------Modals  -->
-
-
-<!-- Modal 1-->
-<div class="modal fade " id="viewallModal1" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content w3-animate-zoom">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agricultural Equipment’s</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item d-flex justify-content-between">Agricultural Implements <i class="fas fa-angle-right"></i> </li>
-          <li class="list-group-item d-flex justify-content-between">Agricultural Machinery <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Agricultural Machine Parts <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Agricultural Tools <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Farm Equipment <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Agricultural Tray <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Agricultural Ridger <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Agricultural Gyrovator <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Agricultural Wire <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Agricultural Tanks <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Sugarcane stubble shaver <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Agricultural Processing Plants <i class="fas fa-angle-right"></i></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal 2-->
-<div class="modal fade" id="viewallModal2" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content w3-animate-zoom">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agriculture Pipes</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item d-flex justify-content-between"> PVC Pipes <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">UPVC Pipes <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">PVC Garden Pipes <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Agricultural HDPE Pipes <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">LDPE Pipes <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Suction Pipe <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">HDPE Coil Pipes <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Lateral Pipes <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">MDPE Pipes <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">HDPE Sprinkler Pipes <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">UPVC Pressure Pipes <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Grey Pipes <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">LDPE Lay Flat Pipes <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Hdpe Tube <i class="fas fa-angle-right"></i></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal 3-->
-<div class="modal fade" id="viewallModal3" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content w3-animate-zoom">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agro Shade Nets</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Outdoor Shade net <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item">Greenhouse shading <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item">Shed Nets<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item">Nursery Shade nets<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item">Anti-Hail Nets<i class="fas fa-angle-right"></i></li>
-         <!-- <li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>-->
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal 4-->
-<div class="modal fade" id="viewallModal4" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content w3-animate-zoom">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agriculture Sprayers</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item d-flex justify-content-between">Power Sprayer<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Knapsack Sprayer<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Backpack Sprayer<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Pressure Sprayer<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Agriculture Hand Sprayer<i class="fas fa-angle-right"></i></li>
-         <!-- <li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>-->
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal 5-->
-<div class="modal fade" id="viewallModal5" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content w3-animate-zoom">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agriculture Tools</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item d-flex justify-content-between">Disc Harrow<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Agriculture Plough<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Land Leveler <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Agriculture Sprayer Pump<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Hand Sickle <i class="fas fa-angle-right"></i></li>
-         <!-- <li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>-->
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal 6-->
-<div class="modal fade" id="viewallModal6" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content w3-animate-zoom">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"> Tiller</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item d-flex justify-content-between">Power Tiller<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Tiller Blades<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Power Tillers Parts<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Farm Tiller<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Spring Loaded Tiller<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Rigid Tiller<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Used Tiller<i class="fas fa-angle-right"></i></li>
-          <!--<li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>-->
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal 7-->
-<div class="modal fade" id="viewallModal7" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content w3-animate-zoom">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agriculture Machinery </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item d-flex justify-content-between">Seeding Machine<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Grain Processing Machines<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Agriculture Cutting Machines<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Fertilizer Machinery <i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Planter Machine<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Seeding Machine<i class="fas fa-angle-right"></i></li>
-          <!--<li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>-->
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-    
-<!-- Modal 8-->
-<div class="modal fade" id="viewallModal8" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content w3-animate-zoom">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Green House Accessories </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item d-flex justify-content-between">Mulching Film<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Mulching Fabric Rolls<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Biodegradable<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Greenhouse Film<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Green House Fogger<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Mulch Mats <i class="fas fa-angle-right"></i></li>
-          <!--<li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>-->
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal 9-->
-<div class="modal fade" id="viewallModal9" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="category" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content w3-animate-zoom">
       <div class="modal-header">
@@ -508,26 +73,44 @@
         </button>
       </div>
       <div class="modal-body">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item d-flex justify-content-between">Crop Covers<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">PP Ground Cover<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">Woven Ground Cover<i class="fas fa-angle-right"></i></li>
-          <li class="list-group-item d-flex justify-content-between">PP Woven Ground Cover<i class="fas fa-angle-right"></i></li>
-         <!-- <li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>-->
+        <ul class="categroyList list-group list-group-flush">
         </ul>
       </div>
     </div>
   </div>
 </div>
-
-<!-- ENd Modals-------------------  -->
+<div class="m-0"></div>
+<div class="m-0"></div>
 
 </div>
+
+<script>
+
+$(document).on("click", ".subCategory", function () {
+  var id = $(this).attr('id');
+  console.log(id)
+  $.ajax({
+      type:'POST',
+      url:'getCategories',
+      data:{ 
+        subCatId : id,        
+        csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val(),
+      },
+      success:function(response){
+        console.log("this is it \n" + response.category['0']['fields']['name'])
+        var category = response.category
+        var size = category['length']
+        $('.categroyList').empty()
+        for(var i = 0; i < size; i++)
+        {
+          $('.categroyList').append('<li class="list-group-item d-flex justify-content-between">' + response.category[i]['fields']['name'] + '</li>');
+        }
+        $('#category').modal('show')
+      }
+    });
+});
+
+</script>
 
 {%  endblock %}
 

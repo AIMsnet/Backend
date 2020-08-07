@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
 
 .categoriesAnchor{
     color: black;
@@ -6,6 +8,7 @@
 .categoriesBelt{
     background-color: white ;
     border-right: 1px solid #ced4da;
+    cursor: pointer;
 }
 
 .productFrame{
@@ -20,7 +23,6 @@
 .productImage img{
     max-width: 100%;
     max-height: 100%;
-    height: -webkit-fill-available;
 }
 
 .productDescription{
@@ -78,6 +80,7 @@
  
     .categoriesBelt{
         font-size: 1.5vw;
+        cursor: pointer;
     }
 
     .dropdown-item{
@@ -120,4 +123,11 @@
     .quoteImg img{
         width: 14vw;
     }
+}
+
+
+
+/* exclude */
+.productLink{
+    color: black;
 }

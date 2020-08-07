@@ -1,0 +1,165 @@
+{% extends 'model.html' %}
+{% load static %}
+
+{% block cssBlock %}
+  <link rel="stylesheet" href="{%static 'pageCss/SupplierCustomerProfile.css'%}">
+{% endblock cssBlock %}
+
+{%block menu%}
+ <ul class="nav justify-content-center">
+            <li class="nav-item">
+            <a class="nav-link active" href="#">Blogs</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target=".supplierSignUp">List Business</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Get Quotes</a>
+            </li>
+            <li class="nav-item">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: transparent;
+                border: transparent; font-size: 2.5vh;">
+                    Login
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item" type="button" data-toggle="modal" data-target="#supplierSignIn">Seller</button>
+                    <button class="dropdown-item" type="button" data-toggle="modal" data-target="#customerSignIn">Customer</button>
+                </div>
+            </div>
+            </li>
+        </ul>
+
+{%endblock%}
+
+
+{% block mainblock%}
+<header class="Seller-Details sticky-top w-100 ">
+	<div class="row d-flex  justify-content-around">
+		<div class="col-lg-5 col-md-5 col-sm-12">
+			<div class="justify-content-center ">
+				<h4 class="Seller-Name ">{{business.name}}</h4>
+				<ul class="nav Address justify-content-start">
+				    <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{business.supplier.state}} &nbsp;&nbsp;</li>
+				    <li><i class="fa fa-file-text " aria-hidden="true"></i>| GST: {{business.GST}} &nbsp; </li>
+			  	</ul>
+			</div>
+		</div>
+	
+		<div class="col-lg-4 col-md-5 col-sm-12 ">
+			<ul class="collapse nav nav-tabs nav-fill" role="tablist">
+				<li class="nav-item">
+	                <a href="#LstofPro" class="nav-link active" data-toggle="tab">List Of Products</a>
+	            </li>
+	            <li class="nav-item">
+	                <a href="#abtUs" class="nav-link" data-toggle="tab">About Us</a>
+	            </li>
+	            <!-- <li class="nav-item">
+	                <a href="#CntsUs" class="nav-link" data-toggle="tab">Contacts Us</a>
+	            </li> -->
+	            <li class="nav-item dropdown">
+				    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Contact Us</a>
+				    <div class="dropdown-menu dropdown-menu-right">
+				      <h6 class="Call dropdown-item" href="#"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp; {{business.supplier.phone_number}}</h6>
+				      <h6 class="Email dropdown-item" href="#"><i class="fa fa-envelope-o " aria-hidden="true"></i>&nbsp; {{business.business_email}}</h6>
+				    </div>
+				</li>
+	        </ul>
+	    </div>
+	</div>
+ 		
+</header>
+								
+<section class="container ">
+		<div class="tab-content">
+			<div class="tab-pane fade show active" id="LstofPro">
+				<div class="container">
+					<h5 class="SubHead border-bottom border-success">Our Products</h5>
+					<div class="row Product-row">
+                        {% for product in  products %}
+                                <div class="card Pro-card">
+                                    <img src="{{product.image.url}}" alt="" class="img">
+                                    <h6 class="title">{{product.name}}</h6>
+                                    <p class="Product-Amount">{{product.price}}</p>
+                                    <div class="overlay">
+                                        <div class="Prod-overlay">
+                                        <h6 class="title">{{product.name}}</h6>
+                                        <div class="price">
+                                        <p class="Product-Amount">{{product.price}}</p> 
+                                        <p class="getQuote" id="gtlprc-2">Get Quotes</p>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        {% endfor %}
+					</div> 
+				</div>
+			</div>	
+
+			<div class="tab-pane fade tab-About" id="abtUs">
+				<div class="container">
+	      			<h5 class="SubHead border-bottom border-success">About Us</h5>
+	      			<!-- <h4 class="border-bottom border-muted pt-3">About Us</h4> -->
+					<p class="text-muted ">{{business.description}}</p>
+				</div>
+				<div class="container">
+					<div class="row">
+						<div class="container Info-Table">
+							<th class="heading"><h5 class="SubHead border-bottom border-success">Basic Information</h5></th>
+							<div class="table-1 bg-light rounded">
+								<table class="row basic d-lg-flex justify-content-lg-center justify-content-md-center">
+									<tbody class="col-sm-12 col-lg-6 col-md-6">
+										<tr class="row justify-content-center">
+											<th class="col-5">Nature of Business&nbsp;:</th>
+											<td class="col-7">{{business.business_type}}</td>
+										</tr>
+										<tr class="row justify-content-around">
+											<th class="col-5 d-flex align-items-start">Additional Business&nbsp;:</th>
+											<td class="col-7">
+												<ul class="pt-1">
+													<li>Wholesaler</li>
+													<li>Exporter</li>
+													<li>Supplier</li>
+													<li>Trader</li>
+												</ul>
+											</td>
+										</tr>
+										<tr class="row justify-content-around">
+											<th class="col-5">Company CEO:</th>
+											<td class="col-7">{{business.supplier.full_name}}</td>
+										</tr>
+										<tr class="row justify-content-around">
+											<th class="col-5">Registered Address &nbsp;:</th>
+											<td class="col-7">{{business.address}}</td>
+										</tr>
+									</tbody>
+									<tbody class="col-sm-12 col-lg-6 col-md-6">
+										<tr class="row justify-content-around">
+											<th class="col-5">Year of Establishment&nbsp;:</th>
+											<td class="col-7">{{business.year_of_establishment}}</td>
+										</tr>
+										<tr class="row justify-content-around">
+											<th class="col-5">City&nbsp;:</th>
+											<td class="col-7">{{business.supplier.city}}</td>
+										</tr>
+                                        	<tr class="row justify-content-around">
+											<th class="col-5">District&nbsp;:</th>
+											<td class="col-7">{{business.supplier.district}}</td>
+										</tr>
+                                        	<tr class="row justify-content-around">
+											<th class="col-5">State&nbsp;:</th>
+											<td class="col-7">{{business.supplier.state}}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div> 
+				</div>
+			</div>
+
+		</div>
+</section>
+<div class="m-5"></div>
+{%  endblock %}
+

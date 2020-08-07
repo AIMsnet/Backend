@@ -90,6 +90,27 @@
       color: white;
   }
 
+  #navBeltTwo > div > div.input-group-prepend.navBeltCategory.show > div{
+    width: 53vw;
+  }
+
+  .dropDownContainer{
+    width: 76vw;
+  }
+
+  .dropDownColumn{
+    padding: 0px;
+  }
+
+  .categoriesList{
+    list-style-type: none;
+    padding: 0px;
+  }
+
+  .categoriesList li{
+    padding: 10px;
+  }
+
   /*Footer*/
   
 /* Footer Css */
@@ -109,17 +130,21 @@
   }
 
   .footer-icon fa-icon{
-      font-size: 20px;
-      margin-left: 8px;
-      background-color: #0363CD;
-      border-radius: 3px;
-      padding: 10px;
-      transition: 0.5s;
+    font-size: 17px;
+    margin-left: 8px;
+    background-color: white;
+    border-radius: 3px;
+    padding: 1px 4px;
+    transition: 0.5s;
   }
 
   .footer-icon fa-icon:hover{
-      background-color: gold;
-      color: black;
+      background-color: #303A52;
+      color: white;
+  }
+
+  .icon{
+    height: 29px;
   }
 
   .footer-list{
@@ -156,46 +181,32 @@
             <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</button>
             <div class="dropdown-menu">
             <!-- Drop down List---------------------------------- -->
-            <div class="container-fluid p-0">
-                <div class="row">
-                    <div class="col-3 col-sm-3 col-md-3 col-lg-3">
-                            <h6>Farming Tools, Equipment & Machines</h6>
-                            <ul>
-                            <li>  Agricultural Implements </li>
-                            <li>  Agricultural Equipment</li>
-                            <li>  Agricultural Pipes</li>
-                            <li> Agro Shade Net</li> 
-                            <li>  Agricultural Sprayers</li>
-    
-                            </ul>
+            <div class="container dropDownContainer">
+                <div class="row p-2">
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 dropDownColumn">
+                     <ul class = "categoriesList">
+                      <a href=""><li>Farming Tools, Equipment & Machines</li></a>
+                      <a href=""><li>Flowers, Plants & Trees</li></a>
+                      <a href=""><li>Seeds and Plant Saplings</li></a>
+                      <a href=""><li>Tractor, Tractor Parts & Assemblies</li></a>
+                     </ul>
                     </div>
-                    <div class="col-3 col-sm-3 col-md-3 col-lg-3">
-                        <h6>Flowers, Plants & Trees</h6>
-                        <ul>
-                            <li>Fresh Flower</li>
-                            <li>Garden Plant</li>
-                            <li>Flowering Plant</li>
-                            <li>Rose Flower</li>
-                            <li>Decorative Plant</li>
-                        </ul>
-    
-                        </div>
-                        <div class="col-3 col-sm-3 col-md-3 col-lg-3">
-                            <h6>Seeds and Plant Saplings</h6>
-                            <li>Cumin Seeds</li>
-                            <li>Seeds</li>
-                            <li>Coriander Seed</li>
-                            <li>Mustard Seeds</li>
-                            <li>Wheat Seeds</li>
-                        </div>
-                        <div class="col-3 col-sm-3 col-md-3 col-lg-3">
-                            <h6>Tractor, Tractor Parts & Assemblies</h6>
-                            <li>Tractor Spare Parts</li>
-                            <li>Tractor</li>
-                            <li>Cultivator</li>
-                            <li>Rotavator</li>
-                            <li>Tractor Trolleys</li>
-                        </div>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 dropDownColumn">
+                      <ul class="categoriesList">
+                        <a href=""><li>Bird Food, Poultry & Animal Food</li></a>
+                        <a href=""><li>Irrigation & Harvesting Machines</li></a>
+                        <a href=""><li>Fertilizers and Soil Additives</li></a>
+                        <a href=""><li>Coir and Agro Products</li></a>
+                      </ul>
+                    </div>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 dropDownColumn">
+                      <ul class="categoriesList">
+                        <a href=""><li>Farming and Pet Animals</li></a>
+                        <a href=""><li>Agri Finance</li></a>
+                        <a href=""><li>Agri Insurance</li></a>
+                        <a href=""><li>Agri Related Business</li></a>
+                      </ul>
+                    </div>
                 </div>
             </div>
             <!-- Drop Down list Ending--------------------------- -->
@@ -209,32 +220,10 @@
         </div>
         </div>
         <div class="col-sm-5 col-md-5 col-lg-5 order-lg-3 order-md-3 navBarBeltThree">
-        <ul class="nav justify-content-center">
-            <li class="nav-item">
-            <a class="nav-link active" href="#">Blogs</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#" data-toggle="modal" data-target=".supplierSignUp">List Business</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Get Quotes</a>
-            </li>
-            <li class="nav-item">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: transparent;
-                border: transparent; font-size: 2.5vh;">
-                    Login
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <button class="dropdown-item" type="button" data-toggle="modal" data-target="#supplierSignIn">Seller</button>
-                    <button class="dropdown-item" type="button" data-toggle="modal" data-target="#customerSignIn">Customer</button>
-                </div>
-            </div>
-            </li>
-            <!-- <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-            </li> -->
-        </ul>
+        {%block menu%}
+
+        
+        {%endblock%}
         </div>
   </div>
 
@@ -248,7 +237,7 @@
         <div class="container-fluid">
           <div class="row p-4"> 
             <div class="col-sm-4 col-md-4 col-lg-4 mx-3"> 
-              <h1 style="color: azure; font-family:'Arbutus Slab', serif; display: inline;" class="ml-3">Kisan Janab</h1>
+              <h1 style="color: azure; font-family:'Kalam', cursive; display: inline;" class="ml-3">बळीराजा</h1>
                <div class="my-4 text-white" style="font-size:15px; letter-spacing: .3px;">
                   <div>
                     <p>Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit Aliqua. Ut Enim Ad Minim Veniam, Quis..</p>
@@ -265,7 +254,9 @@
                   </div>
                   <div class="footer-intro"></div>
                   <div class="footer-icon mt-4">
-                    <fa-icon [icon]="faFacebook"></fa-icon>
+                    <fa-icon [icon]="faFacebook">
+                     <img src="{%static 'assets/facebook.svg' %}" alt="Shovel icon" class="img-fluid icon">
+                    </fa-icon>
                     <fa-icon [icon]="faLinkedin"></fa-icon>
                   </div>
                </div>
@@ -274,7 +265,7 @@
     
             <div class="col-sm-7 col-md-7 col-lg-7" style="border-left: 1px solid rgba(211, 206, 206, 0.836);">
                 <div class="row mt-3 ml-2 text-white">
-                  <div class="col-sm-12 col-md-4 col-lg-4">
+                  <div class="col-sm-12 col-md-6 col-lg-6">
                     <span style="font-weight: bold;">Related Quick Links</span>
                     <ul class="footer-list">
                       <li> <a href="http://krishi.maharashtra.gov.in/">KrishiMaharashtra</a> </li>
@@ -285,18 +276,8 @@
                     </ul>
                   </div>
     
-                  <div class="col-sm-12 col-md-4 col-lg-4">
-                    <span style="font-weight: bold;">Solutions</span>
-                    
-                    <ul class="footer-list">
-                      <li> <a href="">LOL</a> </li>
-                      <li>  <a href="">ROF LOL</a> </li>
-                      <li> <a href="">HAHHAHAHAAH</a> </li>
-                      <li> <a href="">LAUGH</a> </li>
-                    </ul>
-                  </div>
-    
-                  <div class="col-sm-12 col-md-4 col-lg-4">
+
+                  <div class="col-sm-12 col-md-6 col-lg-6">
                     <span style="font-weight: bold;">EXTRAS</span>
                     
                     <ul class="footer-list">

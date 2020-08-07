@@ -2,5 +2,6 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-   url('', views.product, name = "Product Display"),
+   url('productDescription', views.productDescription, name = "prodcutDescription"),
+   url('', views.product, name = "productDisplay"),
 ]

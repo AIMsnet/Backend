@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, HttpResponse, redirect
 from django.contrib import messages
+from django.urls import reverse
 from django.shortcuts import render
 from .models import Supplier, Business, Main_Categories, Sub_Main_Category, Category, Product
 from .forms import SupplierProfileForm, BusinessProfileForm
@@ -17,6 +18,7 @@ def returnPage(request):
     business = None
     designation = None
     mainCategories = None
+    product = None
     supplier = Supplier.objects.get(email = email)
     supplierProfileForm = SupplierProfileForm(initial=
     {'full_name' : supplier.full_name, 'designation' : supplier.designation,
@@ -56,8 +58,6 @@ def returnPage(request):
         'mainCategories' : mainCategories,
         "products" : product
     }
-    print("Redirected")
-    print("Product List", product[0].name)
     return render(request, 'SupplierProfile.html', context)
 
 def personalUpdate(request):
@@ -296,7 +296,6 @@ def getCategory(request):
             response = {'category' : category}
     return HttpResponse(json.dumps(response), content_type = 'application/json')
         
-
 def getCategoryUpdate(request):
     if request.method == "POST":
         categoryName = request.POST['category']
@@ -332,5 +331,18 @@ def getCategoryUpdate(request):
         }
         return HttpResponse(json.dumps(response), content_type = 'application/json')
 
+def logout(request):
+    request.session.pop('email')
+    return redirect('homepage:landingPage')
 
-        
+def getSupplierProfile(request, supplierId):
+    print(supplierId)
+    business = Business.objects.get(name = supplierId)
+    products = Product.objects.filter(business = business)
+    
+    print("Suppleir-----\n", business.supplier.full_name)
+    context = {
+        'business' : business,
+        'products' : products,
+    }
+    return render(request, 'SupplierCustomerProfile.html', context)

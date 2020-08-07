@@ -6,6 +6,36 @@
     <link rel="stylesheet" href="{%static 'pageCss/HomeTwo.css'%}">
 {% endblock %}
 
+{%block menu%}
+ <ul class="nav justify-content-center">
+            <li class="nav-item">
+            <a class="nav-link active" href="#">Blogs</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target=".supplierSignUp">List Business</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Get Quotes</a>
+            </li>
+            <li class="nav-item">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: transparent;
+                border: transparent; font-size: 2.5vh;">
+                    Login
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item" type="button" data-toggle="modal" data-target="#supplierSignIn">Seller</button>
+                    <button class="dropdown-item" type="button" data-toggle="modal" data-target="#customerSignIn">Customer</button>
+                </div>
+            </div>
+            </li>
+            <!-- <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+            </li> -->
+        </ul>
+
+{%endblock%}
+
 {% block mainblock %}
 <!-- ------------Categories -->
 <div class="container categories">
@@ -18,12 +48,16 @@
           </a>
         </div>
         <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+          <a class = "categoriesAnchor" href="SubCategories/sub/Flowers, Plants & Trees/">
             <img src="{%static 'assets/plant.svg' %}" alt="Shovel icon" class="img-fluid">
-           <h5>Flowers, Plants <br> & Trees</h5>
+            <h5>Flowers, Plants <br> & Trees</h5>
+           </a>
         </div>
         <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+          <a class = "categoriesAnchor" href="SubCategories/sub/Seeds Plants & Saplings/">
             <img src="{%static 'assets/seed.svg' %}" alt="Shovel icon" class="img-fluid">
             <h5>Seeds Plants <br> & Saplings</h5>
+          </a>
         </div>
         <div class="col-6 col-sm-3 col-md-3 col-lg-3">
             <img src="{%static 'assets/tractor.svg' %}" alt="Shovel icon" class="img-fluid">
@@ -102,8 +136,9 @@
     
         <!--Controls-->
         <div class="controls-top text-center">
-          <a class="btn-floating" href="#multi-item-example" data-slide="prev"><img src="assets/LeftArrow.svg" class = "img-fluid navArrow" alt=""></a>
-          <a class="btn-floating" href="#multi-item-example" data-slide="next"><img src="assets/RightArrow.svg" class = "img-fluid navArrow" alt=""></a>
+
+          <a class="btn-floating" href="#multi-item-example" data-slide="prev"><img src="{%static 'assets/LeftArrow.svg'%}" class = "img-fluid navArrow" alt=""></a>
+          <a class="btn-floating" href="#multi-item-example" data-slide="next"><img src="{%static 'assets/RightArrow.svg'%}" class = "img-fluid navArrow" alt=""></a>
         </div>
         <!--/.Controls-->
     
@@ -120,7 +155,6 @@
     
           <!--First slide-->
           <div class="carousel-item active">
-    
             <div class="row">
               <div class="col-4 advertiseCardColumn">
                 <a href="">
@@ -159,6 +193,46 @@
               </div>
             </div>
           </div>
+
+           <div class="carousel-item">
+            <div class="row">
+              <div class="col-4 advertiseCardColumn">
+                <a href="">
+                  <div class="card">
+                    <img src="https://static6.industrybuying.com/products_medium/agriculture-garden-landscaping/sprayers/knapsack-sprayer/AGR.MAN.21391495_1561637457267.jpg" class="card-img-top" alt="...">
+                    <div class="card-body advertiseCardBody">
+                      <h5>Hand Operated Knapsack Sprayer</h5>
+                      <p class="card-text"> They are ideal to spray insecticides, pesticides, fungicides, herbicides etc. in field areas to protect the crop from pest attack.</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              
+              <div class="col-4 advertiseCardColumn">
+                <a href="">
+                  <div class="card">
+                    <img src="//static6.industrybuying.com/products_mini/pumps/agriculture-pumps-engines/engines/PUM.ENG.41099887_1506147243282.JPG" class="card-img-top" alt="...">
+                    <div class="card-body advertiseCardBody">
+                      <h5>Vanguard Horizontal Shaft Engine 185400</h5>
+                      <p class="card-text">Buy Briggs & Stratton Series Vanguard Horizontal Shaft Engine 185400 online in India at wholesale rates.</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+    
+              <div class="col-4 advertiseCardColumn">
+              <a href="">
+                <div class="card">
+                  <img src="//static6.industrybuying.com/products_mini/pumps/booster-pressure-pump/PUM.BOO.102286508_1567056197022.JPG" class="card-img-top" alt="...">
+                  <div class="card-body advertiseCardBody">
+                    <h5>Self Priming Pressure Booster Pump</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
+              </a>
+              </div>
+            </div>
+          </div>
         </div>
         <!--/.Slides-->
       </div>
@@ -167,8 +241,116 @@
       <!-- -----------------------------------------------Carousel Ends Here -->
     </div>  
     <div id="menu1" class="tab-pane fade">
-      <h3 class="text-center">Offers</h3>
-      <p>Some content in menu 1.</p>
+     <div class="container my-4 advertiseContainer">
+      <hr class="my-4"> 
+    
+      <!--Carousel Wrapper-->
+      <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+    
+        <!--Controls-->
+        <div class="controls-top text-center">
+
+          <a class="btn-floating" href="#multi-item-example" data-slide="prev"><img src="{%static 'assets/LeftArrow.svg'%}" class = "img-fluid navArrow" alt=""></a>
+          <a class="btn-floating" href="#multi-item-example" data-slide="next"><img src="{%static 'assets/RightArrow.svg'%}" class = "img-fluid navArrow" alt=""></a>
+        </div>
+        <!--/.Controls-->
+    
+        <!--Indicators-->
+        <ol class="carousel-indicators">
+          <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+          <li data-target="#multi-item-example" data-slide-to="1"></li>
+          <li data-target="#multi-item-example" data-slide-to="2"></li>
+        </ol>
+        <!--/.Indicators-->
+    
+        <!--Slides-->
+        <div class="carousel-inner" role="listbox">
+    
+          <!--First slide-->
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-4 advertiseCardColumn">
+                <a href="">
+                  <div class="card">
+                    <img src="//static6.industrybuying.com/products_mini/agriculture-garden-landscaping/grain-processing-machine/AGR.GRA.52125501_1556363632501.jpg" class="card-img-top" alt="...">
+                    <div class="card-body advertiseCardBody">
+                      <h5>Inder 1600 W Electric Router P-407A</h5>
+                      <p class="card-text"> If you have been looking for Inder 1600 W Electric Router P-407A dealers, your search ends here as you can get the best Inder 1600 W Electric Router P-407A distributors in top cities.</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              
+              <div class="col-4 advertiseCardColumn">
+                <a href="">
+                  <div class="card">
+                    <img src="//static6.industrybuying.com/products_mini/pneumatics/pneumatic-fitting/pipe/PNE.PIP.31366527_1527841475472.jpg" class="card-img-top" alt="...">
+                    <div class="card-body advertiseCardBody">
+                      <h5>PU PUSH IN PIPE TEE 12mm</h5>
+                      <p class="card-text">Buy PU PUSH IN PIPE TEE 12mm online in India at wholesale rates.</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+    
+              <div class="col-4 advertiseCardColumn">
+              <a href="">
+                <div class="card">
+                  <img src="//static6.industrybuying.com/products_mini/pneumatics/air-compressors/air-tank-compressor/PNE.AIR.61518584_1571316143179.jpg  " class="card-img-top" alt="...">
+                  <div class="card-body advertiseCardBody">
+                    <h5>Netafim 2.5 mm D-Net 8550 Sprinkler</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
+              </a>
+              </div>
+            </div>
+          </div>
+
+           <div class="carousel-item">
+            <div class="row">
+              <div class="col-4 advertiseCardColumn">
+                <a href="">
+                  <div class="card">
+                    <img src="https://static6.industrybuying.com/products_medium/agriculture-garden-landscaping/sprayers/knapsack-sprayer/AGR.MAN.21391495_1561637457267.jpg" class="card-img-top" alt="...">
+                    <div class="card-body advertiseCardBody">
+                      <h5>Hand Operated Knapsack Sprayer</h5>
+                      <p class="card-text"> They are ideal to spray insecticides, pesticides, fungicides, herbicides etc. in field areas to protect the crop from pest attack.</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              
+              <div class="col-4 advertiseCardColumn">
+                <a href="">
+                  <div class="card">
+                    <img src="//static6.industrybuying.com/products_mini/pumps/agriculture-pumps-engines/engines/PUM.ENG.41099887_1506147243282.JPG" class="card-img-top" alt="...">
+                    <div class="card-body advertiseCardBody">
+                      <h5>Vanguard Horizontal Shaft Engine 185400</h5>
+                      <p class="card-text">Buy Briggs & Stratton Series Vanguard Horizontal Shaft Engine 185400 online in India at wholesale rates.</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+    
+              <div class="col-4 advertiseCardColumn">
+              <a href="">
+                <div class="card">
+                  <img src="//static6.industrybuying.com/products_mini/pumps/booster-pressure-pump/PUM.BOO.102286508_1567056197022.JPG" class="card-img-top" alt="...">
+                  <div class="card-body advertiseCardBody">
+                    <h5>Self Priming Pressure Booster Pump</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
+              </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/.Slides-->
+      </div>
+      <!--/.Carousel Wrapper-->
+    </div>
     </div>
     <div id="menu2" class="tab-pane fade">
       <h3 class="text-center">Popular</h3>
@@ -857,7 +1039,7 @@
           </div>
 
           <div class="form-group">
-            <input type="text" class="form-control supplierSignInFormControl" name="password" id="password" placeholder="Password">
+            <input type="password" class="form-control supplierSignInFormControl" name="password" id="password" placeholder="Password">
          </div>
 
          <div class="form-group">

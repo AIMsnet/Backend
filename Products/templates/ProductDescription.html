@@ -1,0 +1,188 @@
+{% extends 'model.html' %}
+{% load static %}
+
+
+{% block cssBlock %}
+  <link rel="stylesheet" href="{%static 'pageCss/ProductDescription.css'%}">
+{% endblock cssBlock %}
+
+{%block menu%}
+ <ul class="nav justify-content-center">
+            <li class="nav-item">
+            <a class="nav-link active" href="#">Blogs</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target=".supplierSignUp">List Business</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Get Quotes</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/Supplier/logout">Login</a>
+            </li>
+            <!-- <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+            </li> -->
+        </ul>
+{%endblock%}
+
+
+{% block scriptBlock%}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{%endblock scriptBlock%}
+
+{% block mainblock%}
+ <div class="container-fluid">
+        <!-- ----------Navbar Position -->
+        <div class="row">
+            <div class="col-sm-2 col-md-3 col-lg-2 p-0 categoriesBelt">
+                <div class="sidenav ml-1">            
+                    <h5 class="my-2 mx-2 text-center border-bottom">Filter</h5>
+                    <ul class="navbar-nav nav flex-column">
+                        <li class="nav-item dropdown active">
+                                <a class="nav-link dropdown-toggle" role="button" data-toggle="collapse" data-target="#coladrop1" aria-expanded="true" aria-controls="coladrop1">
+                                    Related Categories
+                                </a>
+                                <div class="collapse show" id="coladrop1" aria-labelledby="dropdownMenuButton" data-parent="#accordion">
+                                    <a class="dropdown-item active" href="#maindiv">Agricultural Implements</a>
+                                    <a class="dropdown-item" href="#">Agricultural Machinery</a>
+                                    <a class="dropdown-item" href="#">Agricultural Machine Parts</a>
+                                    <a class="dropdown-item" href="#">Agricultural Tools</a>
+                                    <a class="dropdown-item" href="#">Farm Equipment</a>
+                                    <a class="dropdown-item" href="#">Agricultural Tray</a>
+                                    <a class="dropdown-item" href="#">Agricultural Ridger</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Agricultural Gyrovator</a>
+                                    <a class="dropdown-item" href="#">Agricultural Wire</a>
+                                    <a class="dropdown-item" href="#">Agricultural Tanks</a>
+                                    <a class="dropdown-item" href="#">Sugarcane stubble shaver</a>
+                                    <a class="dropdown-item" href="#">Agricultural Processing Plants</a>
+                                </div>                 
+                        </li>
+
+                        <li class="nav-item dropdown">    
+                            <a class="nav-link dropdown-toggle" role="button" data-toggle="collapse" data-target="#coladrop2" aria-expanded="false" aria-controls="coladrop2">
+                                Brands
+                            </a>
+                            <div class="collapse" id="coladrop2" aria-labelledby="dropdownMenuButton" data-parent="#accordion">
+                                <a class="dropdown-item" href="#">PVC Pipes</a>
+                                <a class="dropdown-item" href="#">UPVC Pipes</a>
+                                <a class="dropdown-item" href="#">PVC Garden Pipes</a>
+                                <a class="dropdown-item" href="#">Agricultural HDPE Pipes</a>
+                                <a class="dropdown-item" href="#">LDPE Pipes</a>
+                                <a class="dropdown-item" href="#">Suction Pipe</a>
+                                <!-- <a class="dropdown-
+                                item" href="#">HDPE Coil Pipes</a>
+                                <a class="dropdown-item" href="#">Lateral Pipes</a>
+                                <a class="dropdown-item" href="#">MDPE Pipes</a>
+                                <a class="dropdown-item" href="#">HDPE Sprinkler Pipes</a>
+                                <a class="dropdown-item" href="#">UPVC Pressure Pipes</a>
+                                <a class="dropdown-item" href="#">Grey Pipes</a>
+                                <a class="dropdown-item" href="#">LDPE Lay Flat Pipes</a>
+                                <a class="dropdown-item" href="#">Hdpe Tube</a> -->
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+<!--side bar end-->
+
+            <div class="col-sm-10 col-md-9 col-lg-10 productFrame">
+               
+                <div class="row rowProduct justify-content-center">
+                    <div class="col-sm- 5 col-md-5 col-lg-5 productImage">
+                        <img class="img-fluid" src="https://5.imimg.com/data5/QL/DP/MY-2599588/husqvarna-tf544-power-tiller-500x500.jpg" class="fullscreen">
+                    </div>
+                    <div class="col-sm-5 col-md-5 col-lg-5 productDetails">					
+    					<span id="productTitle" >					    
+    					   <h4> Husqvarna TF 544 Power Tiller </h4>
+                        </span>
+                        <h6 class="text-muted">by campany name</h6>
+    					<b><h6>Price : &nbsp₹ 2000.00/-</h6></b>
+                        <small class="">Ratings</small>
+						<span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        
+                        <div class="py-3">
+                            <button type="button" class="btn btn-sm btn-primary mr-3">Contact Supplier</button>
+                            <button type="button" class="btn btn-sm btn-primary ml-3" data-toggle="modal" data-target=".modalGetQuote">Get Quote</button>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a href="#productDescription" class="nav-link active" data-toggle="tab">Description</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="#ProductDetails" class="nav-link" data-toggle="tab">Specification</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#SupplierDetails" class="nav-link" data-toggle="tab">Supplier Details</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="productDescription">
+                        <div class="ProductDescription">
+                            <div class="productCompany p-0">
+                               <p class="content">Buy AgriPro Power Cultivator 7 HP Gear Transmission APC100FQ online in India at wholesale rates. If you have been looking for AgriPro Power Cultivator 7 HP Gear Transmission APC100FQ dealers, your search ends here as you can get the best AgriPro Power Cultivator 7 HP Gear Transmission APC100FQ distributors in top cities such as Delhi NCR, Mumbai, Chennai, Bengaluru, Kolkata, Chennai, Pune, Jaipur, Hyderabad and Ahmedabad. You can purchase AgriPro Power Cultivator 7 HP Gear Transmission APC100FQ of the finest quality and rest assured to get the best in terms of both durability and performance. 
+                               If you are bothered about the AgriPro Power Cultivator 7 HP Gear Transmission APC100FQ prices, you can be totally sure to get the best rates as Industrybuying brings you genuine AgriPro Power Cultivator 7 HP Gear Transmission APC100FQ rates and quality assured products only from the best of brands with exclusive brand discounts you won’t find anywhere else. Procure AgriPro Power Cultivator 7 HP Gear Transmission APC100FQ today and avail the best offers on your purchase.
+                               </p>
+                            </div>
+                        </div>
+                        <div class="m-5"></div>
+                    </div>
+				    <div class="tab-pane fade" id="ProductDetails">
+                        <div class="col-sm-5 col-md-5 col-lg-5 productCompany">
+    						<table class="table specificationTable">
+                                <tbody>
+                                  <tr>
+                                    <td>SKU</td>
+                                    <td>AGR.CUL.42018746</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Type of Product</td>
+                                    <td>Tille</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Fuel Tank Capacity</td>
+                                    <td>3.6 Ltr</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Displacement</td>
+                                    <td>212 ml</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Model No</td>
+                                    <td>APC100FQ</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Dimension</td>
+                                    <td>810 x 490 x 640 mm</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Gross Weight</td>
+                                    <td>88 Kgs</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="SupplierDetails">
+                        <div class="col-sm-6 col-md-6 col-lg-6 supplierDetails mr-5">=
+    						<div class="content">
+                                <h5>Sreevatsa Agchamp</h5>
+                                <p><b>About Us</b><br>We are the leading manufacturer and wholesaler of agricultural Firms, Shrink Fil, Crop Cover, Fruit Cover <a href="#">more...</a></p>
+                                <small class="text-muted">Tamil Nadu<br>Contact No.: 567677878</small>
+                            </div>
+    					</div>
+                    </div>
+                </div>
+                <div class="m-5"></div>
+            </div>    
+        </div>
+    </div>
+{% endblock %}

@@ -139,3 +139,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# MEDIA_URL = '../'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'Pics')
+# print("Media direcotry as------", MEDIA_ROOT)
+
+
+# STATICFILES_DIR =   [
+#     os.path.join(BASE_DIR, 'static')
+# ]
+
+# STATIC_ROOT =   os.path.join(BASE_DIR, 'assets')
+MEDIA_URL   =   '/Pics/'
+MEDIA_ROOT =    os.path.join(BASE_DIR, 'Pics')

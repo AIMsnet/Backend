@@ -17,6 +17,27 @@
   <link rel="stylesheet" href="{%static 'pageCss/SupplierProfile.css'%}">
 {% endblock cssBlock %}
 
+{%block menu%}
+ <ul class="nav justify-content-center">
+            <li class="nav-item">
+            <a class="nav-link active" href="#">Blogs</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target=".supplierSignUp">List Business</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Get Quotes</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/Supplier/logout">Logout</a>
+            </li>
+            <!-- <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+            </li> -->
+        </ul>
+{%endblock%}
+
+
 
 {% block mainblock %}
 <div class = "container-fluid p-0 mainFrame">
@@ -34,12 +55,8 @@
             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Subscription</a>
         </li>
         <li class="nav-item ml-auto">
-           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #303A52;">
-          Hello ! {{supplier.full_name}}
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Logout</a>
-        </div>
+          <a class="nav-link" style="color: #303A52;">Hello ! {{supplier.full_name}}</a>
+
       </li>
     </ul>
 
@@ -300,7 +317,7 @@
                     <div class="card-body">
                       <img src="{%static 'assets/person.svg' %}" alt="Shovel icon" class="img-fluid imgCard">
                       <h5>5</h5>
-                      <h5>Total Profile Views</h5>
+                      <h5>Profile Views</h5>
                     </div>
                   </div>
 
@@ -921,7 +938,6 @@
 
 <!--Script For Update-->
 {% if business == "Not Found" or desgination == "Not Found"%}
-
 <script>
 $(document).on('submit','#personalDetail', function(e){
     e.preventDefault();
@@ -953,8 +969,9 @@ $(document).on('submit','#personalDetail', function(e){
             window.location = "/Supplier/"+response.email
           }
           else{
+            jQuery.noConflict()
             document.getElementById("personalUpdateStatus").innerHTML = "Updated";
-            $('#editPersonalDetail').modal('hide')
+            $('.editPersonalDetail').modal('hide')
           }
         }
         else
@@ -1006,10 +1023,6 @@ $(document).on('submit','#businessDetail', function(e){
 <!--Script For Edit-->
 <script>
 $(document).ready(function(){
-  // $('#productTable').DataTable({
-    
-  //   select:true,
-  // })
 
   var table = $('#productTable').DataTable({
     select: true,
@@ -1090,8 +1103,6 @@ $(document).on('submit','#updateBusinessDetail', function(e){
       success:function(response){
         if(response.status == "0"){
           business = response.business
-          console.log(business)
-          $('.updateBusinessDetail').modal('hide')
           document.getElementById("BusinessType").innerHTML = business.business_type;
           document.getElementById("BusinessEmail").innerHTML = business.business_email;
           document.getElementById("OrganisationType").innerHTML = business.organisation_type;

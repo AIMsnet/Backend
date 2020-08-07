@@ -9,6 +9,11 @@
     background-color: #fff;
 }
 
+.categoriesAnchor{
+    color: black;
+    text-decoration: none;
+}
+
 .categories .categoriesCompart{
     padding: 4vh 0px 0px;
 }

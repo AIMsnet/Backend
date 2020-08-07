@@ -6,9 +6,29 @@
   <link rel="stylesheet" href="{%static 'pageCss/ProductDisplay.css'%}">
 {% endblock cssBlock %}
 
+{%block menu%}
+ <ul class="nav justify-content-center">
+            <li class="nav-item">
+            <a class="nav-link active" href="#">Blogs</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target=".supplierSignUp">List Business</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Get Quotes</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/Supplier/logout">Login</a>
+            </li>
+            <!-- <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+            </li> -->
+        </ul>
+{%endblock%}
+
 
 {% block mainblock%}
-    <div class="container-fluid">
+    <div class="container-fluid" style = "cursor:pointer">
         <!-- ----------Navbar Position -->
         <div class="row">
             <div class="col-sm-2 col-md-3 col-lg-2 p-0 categoriesBelt">
@@ -41,12 +61,11 @@
                                 Brands
                             </a>
                             <div class="collapse" id="coladrop2" aria-labelledby="dropdownMenuButton" data-parent="#accordion">
-                                <a class="dropdown-item" href="#">PVC Pipes</a>
-                                <a class="dropdown-item" href="#">UPVC Pipes</a>
-                                <a class="dropdown-item" href="#">PVC Garden Pipes</a>
-                                <a class="dropdown-item" href="#">Agricultural HDPE Pipes</a>
-                                <a class="dropdown-item" href="#">LDPE Pipes</a>
-                                <a class="dropdown-item" href="#">Suction Pipe</a>
+                                <a class="dropdown-item" href="#">Honda</a>
+                                <a class="dropdown-item" href="#">AG Champ</a>
+                                <a class="dropdown-item" href="#">RIS Steel</a>
+                                <a class="dropdown-item" href="#">Kirloskar Power</a>
+                                <a class="dropdown-item" href="#">Adani</a>
                                 <!-- <a class="dropdown-item" href="#">HDPE Coil Pipes</a>
                                 <a class="dropdown-item" href="#">Lateral Pipes</a>
                                 <a class="dropdown-item" href="#">MDPE Pipes</a>
@@ -62,7 +81,7 @@
             </div>
 
             <div class="col-sm-10 col-md-9 col-lg-10 productFrame">
-               
+               <a class = "productLink" href="/product/productDescription">
                 <div class="row rowProduct">
                     <div class="col-sm-3 col-md-3 col-lg-3 productImage">
                         <img class="img-fluid" src="https://5.imimg.com/data5/QL/DP/MY-2599588/husqvarna-tf544-power-tiller-500x500.jpg" alt="Advertisement Pic">
@@ -92,6 +111,7 @@
                         </div>
                     </div>
                 </div>
+               </a>
 
                 <div class="row rowProduct">
                     <div class="col-sm-3 col-md-3 col-lg-3 productImage">
@@ -213,10 +233,11 @@
                                 <input type="number" name="textQuantity" id="textQuantity" class="form-control quoteControl" placeholder="Quantity">
                                 <select name="selectUnit" id="selectUnit" class="form-control quoteControl">
                                     <option value="" selected>Select Unit</option>
-                                    <option value="">1</option>
-                                    <option value="">1</option>
-                                    <option value="">1</option>
-                                    <option value="">1</option>
+                                    <option value="Kg">Kg</option>
+                                    <option value="Pack">pack</option>
+                                    <option value="Unit">Unit</option>
+                                    <option value="Meter">Meter</option>
+                                    <option value="Piece">Piece</option>
                                 </select>
                             </div>
     
@@ -232,10 +253,6 @@
                     </div>
                 </div>
             </div>
-
-            
-
-
          </div>
         </div>
     </div>
