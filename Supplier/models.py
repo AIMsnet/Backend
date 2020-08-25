@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 from django.db import models
+from Customer.models import Customer
 
 # Create your models here.
 class Supplier(models.Model):
@@ -52,7 +53,7 @@ class Business(models.Model):
     PAN = models.CharField(blank = False, null = False, max_length = 13, default = '')
     CIN = models.CharField(blank = False, null = False, max_length = 13, default = '')
     DGFT = models.CharField(blank = False, null = False, max_length = 13, default = '') 
-
+    profile_views = models.DecimalField(blank = True, null = True, decimal_places = 0, max_digits = 5, default = 0)
     def __str__(self):
         return str(self.pk) + '|' + self.name
     
@@ -79,7 +80,6 @@ class Product(models.Model):
     updated_date = models.DateField(("DD/MM/YYYY"), auto_now_add = False)
     price = models.DecimalField(decimal_places = 2, max_digits = 12, blank = False, null = False)
     clicks = models.DecimalField(decimal_places = 0, max_digits = 12, blank = False, null = False)
-    requested_quote = models.DecimalField(max_digits = 64, decimal_places = 0, default = 0)
     business = models.ForeignKey(Business, on_delete = models.CASCADE)
 
     def __str__(self):
@@ -108,4 +108,13 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name + "| Sub Main ==>  " + str(self.sub_main_category.name)
+
+class Quote(models.Model):
+    quantity = models.DecimalField(decimal_places = 2, max_digits = 3, blank = False, null = False)
+    requirement = models.TextField(null = True, blank = True)
+    product = models.ForeignKey(Product, on_delete = models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete = models.CASCADE)
+    supplier = models.ForeignKey(Supplier, on_delete = models.CASCADE) 
     
+    def __str__(self):
+        return str(self.pk) + "| Supplier ==>  " + str(self.supplier.name)

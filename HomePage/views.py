@@ -4,7 +4,7 @@ from .forms import SupplierLogInForm
 
 #From app supplier
 from Supplier.forms import SupplierProfileForm
-from Supplier.models import Supplier 
+from Supplier.models import Supplier, Product
 
 #From app Customer
 from Customer.forms import CustomerSignUpForm
@@ -14,11 +14,54 @@ import re #imported to check for password validatiors
 import json #imported for json dumps
 # Create your views here.
 
+#Random record
+from random import sample
+
 def home(request, *args, **kwargs):
-    supplierLogInForm = SupplierLogInForm()
-    supplierProfileForm = SupplierProfileForm()
-    customerSignUpForm = CustomerSignUpForm
-    context = {'supplierLoginForm' : supplierLogInForm, 'supplierProfileForm' : supplierProfileForm, 'customerSignUpForm' : customerSignUpForm}
+    farmingTool = Product.objects.filter(main_category = 1)
+    farmingTool = sample(list(farmingTool), min(len(farmingTool), 5))
+    
+    flowerPlant = Product.objects.filter(main_category = 2)
+    flowerPlant = sample(list(flowerPlant), min(len(flowerPlant), 5))
+
+    seedsPlan = Product.objects.filter(main_category = 3)
+    seedsPlan = sample(list(seedsPlan), min(len(seedsPlan), 5))
+    
+    tractor = Product.objects.filter(main_category = 4)
+    tractor = sample(list(tractor), min(len(tractor), 5))
+
+    birdPoultry = Product.objects.filter(main_category = 5)
+    birdPoultry = sample(list(birdPoultry), min(len(birdPoultry), 5))
+
+
+    irrigationHarvesting = Product.objects.filter(main_category = 5)
+    irrigationHarvesting = sample(list(irrigationHarvesting), min(len(irrigationHarvesting), 6))
+  
+    fertilizerSoil = Product.objects.filter(main_category = 7)
+    fertilizerSoil = sample(list(fertilizerSoil), min(len(fertilizerSoil), 5))
+
+    coirAgro = Product.objects.filter(main_category = 8)
+    coirAgro = sample(list(coirAgro), min(len(coirAgro), 5))
+
+    farmingPet = Product.objects.filter(main_category = 9)
+    farmingPet = sample(list(farmingPet), min(len(farmingPet), 5))
+
+    newArrival = Product.objects.filter(arrival = "Yes")
+    newArrival = sample(list(newArrival), min(len(newArrival), 5))
+    print("New Arrivals are -------------------------------\n", newArrival)
+
+    context = {
+        "farmingTool" : farmingTool,
+        "flowerPlant" : flowerPlant,
+        "seedsPlan" : seedsPlan,
+        "tractor" : tractor,
+        "birdPoultry" : birdPoultry,
+        "irrigationHarvesting" : irrigationHarvesting,
+        "fertilizerSoil" : fertilizerSoil,
+        "coirAgro" : coirAgro,
+        "farmingPet" : farmingPet,
+        "newArrival" : newArrival
+    }
     return render(request, 'HomeTwo.html', context)
 
 def supplierSignUp(request):
@@ -104,11 +147,14 @@ def customerSignUp(request):
 def customerSignIn(request):
     if(request.method == "POST"):
         mobileNumber = request.POST['contact']
-
         if Customer.objects.filter(mobile_number = mobileNumber).exists():
             response = {'status': 1, 'message': ("Successfull Login")}
-
+            request.session['customer'] = mobileNumber
         else :
             response = {'status': 1, 'message': ("No User found with this Mobile Number")}
 
     return HttpResponse(json.dumps(response), content_type='application/json')
+
+def customerSignOut(request):
+    request.session.pop('customer')
+    return redirect('homepage:landingPage')

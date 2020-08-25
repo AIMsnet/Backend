@@ -2,13 +2,13 @@ from django.shortcuts import render, get_object_or_404, HttpResponse, redirect
 from django.contrib import messages
 from django.urls import reverse
 from django.shortcuts import render
-from .models import Supplier, Business, Main_Categories, Sub_Main_Category, Category, Product
+from .models import Supplier, Business, Main_Categories, Sub_Main_Category, Category, Product, Quote
 from .forms import SupplierProfileForm, BusinessProfileForm
 from django.core import serializers
 import json
 import re
-import base64
 from django.utils import timezone
+from django.db.models import Sum
 
 
 # Create your views here.
@@ -37,9 +37,8 @@ def returnPage(request):
         'address' : business.address, 'year_of_establishment' : business.year_of_establishment,
         'description' : business.description, 'GST' : business.GST, 'PAN' : business.PAN, 'CIN' : business.CIN,
         'DGFT' : business.DGFT
-    })
+        })
         mainCategories = Main_Categories.objects.all()
-        print("These are main categories-----------", mainCategories)
     except Exception as e:
         business = "Not Found"
     
@@ -48,7 +47,13 @@ def returnPage(request):
 
     if designation !=  "Not Found" and business!= "Not Found":
         product = Product.objects.filter(business = business)
+        quotes = Quote.objects.filter(supplier = supplier)
+        leads = len(quotes)
+        clicks = Product.objects.filter(business = business).aggregate(Sum('clicks'))
+        productCount = len(product)
+        profileViews = business.profile_views
 
+        print("These are profile Views", profileViews)
     context = {
         'supplier' : supplier,
         'business' : business,
@@ -56,7 +61,12 @@ def returnPage(request):
         'supplierProfileForm' : supplierProfileForm,
         'businessProfileForm' : businessProfileForm,
         'mainCategories' : mainCategories,
-        "products" : product
+        "products" : product,
+        "quotes" : quotes,
+        "leads" : leads,
+        "clicks" : clicks,
+        "productCount" : productCount,
+        "profileViews" : profileViews
     }
     return render(request, 'SupplierProfile.html', context)
 
@@ -254,7 +264,6 @@ def updateProduct(request):
         product = Product.objects.filter(business = business).filter(code = productCode)
         product = product[0]
         creationDate = product.created_date
-        print("Product_-------------___", product.code)
 
         product.image = productImage
         product.name = productName
@@ -339,7 +348,8 @@ def getSupplierProfile(request, supplierId):
     print(supplierId)
     business = Business.objects.get(name = supplierId)
     products = Product.objects.filter(business = business)
-    
+    business.profile_views += 1
+    business.save()
     print("Suppleir-----\n", business.supplier.full_name)
     context = {
         'business' : business,

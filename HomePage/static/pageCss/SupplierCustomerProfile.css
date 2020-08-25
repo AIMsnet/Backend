@@ -1,118 +1,137 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
+
+
+
+
+/*<div class="col-lg-4 col-md-5 col-sm-12 "></div> ye cards k div k bahar lagana
+*/
 
 body{
     font-family: 'Baloo Tammudu 2', cursive;
-    background-color:#fff;
+    background-color:#EDF1F5;
 }
 
 /* header */
 
 .Seller-Details{
-  width: 100%;
+  /*width: 100%;*/
   height: 6rem;
+  padding-top: 20px;
   background-color: #FFF;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.Seller-Name{
-  padding-top: 16px;
-  font-size: 34px;
-  text-align:left;
-  color: #4cc417;
-  font-family:  'Fredoka One', cursive;/*'Aclonica', sans-serif;*/
+.Seller-Details .Logo_svgs{
+  height: 40px;
+  width: 40px;
+  padding-right: 2px;
 }
 
-.SubHead{
-  padding-top: 32px;
-  font-size: 22px;
+.Seller-Name{
+  margin-top:8px;
+  margin-bottom: -2rem;
+  font-size: 34px;
+  font-weight: 600;
   text-align:left;
-  color: #34282c;
-  font-family: 'Fredoka One', cursive;
+  color: #303a52;
+  font-family: 'Baloo Tammudu 2', cursive;
 }
 
 .Seller-Details .Address{
-  padding-top: -6px;
+  padding-left: 2.6rem;
   color: #848482;
   font-size: 13px;
 }
 
-.nav-tabs .nav-item a{
-  margin-top:  40px;
+.nav-fill .img_svgs, .Product-row .img_svgs{
+  height: 15px;
+  width: 15px;
+  margin-bottom: 3px;
+}
+
+
+.SubHead{
+  padding-top: 2rem;
+  font-size: 22px;
+  text-align:left;
+  color: #34282c;
+  font-family: 'Baloo Tammudu 2', cursive;
+}
+
+.nav-tabs .nav-item {
+  margin-top: 1rem;
+  font-size: 15px;
+  width: 20%;
   color: #848482;
 }
 
-.nav-tabs .nav-item :active , .nav-tabs .nav-item :hover{
-  color: #fff;
-  background-color: #4cc417;
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+    color: white;
+    background-color: #303A52;
 }
 
-.Call, .Email
+
+.Call, .website
 { 
+  padding-top: 5px; 
   font-size: 13px;
 }
 
 /* /.header */
-
-
-/* tab */
-
-.tab-pane .Product-row{
-  margin-left: 2rem;
-  margin-right: 2rem;
-}
-/* /.tab*/
 
 /* card */
 
 .tab-pane .Pro-card{
   border-color: #b6b6b4;
   width: 11rem; 
-  height:15rem; 
-  margin: 13px;
+  height:14rem; 
+  margin: 20px; 
   align-items: center;
   background-color: #f0f8ff;
 }
 
-.Pro-card img{
-  width: 95%;
-  height: 8rem;
-  margin-top: 5px; 
+.Pro-card .Prod_img{
+  width: 90%;
+  height: 9rem;
+  padding:5px;
+  padding-bottom: 10px;
 }
 
 .Pro-card .title{
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
-  padding-left : 7px;
-  margin-top: 10px; 
+  margin-top: 20px;
 }
 
 .Pro-card .Product-Amount
 {
   font-weight: 600;
   font-size: 16px;
-  color:orange;
-  margin-top: 20px;
+  color:#303a52;
 }
 
 .Prod-overlay
 {
-  padding-top: 20px;
+  padding-top: 40px;
   text-align: center;
-
 }
 
-.Prod-overlay .title{
-  padding-right: 9px;
-}
-
-.Prod-overlay .price p 
+.Prod-overlay .price
 {
-  padding-top:40px;
-  color:orange;
+  margin-top: 3rem;
+  color:#303a52;
   font-weight: bold;
   text-align: center;
+}
+
+.Prod-overlay .price .getQuote{
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.Prod-overlay .price .getQuote:hover{
+  background-color: #303a52;
+  color: white;
 }
 
 .overlay {
@@ -130,59 +149,69 @@ body{
 
 .card:hover .overlay {
   opacity: 1;
-  border:2px solid #orange;  
+   
 }
 /* /.List Of Products */
 
 /* About Us */
 
 .tab-About p{
-  padding-top: 10px;
+ margin:20px;
 }
 
 .basic{
-  padding:10px;
+  padding-right: 5rem;
+  padding-left: 5rem;
+  padding-top: 20px;
 }
 
  .tab-About th, .tab-About td
  { 
- padding:15px;
+  font-size: 14px;
+  padding: 5px;
  }
 
-
+.tab-About .basic table{
+  margin-left: 20px;
+}
 
 /*media*/
 
-@media (min-width: 320px) and (max-width: 520px) { 
+@media (min-width: 360px) and (max-width: 520px) { 
 
   .Seller-Details{
-    width: 100%;
+      }
 
-  }
   .Seller-Name{
-    font-size: 17px;
-    padding-top: 10px;
-    padding-left: 20px;
+    font-size: 16px;
+    margin-top: -8px;
+    padding-left: 0px;
   }
-
+  .Seller-Details .Logo_svgs{
+  margin-right: 0px;
+  margin-top: -10px;
+  width: 20px;
+  height: 20px;
+}
   .Seller-Details .Address{
-    font-size: 10px;
-    padding-left: 20px;
+    font-size: 11px;
+    padding-left: 0px;
     align-content: center;
+    padding-top: px;
   }
   .nav-tabs .nav-item a{
-    margin-top: 6px;
-    font-size:13px;
+    font-size:10px;
     text-align: center;
+    margin-top: -6px;
   }
 
   .tab-pane .Product-row{
-    margin-left: 49px;
-    margin-right: 10px;
+    /*margin-left: 49px;
+    margin-right: 10px;*/
   }
-  .Call, .Email
+  .Call, .website
   { 
-   font-size: 12px;
+   font-size: 10px;
   }
 
   .SubHead{
@@ -206,9 +235,9 @@ body{
    font-size: 11px;
    }
 
-.tab-About td{
+  .tab-About td{
   padding: 6px; 
   font-size: 11px;
-}
+  }
 
 }

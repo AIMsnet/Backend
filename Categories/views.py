@@ -8,7 +8,7 @@ from Supplier.models import Main_Categories, Sub_Main_Category, Category
 def subCategory(request, subcategory):
     mainCategory = Main_Categories.objects.get(name = subcategory)
     subCategoryList = Sub_Main_Category.objects.filter(main_categories = mainCategory)
-    print("Got it", subCategoryList[0])
+
     context = {
         "subCategory" : subCategoryList,
         "category" : subcategory
@@ -24,5 +24,4 @@ def getCategories(request):
         category = serializers.serialize('json', category)
         category = json.loads(category)
         response = {'status' : 0, 'category' : category}
-
         return HttpResponse(json.dumps(response), content_type='application/json')

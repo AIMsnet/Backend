@@ -4,12 +4,17 @@
 
 {%block cssBlock %}
     <link rel="stylesheet" href="{%static 'pageCss/HomeTwo.css'%}">
+     <link rel="stylesheet" href="{%static 'css/lightslider.css'%}">
 {% endblock %}
+
+{% block scriptBlock%}
+  <script src="{%static 'js/lightslider.js'%}"></script>
+{% endblock %}  
 
 {%block menu%}
  <ul class="nav justify-content-center">
             <li class="nav-item">
-            <a class="nav-link active" href="#">Blogs</a>
+            <a class="nav-link active" href="#">Tenders</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="#" data-toggle="modal" data-target=".supplierSignUp">List Business</a>
@@ -32,9 +37,22 @@
             <!-- <li class="nav-item">
             <a class="nav-link disabled" href="#">Disabled</a>
             </li> -->
-        </ul>
-
+ </ul>
 {%endblock%}
+{% comment %} 
+{%block sidebar%}
+<div class="side-nav">
+  <div id="btn1" class="btn1">
+    <button class="btn side-nav-btn Tender" id="SoilCare">Soil Care <img src = "{%static 'assets/Sidebar.png' %}"></button>
+  </div>
+  <div id="btn3" class="btn3">
+    <button class="btn side-nav-btn GovtQuickLinks" id="GovtQuickLinks">Govt Quick Links <img src = "{%static 'assets/GovtQuickLinks.png' %}"></button>
+  </div>
+  <div id="btn4" class="btn4">
+    <button class="btn side-nav-btn Weather" id="Weather">Weather <img src = "{%static 'assets/Weather.svg' %}"></button>
+  </div>  
+</div>
+{%endblock%}  {% endcomment %}
 
 {% block mainblock %}
 <!-- ------------Categories -->
@@ -60,46 +78,64 @@
           </a>
         </div>
         <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+          <a class = "categoriesAnchor" href="SubCategories/sub/Tractor, Tractor Parts & Assemblies/">
             <img src="{%static 'assets/tractor.svg' %}" alt="Shovel icon" class="img-fluid">
             <h5>Tractor, Tractor Parts <br> & Assemblies</h5>
+          </a>
         </div>
     </div>
 
     <div class="row m-0 categoriesCompart">
         <div class="col-6 col-sm-3 col-md-3 col-lg-3">
-           <img src="{%static 'assets/cow.svg' %}" alt="Shovel icon" class="img-fluid">
-           <h5>Bird Food, Poultry <br> & Animal Food</h5>
+          <a class = "categoriesAnchor" href="SubCategories/sub/Bird Food, Poultry & Animal Food/">
+             <img src="{%static 'assets/cow.svg' %}" alt="Shovel icon" class="img-fluid">
+             <h5>Bird Food, Poultry <br> & Animal Food</h5>
+          </a>
         </div>
         <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+          <a class = "categoriesAnchor" href="SubCategories/sub/Irrigation & Harvesting Machines/">
             <img src="{%static 'assets/harvester.svg' %}" alt="Shovel icon" class="img-fluid">
-           <h5>Irrigation & <br> Harvesting Machines</h5>
+            <h5>Irrigation & <br> Harvesting Machines</h5>
+          </a>
         </div>
         <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+          <a class = "categoriesAnchor" href="SubCategories/sub/Fertilizers and Soil Additives/">
             <img src="{%static 'assets/fertilizer.svg' %}" alt="Shovel icon" class="img-fluid">
             <h5>Fertilizers and Soil Additives</h5>
+          </a>
         </div>
         <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+          <a class = "categoriesAnchor" href="SubCategories/sub/Coir & Agro Products/">
             <img src="{%static 'assets/coir.svg' %}" alt="Shovel icon" class="img-fluid">
             <h5>Coir and Agro Products</h5>
+          </a>  
         </div>
     </div>
 
     <div class="row m-0 categoriesCompart">
         <div class="col-6 col-sm-3 col-md-3 col-lg-3">
-           <img src="{%static 'assets/chicken.svg' %}" alt="Shovel icon" class="img-fluid">
+          <a class = "categoriesAnchor" href="SubCategories/sub/Farming and Pet Animals/">
+          <img src="{%static 'assets/chicken.svg' %}" alt="Shovel icon" class="img-fluid">
            <h5>Farming and Pet Animals</h5>
+          </a>           
         </div>
         <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+          <a class = "categoriesAnchor" href="SubCategories/sub/Agri Finance/">
             <img src="{%static 'assets/rupee.svg' %}" alt="Shovel icon" class="img-fluid">
-           <h5>Agri Finance</h5>
+            <h5>Agri Finance</h5>
+          </a>
         </div>
         <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+          <a class = "categoriesAnchor" href="SubCategories/sub/Agri Insurance/">
             <img src="{%static 'assets/insurance.svg' %}" alt="Shovel icon" class="img-fluid">
             <h5>Agri Insurance</h5>
+          </a>
         </div>
         <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+          <a class = "categoriesAnchor" href="SubCategories/sub/Agri Related Business/">
             <img src="{%static 'assets/agriBussiness.svg'%}" alt="Shovel icon" class="img-fluid">
             <h5>Agri Related Business </h5>
+          </a>
         </div>               
     </div>
 </div>
@@ -128,229 +164,28 @@
   <div class="tab-content">
     <div id="home" class="tab-pane fade show active">
      <!-- -----------------------------------------------Carousel Starts Here -->
-     <div class="container my-4 advertiseContainer">
-      <hr class="my-4"> 
-    
-      <!--Carousel Wrapper-->
-      <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-    
-        <!--Controls-->
-        <div class="controls-top text-center">
-
-          <a class="btn-floating" href="#multi-item-example" data-slide="prev"><img src="{%static 'assets/LeftArrow.svg'%}" class = "img-fluid navArrow" alt=""></a>
-          <a class="btn-floating" href="#multi-item-example" data-slide="next"><img src="{%static 'assets/RightArrow.svg'%}" class = "img-fluid navArrow" alt=""></a>
-        </div>
-        <!--/.Controls-->
-    
-        <!--Indicators-->
-        <ol class="carousel-indicators">
-          <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-          <li data-target="#multi-item-example" data-slide-to="1"></li>
-          <li data-target="#multi-item-example" data-slide-to="2"></li>
-        </ol>
-        <!--/.Indicators-->
-    
-        <!--Slides-->
-        <div class="carousel-inner" role="listbox">
-    
-          <!--First slide-->
-          <div class="carousel-item active">
-            <div class="row">
-              <div class="col-4 advertiseCardColumn">
-                <a href="">
-                  <div class="card">
-                    <img src="https://4.imimg.com/data4/TO/CE/ANDROID-2674668/product-500x500.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body advertiseCardBody">
-                      <h5>Maxi Paw Popup Sprinkler for Landscape</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              
-              <div class="col-4 advertiseCardColumn">
-                <a href="">
-                  <div class="card">
-                    <img src="https://5.imimg.com/data5/AQ/XT/MY-25286959/irrigation-sprinkler-500x500.jpg" class="card-img-top" alt="...">
-                    <div class="card-body advertiseCardBody">
-                      <h5>Brass Sprinkler Nozzle F/HT - 20</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-    
-              <div class="col-4 advertiseCardColumn">
-              <a href="">
-                <div class="card">
-                  <img src="https://5.imimg.com/data5/LF/XP/ZU/ANDROID-21647869/1565250949571-jpg-500x500.jpg" class="card-img-top" alt="...">
-                  <div class="card-body advertiseCardBody">
-                    <h5>Netafim 2.5 mm D-Net 8550 Sprinkler</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  </div>
-                </div>
-              </a>
-              </div>
+       <div class="con-slider">
+    <ul id="autoWidth" class="cs-hidden">
+      {% for arrival in newArrival %}
+      <li class="item-a">
+         <a href="/product/productDescription/{{arrival.pk}}">
+          <div class="card crd-slider">
+            <img src = {{arrival.image.url}} class="model ">
+            <div class="card-body details">
+              <h5>{{arrival.name}}</h5>
+              <b><h6>Price : &nbsp₹ {{arrival.price}}</h6></b>
             </div>
           </div>
-
-           <div class="carousel-item">
-            <div class="row">
-              <div class="col-4 advertiseCardColumn">
-                <a href="">
-                  <div class="card">
-                    <img src="https://static6.industrybuying.com/products_medium/agriculture-garden-landscaping/sprayers/knapsack-sprayer/AGR.MAN.21391495_1561637457267.jpg" class="card-img-top" alt="...">
-                    <div class="card-body advertiseCardBody">
-                      <h5>Hand Operated Knapsack Sprayer</h5>
-                      <p class="card-text"> They are ideal to spray insecticides, pesticides, fungicides, herbicides etc. in field areas to protect the crop from pest attack.</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              
-              <div class="col-4 advertiseCardColumn">
-                <a href="">
-                  <div class="card">
-                    <img src="//static6.industrybuying.com/products_mini/pumps/agriculture-pumps-engines/engines/PUM.ENG.41099887_1506147243282.JPG" class="card-img-top" alt="...">
-                    <div class="card-body advertiseCardBody">
-                      <h5>Vanguard Horizontal Shaft Engine 185400</h5>
-                      <p class="card-text">Buy Briggs & Stratton Series Vanguard Horizontal Shaft Engine 185400 online in India at wholesale rates.</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-    
-              <div class="col-4 advertiseCardColumn">
-              <a href="">
-                <div class="card">
-                  <img src="//static6.industrybuying.com/products_mini/pumps/booster-pressure-pump/PUM.BOO.102286508_1567056197022.JPG" class="card-img-top" alt="...">
-                  <div class="card-body advertiseCardBody">
-                    <h5>Self Priming Pressure Booster Pump</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  </div>
-                </div>
-              </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--/.Slides-->
-      </div>
-      <!--/.Carousel Wrapper-->
-    </div>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
       <!-- -----------------------------------------------Carousel Ends Here -->
     </div>  
     <div id="menu1" class="tab-pane fade">
-     <div class="container my-4 advertiseContainer">
-      <hr class="my-4"> 
-    
-      <!--Carousel Wrapper-->
-      <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-    
-        <!--Controls-->
-        <div class="controls-top text-center">
-
-          <a class="btn-floating" href="#multi-item-example" data-slide="prev"><img src="{%static 'assets/LeftArrow.svg'%}" class = "img-fluid navArrow" alt=""></a>
-          <a class="btn-floating" href="#multi-item-example" data-slide="next"><img src="{%static 'assets/RightArrow.svg'%}" class = "img-fluid navArrow" alt=""></a>
-        </div>
-        <!--/.Controls-->
-    
-        <!--Indicators-->
-        <ol class="carousel-indicators">
-          <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-          <li data-target="#multi-item-example" data-slide-to="1"></li>
-          <li data-target="#multi-item-example" data-slide-to="2"></li>
-        </ol>
-        <!--/.Indicators-->
-    
-        <!--Slides-->
-        <div class="carousel-inner" role="listbox">
-    
-          <!--First slide-->
-          <div class="carousel-item active">
-            <div class="row">
-              <div class="col-4 advertiseCardColumn">
-                <a href="">
-                  <div class="card">
-                    <img src="//static6.industrybuying.com/products_mini/agriculture-garden-landscaping/grain-processing-machine/AGR.GRA.52125501_1556363632501.jpg" class="card-img-top" alt="...">
-                    <div class="card-body advertiseCardBody">
-                      <h5>Inder 1600 W Electric Router P-407A</h5>
-                      <p class="card-text"> If you have been looking for Inder 1600 W Electric Router P-407A dealers, your search ends here as you can get the best Inder 1600 W Electric Router P-407A distributors in top cities.</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              
-              <div class="col-4 advertiseCardColumn">
-                <a href="">
-                  <div class="card">
-                    <img src="//static6.industrybuying.com/products_mini/pneumatics/pneumatic-fitting/pipe/PNE.PIP.31366527_1527841475472.jpg" class="card-img-top" alt="...">
-                    <div class="card-body advertiseCardBody">
-                      <h5>PU PUSH IN PIPE TEE 12mm</h5>
-                      <p class="card-text">Buy PU PUSH IN PIPE TEE 12mm online in India at wholesale rates.</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-    
-              <div class="col-4 advertiseCardColumn">
-              <a href="">
-                <div class="card">
-                  <img src="//static6.industrybuying.com/products_mini/pneumatics/air-compressors/air-tank-compressor/PNE.AIR.61518584_1571316143179.jpg  " class="card-img-top" alt="...">
-                  <div class="card-body advertiseCardBody">
-                    <h5>Netafim 2.5 mm D-Net 8550 Sprinkler</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  </div>
-                </div>
-              </a>
-              </div>
-            </div>
-          </div>
-
-           <div class="carousel-item">
-            <div class="row">
-              <div class="col-4 advertiseCardColumn">
-                <a href="">
-                  <div class="card">
-                    <img src="https://static6.industrybuying.com/products_medium/agriculture-garden-landscaping/sprayers/knapsack-sprayer/AGR.MAN.21391495_1561637457267.jpg" class="card-img-top" alt="...">
-                    <div class="card-body advertiseCardBody">
-                      <h5>Hand Operated Knapsack Sprayer</h5>
-                      <p class="card-text"> They are ideal to spray insecticides, pesticides, fungicides, herbicides etc. in field areas to protect the crop from pest attack.</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              
-              <div class="col-4 advertiseCardColumn">
-                <a href="">
-                  <div class="card">
-                    <img src="//static6.industrybuying.com/products_mini/pumps/agriculture-pumps-engines/engines/PUM.ENG.41099887_1506147243282.JPG" class="card-img-top" alt="...">
-                    <div class="card-body advertiseCardBody">
-                      <h5>Vanguard Horizontal Shaft Engine 185400</h5>
-                      <p class="card-text">Buy Briggs & Stratton Series Vanguard Horizontal Shaft Engine 185400 online in India at wholesale rates.</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-    
-              <div class="col-4 advertiseCardColumn">
-              <a href="">
-                <div class="card">
-                  <img src="//static6.industrybuying.com/products_mini/pumps/booster-pressure-pump/PUM.BOO.102286508_1567056197022.JPG" class="card-img-top" alt="...">
-                  <div class="card-body advertiseCardBody">
-                    <h5>Self Priming Pressure Booster Pump</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  </div>
-                </div>
-              </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--/.Slides-->
-      </div>
-      <!--/.Carousel Wrapper-->
-    </div>
+      <h3 class="text-center">Offers</h3>
+      <p>Some content in menu 1.</p>
     </div>
     <div id="menu2" class="tab-pane fade">
       <h3 class="text-center">Popular</h3>
@@ -358,7 +193,6 @@
     </div>
   </div>
 </div>
-
 
 <!-- -------Requirement Form -->
 <div class="container-fluid text-center requirement">
@@ -384,44 +218,157 @@
 </div>
 
 <!-- ----------Advertisement -->
-<div class="container-fluid py-4">
+<div class="container-fluid py-4 bg-white px-5">
+  <h4>Farming Tools Equipment & Machines</h4>
   <div class="row">
-    <div class="col-sm-3 col-md-6 col-lg-3">
-      <div class="card">
-        <img class="card-img-top" src="https://5.imimg.com/data5/LN/GA/MY-2664323/mini-power-tillers-500x500.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Bheem Mini Power Tillers, Engine Model: 600d</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    {% for f in farmingTool %}
+    <a href="/product/productDescription/{{f.pk}}">
+      <div class="col-sm-6 col-md-3 col-lg-2">
+        <div class="card crd-slider">
+          <img src = {{f.image.url}} class="model">
+          <div class="card-body details">
+            <h5>{{f.name}}</h5> 
+          </div>
+        </div>
+      </div>
+    </a>
+    {% endfor %} 
+  </div>
+</div>
+
+  <!-- Flower Plant and trees -->
+<div class="container-fluid py-4 bg-white px-5">
+  <h4>Flower Plants & Trees</h4>
+  <div class="row">
+    {% for f in flowerPlant  %}
+    <div class="col-sm-6 col-md-3 col-lg-2">
+      <div class="card crd-slider">
+        <img src = {{f.image.url}} class="model">
+        <div class="card-body details">
+          <h5>{{f.name}}</h5> 
         </div>
       </div>
     </div>
-    <div class="col-sm-3 col-md-6 col-lg-3">
-      <div class="card">
-        <img class="card-img-top" src="https://5.imimg.com/data5/RM/MN/MY-3865272/rotary-disc-harrow-500x500.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Mild Steel Rotary Disc Harrow</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    {% endfor %} 
+  </div>
+</div>
+
+  <!-- Seeds Plant & Sapling -->
+<div class="container-fluid py-4 bg-white px-5">
+    <h4>Seeds Plant & Sapling</h4>
+    <div class="row">
+      {% for f in seedsPlan  %}
+      <div class="col-sm-6 col-md-3 col-lg-2">
+        <div class="card crd-slider">
+          <img src = {{f.image.url}} class="model">
+          <div class="card-body details">
+            <h5>{{f.name}}</h5> 
+          </div>
+        </div>
+      </div>
+      {% endfor %} 
+    </div>
+</div>
+
+  <!-- Tractor, Tractor Parts & Assemblies -->
+<div class="container-fluid py-4 bg-white px-5">
+  <h4>Tractor, Tractor Parts & Assemblies</h4>
+  <div class="row">
+    {% for f in tractor  %}
+    <div class="col-sm-6 col-md-3 col-lg-2">
+      <div class="card crd-slider">
+        <img src = {{f.image.url}} class="model">
+        <div class="card-body details">
+          <h5>{{f.name}}</h5> 
         </div>
       </div>
     </div>
-    <div class="col-sm-3 col-md-6 col-lg-3">
-      <div class="card">
-        <img class="card-img-top" src="https://5.imimg.com/data5/LZ/XY/YX/SELLER-1450162/golf-and-cricket-ground-fertilizer-spreader-top-dresser-similar-to-toro-turfco-500x500.png" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Golf and Cricket Ground Fertilizer Spreader, Top Dresser, Similar To Toro, Turfco</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    {% endfor %} 
+  </div>
+</div>
+
+  <!-- Bird Poultry & Animal Food -->
+<div class="container-fluid py-4 bg-white px-5">
+  <h4>Bird Poultry & Animal Food</h4>
+  <div class="row">
+    {% for f in birdPoultry  %}
+    <div class="col-sm-6 col-md-3 col-lg-2">
+      <div class="card crd-slider">
+        <img src = {{f.image.url}} class="model">
+        <div class="card-body details">
+          <h5>{{f.name}}</h5> 
         </div>
       </div>
     </div>
-    <div class="col-sm-3 col-md-6 col-lg-3">
-      <div class="card">
-        <img class="card-img-top" src="https://5.imimg.com/data5/OR/ST/BB/SELLER-27483913/petrol-power-reaper-500x500.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Vardhman Power Reaper, Model Name/Number: 2fp, Capacity: Honda Gx 200 Engine</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    {% endfor %} 
+  </div>
+</div>
+
+  <!-- Irrigation & Harvesting Machine -->
+<div class="container-fluid py-4 bg-white px-5">
+  <h4>Irrigation & Harvesting Machine</h4>
+  <div class="row">
+    {% for f in irrigationHarvesting  %}
+    <div class="col-sm-6 col-md-3 col-lg-2">
+      <div class="card crd-slider">
+        <img src = {{f.image.url}} class="model">
+        <div class="card-body details">
+          <h5>{{f.name}}</h5> 
         </div>
       </div>
     </div>
+    {% endfor %} 
+  </div>
+</div>
+
+  <!-- Fertilizers & Soil Addictive -->
+<div class="container-fluid py-4 bg-white px-5">
+  <h4>Fertilizers & Soil Addictive</h4>
+  <div class="row">
+    {% for f in fertilizerSoil  %}
+    <div class="col-sm-6 col-md-3 col-lg-2">
+      <div class="card crd-slider">
+        <img src = {{f.image.url}} class="model">
+        <div class="card-body details">
+          <h5>{{f.name}}</h5> 
+        </div>
+      </div>
+    </div>
+    {% endfor %} 
+  </div>
+</div>
+
+  <!-- Coir & Agro Products -->
+<div class="container-fluid py-4 bg-white px-5">
+  <h4>Coir & Agro Products</h4>
+  <div class="row">
+    {% for f in coirAgro  %}
+    <div class="col-sm-6 col-md-3 col-lg-2">
+      <div class="card crd-slider">
+        <img src = {{f.image.url}} class="model">
+        <div class="card-body details">
+          <h5>{{f.name}}</h5> 
+        </div>
+      </div>
+    </div>
+    {% endfor %} 
+  </div>
+</div>
+
+  <!-- Farming & Pet Animals -->
+<div class="container-fluid py-4 bg-white px-5">
+  <h4>Farming & Pet Animals</h4>
+  <div class="row">
+    {% for f in coirAgro  %}
+    <div class="col-sm-6 col-md-3 col-lg-2">
+      <div class="card crd-slider">
+        <img src = {{f.image.url}} class="model">
+        <div class="card-body details">
+          <h5>{{f.name}}</h5> 
+        </div>
+      </div>
+    </div>
+    {% endfor %} 
   </div>
 </div>
 
@@ -1020,291 +967,18 @@
     </div>
   </div>
 </div>
-<!-- ------------Supplier Sign In Model -->
-<div class="modal fade" id="supplierSignIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Supplier Sign In</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form id = "supplierSignIn" action = "SupplierSignIn" method = "POST" style="text-align: -webkit-center;">
-            {% csrf_token %}
-
-          <div class="form-group">
-            <input type="text" class="form-control supplierSignInFormControl" name="emailId" id="emailId" placeholder="Email">
-          </div>
-
-          <div class="form-group">
-            <input type="password" class="form-control supplierSignInFormControl" name="password" id="password" placeholder="Password">
-         </div>
-
-         <div class="form-group">
-          <input type="submit" value="Sign In" class="btn btn-primary">
-         </div>
-
-          </form>
-        </div>
-        <div class="modal-footer">
-            New Seller ?<a href="" class = "px-3" data-toggle="modal" data-target=".supplierSignUp">Start Here</a>
-        </div>
-      </div>
-    </div>
-</div>
-
-<!-- ------------Supplier Sign Up Model -->
-<div class="modal fade supplierSignUp" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">   
-        <div class="modal-header">
-            <h5 class="modal-title">Sign Up Supplier</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body" style="padding: 2vh 6vw;">
-            <form id="createNewSupplier">
-              {% csrf_token %}
-                <div class="form-group">
-                     <label for="txtProduct">
-                        <svg class="bi bi-person inputGroupSvg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 00.014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 00.022.004zm9.974.056v-.002.002zM8 7a2 2 0 100-4 2 2 0 000 4zm3-2a3 3 0 11-6 0 3 3 0 016 0z" clip-rule="evenodd"/>
-                          </svg>   
-                        Full Name</label>
-                    <input class="form-control" type="text" name="fullname" id="fullName" placeholder="Full Name">
-                </div>
-                <div class="form-group">
-                    <label for="txtProduct">
-                        <svg class="bi bi-envelope-open inputGroupSvg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M.243 6.929l.514-.858L8 10.417l7.243-4.346.514.858L8 11.583.243 6.93z" clip-rule="evenodd"/>
-                            <path fill-rule="evenodd" d="M7.184 10.68L.752 14.432l-.504-.864L6.68 9.816l.504.864zm1.632 0l6.432 3.752.504-.864L9.32 9.816l-.504.864z" clip-rule="evenodd"/>
-                            <path fill-rule="evenodd" d="M8.47 1.318a1 1 0 00-.94 0l-6 3.2A1 1 0 001 5.4V14a1 1 0 001 1h12a1 1 0 001-1V5.4a1 1 0 00-.53-.882l-6-3.2zM7.06.435a2 2 0 011.882 0l6 3.2A2 2 0 0116 5.4V14a2 2 0 01-2 2H2a2 2 0 01-2-2V5.4a2 2 0 011.059-1.765l6-3.2z" clip-rule="evenodd"/>
-                          </svg>
-                        Email</label>
-                    <input class="form-control" type="text" name="email" id="email" placeholder="Email">
-                </div>
-                <div class="form-group">
-                    <label for="txtProduct">
-                        <svg class="bi bi-shield-lock inputGroupSvg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M5.443 1.991a60.17 60.17 0 00-2.725.802.454.454 0 00-.315.366C1.87 7.056 3.1 9.9 4.567 11.773c.736.94 1.533 1.636 2.197 2.093.333.228.626.394.857.5.116.053.21.089.282.11A.73.73 0 008 14.5c.007-.001.038-.005.097-.023.072-.022.166-.058.282-.111.23-.106.525-.272.857-.5a10.197 10.197 0 002.197-2.093C12.9 9.9 14.13 7.056 13.597 3.159a.454.454 0 00-.315-.366c-.626-.2-1.682-.526-2.725-.802C9.491 1.71 8.51 1.5 8 1.5c-.51 0-1.49.21-2.557.491zm-.256-.966C6.23.749 7.337.5 8 .5c.662 0 1.77.249 2.813.525a61.09 61.09 0 012.772.815c.528.168.926.623 1.003 1.184.573 4.197-.756 7.307-2.367 9.365a11.191 11.191 0 01-2.418 2.3 6.942 6.942 0 01-1.007.586c-.27.124-.558.225-.796.225s-.526-.101-.796-.225a6.908 6.908 0 01-1.007-.586 11.192 11.192 0 01-2.417-2.3C2.167 10.331.839 7.221 1.412 3.024A1.454 1.454 0 012.415 1.84a61.11 61.11 0 012.772-.815z" clip-rule="evenodd"/>
-                            <path d="M9.5 6.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
-                            <path d="M7.411 8.034a.5.5 0 01.493-.417h.156a.5.5 0 01.492.414l.347 2a.5.5 0 01-.493.585h-.835a.5.5 0 01-.493-.582l.333-2z"/>
-                          </svg>
-                        Password</label>
-                    <input class="form-control" type="password" name="password" id="supplierPassword" placeholder="Password">
-                </div>
-                <div class="form-group">
-                    <label for="txtProduct">Confirm Password</label>
-                    <input class="form-control" type="password" name="confirmPassword" id="confirmPassword" placeholder="password">
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">I agree to the Terms of User</label>
-                </div>
-                <div class="form-group text-center">
-                    <input type="submit" value="Sign Up" class="btn btn-primary">
-                </div>
-              </form>
-        </div>
-      </div>
-    </div>
-</div>
-
-<!-- ------------Customer Sign In Model -->
-<div class="modal fade" id="customerSignIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Sign In</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form id = "customerSignIn" style="text-align: -webkit-center;">
-          {% csrf_token %}
-            <div class="form-group">
-                <!-- <label for="txtProduct">Email Id</label> -->
-                <input type="number" class="form-control supplierSignInFormControl" name="customerContact" id="customerContact" placeholder="Contact Number">
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Sign In" class="btn btn-primary">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-            New Here ?<a href="" class = "px-3" data-toggle="modal" data-target=".customerSignUp">Join Us</a>
-        </div>
-      </div>
-    </div>
-</div>
-
-<!-- ------------Customer Sign Up Model -->
-<div class="modal fade customerSignUp" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">   
-        <div class="modal-header">
-            <h5 class="modal-title">Customer Sign Up</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body" style="padding: 2vh 6vw;">
-            <form id = "customerSignUp">
-            {% csrf_token %}
-                <div class="form-group">
-                     <label for="txtProduct">
-                        <svg class="bi bi-person inputGroupSvg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 00.014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 00.022.004zm9.974.056v-.002.002zM8 7a2 2 0 100-4 2 2 0 000 4zm3-2a3 3 0 11-6 0 3 3 0 016 0z" clip-rule="evenodd"/>
-                          </svg>   
-                        Full Name</label>
-                    {{customerSignUpForm.full_name}}
-                </div>
-                <div class="form-group">
-                    <label for="txtProduct"><svg class="bi bi-phone" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M11 1H5a1 1 0 00-1 1v12a1 1 0 001 1h6a1 1 0 001-1V2a1 1 0 00-1-1zM5 0a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V2a2 2 0 00-2-2H5z" clip-rule="evenodd"/>
-                        <path fill-rule="evenodd" d="M8 14a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
-                      </svg>
-                        Mobile Number</label>
-                    {{customerSignUpForm.mobile_number}}
-                </div>
-                <div class="form-group">
-                    <label for="txtProduct">
-                        <svg class="bi bi-house" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 00.5.5h9a.5.5 0 00.5-.5V7h1v6.5a1.5 1.5 0 01-1.5 1.5h-9A1.5 1.5 0 012 13.5zm11-11V6l-2-2V2.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5z" clip-rule="evenodd"/>
-                            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 011.414 0l6.647 6.646a.5.5 0 01-.708.708L8 2.207 1.354 8.854a.5.5 0 11-.708-.708L7.293 1.5z" clip-rule="evenodd"/>
-                          </svg>
-                        Address</label>
-                    {{customerSignUpForm.address}}
-                </div>
-                <div class="form-group">
-                    <label for="txtProduct"><svg class="bi bi-map" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M15.817.613A.5.5 0 0116 1v13a.5.5 0 01-.402.49l-5 1a.502.502 0 01-.196 0L5.5 14.51l-4.902.98A.5.5 0 010 15V2a.5.5 0 01.402-.49l5-1a.5.5 0 01.196 0l4.902.98 4.902-.98a.5.5 0 01.415.103zM10 2.41l-4-.8v11.98l4 .8V2.41zm1 11.98l4-.8V1.61l-4 .8v11.98zm-6-.8V1.61l-4 .8v11.98l4-.8z" clip-rule="evenodd"/>
-                      </svg>
-                        Taluka</label>
-                    {{customerSignUpForm.taluka}}
-                </div>
-                <div class="form-group">
-                    <label for="txtProduct"><svg class="bi bi-envelope-open inputGroupSvg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M.243 6.929l.514-.858L8 10.417l7.243-4.346.514.858L8 11.583.243 6.93z" clip-rule="evenodd"/>
-                        <path fill-rule="evenodd" d="M7.184 10.68L.752 14.432l-.504-.864L6.68 9.816l.504.864zm1.632 0l6.432 3.752.504-.864L9.32 9.816l-.504.864z" clip-rule="evenodd"/>
-                        <path fill-rule="evenodd" d="M8.47 1.318a1 1 0 00-.94 0l-6 3.2A1 1 0 001 5.4V14a1 1 0 001 1h12a1 1 0 001-1V5.4a1 1 0 00-.53-.882l-6-3.2zM7.06.435a2 2 0 011.882 0l6 3.2A2 2 0 0116 5.4V14a2 2 0 01-2 2H2a2 2 0 01-2-2V5.4a2 2 0 011.059-1.765l6-3.2z" clip-rule="evenodd"/>
-                      </svg>
-                        Post</label>
-                      {{customerSignUpForm.post}}
-                </div>
-                <div class="form-group">
-                    <label for="txtProduct"><svg class="bi bi-building" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M15.285.089A.5.5 0 0115.5.5v15a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5V14h-1v1.5a.5.5 0 01-.5.5H1a.5.5 0 01-.5-.5v-6a.5.5 0 01.418-.493l5.582-.93V3.5a.5.5 0 01.324-.468l8-3a.5.5 0 01.46.057zM7.5 3.846V8.5a.5.5 0 01-.418.493l-5.582.93V15h8v-1.5a.5.5 0 01.5-.5h2a.5.5 0 01.5.5V15h2V1.222l-7 2.624z" clip-rule="evenodd"/>
-                        <path fill-rule="evenodd" d="M6.5 15.5v-7h1v7h-1z" clip-rule="evenodd"/>
-                        <path d="M2.5 11h1v1h-1v-1zm2 0h1v1h-1v-1zm-2 2h1v1h-1v-1zm2 0h1v1h-1v-1zm6-10h1v1h-1V3zm2 0h1v1h-1V3zm-4 2h1v1h-1V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm-2 2h1v1h-1V7zm2 0h1v1h-1V7zm-4 0h1v1h-1V7zm0 2h1v1h-1V9zm2 0h1v1h-1V9zm2 0h1v1h-1V9zm-4 2h1v1h-1v-1zm2 0h1v1h-1v-1zm2 0h1v1h-1v-1z"/>
-                      </svg>
-                        
-                        District</label>
-                    {{customerSignUpForm.district}}
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">I agree to the Terms of User</label>
-                </div>
-                <div class="form-group text-center">
-                    <input type="submit" value="Sign Up" class="btn btn-primary">
-                </div>
-            </form>
-        </div>
-      </div>
-    </div>
-</div>
-
 
 <script type="text/javascript">
-   
-//SupplierSignUp
-$(document).on('submit','#createNewSupplier', function(e){
-    e.preventDefault();
-    $.ajax({
-      type:'POST',
-      url:'SupplierSignUp',
-      data:{
-        fullname:$('#fullName').val(),
-        email:$('#email').val(),
-        password:$('#supplierPassword').val(),
-        confirm_password:$('#confirmPassword').val(),
-        csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
-      },
-      success:function(response){
-        alert(response.message)
-      }
-    });
+  $(document).ready(function() {
+    $('#autoWidth').lightSlider({
+        autoWidth:true,
+        loop:true,
+        onSliderLoad: function() {
+            $('#autoWidth').removeClass('cS-hidden');
+        } 
+    });  
   });
-
-// Supplier Sign In
-$(document).on('submit','#supplierSignIn', function(e){
-  e.preventDefault();
-    $.ajax({
-      type:'POST',
-      url:'SupplierSignIn',
-      data:{
-        email:$('#emailId').val(),
-        password:$('#password').val(),
-        csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
-      },
-      success:function(response){
-        if(response.status == 0){
-          window.location = response.supplier
-        }
-        else{
-          alert(response.message)
-        }
-      }
-    });
-  });
-
-// Customer Sign Up
-$(document).on('submit','#customerSignUp', function(e){
-    e.preventDefault();
-    $.ajax({
-      type:'POST',
-      url:'CustomerSignUp',
-      data:{
-        fullName:$('#full_name').val(),
-        mobileNumber:$('#mobile_number').val(),
-        address:$('#address').val(),
-        taluka:$('#taluka').val(),
-        post:$('#post').val(),
-        district:$('#district').val(),
-        csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
-      },
-      success:function(response){
-        alert(response.message)
-      },
-    });
-  });
-
-// Customer Sign In
-$(document).on('submit','#customerSignIn', function(e){
-    e.preventDefault();
-    $.ajax({
-      type:'POST',
-      url:'CustomerSignIn',
-      data:{
-        contact:$('#customerContact').val(),
-        csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
-      },
-      success:function(response){
-        alert(response.responseText)
-      },
-      error:function(response){
-        alert(response.responseText)
-      }
-    });
-  });
-
 </script>
-
 
 {% endblock %}b
 

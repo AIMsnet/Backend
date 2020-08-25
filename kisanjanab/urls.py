@@ -20,15 +20,16 @@ from django.conf.urls import include, url
 from . import settings
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from HomePage.views import customerSignOut
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url('', include('HomePage.urls')),
+    url('logout/$', customerSignOut),
     url('Supplier', include('Supplier.urls')),
     url('SubCategories', include('Categories.urls')),
     url('product', include('Products.urls')),
 ]
-
 
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

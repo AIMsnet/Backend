@@ -164,3 +164,101 @@
         width: 30vw;
     }
 }
+
+.con-slider{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    align-items: center;
+  }
+  
+  .crd-slider{
+    width: 260px;
+    background-color: #fff;
+    border: 1px solid #b6b6b4; 
+    /*padding-left: 10px;
+    padding-right:10px;
+    padding-bottom: 20px;*/
+   
+    }
+  
+  
+  .details{
+    align-items: left;
+    padding: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .details h5{
+    color: #0000ff;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .crd-slider .model{
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /*margin-left: 30px;
+    margin-right: 20px;*/
+    height: 200px;
+    width: 200px;
+  }
+  
+  
+  .details p{
+    text-align: left;
+    color: #000;
+    font-size:14px;
+    text-decoration: none;
+  }
+  
+  
+  @media(max-width: 720px)
+  {
+    .crd-slider{
+      width: 99%;
+      height: 450px;
+    }
+  
+    .crd-slider .modal{
+      height: 400px;
+    }
+  
+  
+    .details h5{
+      color: #0000ff;
+      font-size: 19px;
+    }
+    .details p{
+      width: 200px;
+      font-size: 16px;
+    }
+  }
+  
+  
+  // Small devices (landscape phones, 576px and up)
+  @media (min-width: 576px) { 
+  
+    .crd-slider{
+      width: 98%;
+      height: 650px;
+    }
+  
+    .crd-slider .modal{
+      height: 400px;
+    }
+    .details h5{
+      color: #0000ff;
+      font-size: 19px;
+    }
+    .details p{
+      width: 250px;
+      font-size: 16px;
+    }
+  
+  }
+  
+  

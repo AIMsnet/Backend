@@ -32,6 +32,21 @@
 {%endblock%}
 
 
+{%block sidebar%}
+<div class="side-nav">
+  <div id="btn1" class="btn1">
+    <button class="btn side-nav-btn Tender" id="SoilCare">Soil Care <img src = "{%static 'assets/Sidebar.png' %}"></button>
+  </div>
+  <div id="btn3" class="btn3">
+    <button class="btn side-nav-btn GovtQuickLinks" id="GovtQuickLinks">Govt Quick Links <img src = "{%static 'assets/GovtQuickLinks.png' %}"></button>
+  </div>
+  <div id="btn4" class="btn4">
+    <button class="btn side-nav-btn Weather" id="Weather">Weather <img src = "{%static 'assets/Weather.svg' %}"></button>
+  </div>  
+</div>
+{%endblock%}
+
+
 {% block mainblock%}
 <div class="container-fluid CategoryHead">
   <div class="heading justify-content-center input-group mt-1">
