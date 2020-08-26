@@ -717,7 +717,7 @@
         </button>
       </div>
       <div class="modal-body mt-3">
-        <form id = "addProduct" action="Supplier/product" method="post" enctype="multipart/form-data">
+        <form id = "addProduct" action="Supplier/addProduct" method="post" enctype="multipart/form-data">
           {% csrf_token %}
           <div class="form-group">
             <div class="row border-bottom border-light pb-2">
@@ -728,11 +728,11 @@
                   <label for="product_name">Product Name</label>
                   <input class="form-control form-control-sm" type="text" name="product_name" id="product_name">
                   <div class="row justify-content-start mt-2">
-                    <div class="form-group col-6">
+                    <div class="form-group col-8">
                       <label for="brand">Brand</label>
                       <input class="form-control form-control-sm" type="text" name="product_brand" id="product_brand">
                     </div>
-                    <div class="form-group col-6">
+                    <div class="form-group col-4">
                       <label for="code">Code</label>
                       <input class="form-control form-control-sm" type="text" name="product_code" id="product_code">
                     </div>
@@ -746,7 +746,7 @@
                 <input class="form-control form-control-sm" type="number" name="prodcut_price" id="prodcut_price">
               </div>
               <div class="form-group col-4">
-                <label for="prodcut_arrival">Arrival</label>
+                <label for="prodcut_arrival">New Arrival</label>
                 <select class="form-control form-control-sm" id="prodcut_arrival" name = "prodcut_arrival">
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
@@ -765,6 +765,17 @@
             </div>
 
             <div class="form-group mb-4">
+              <div class="row col-12 justify-content-between">
+                <label for="specifications">Specifications</label>
+                <button class="btn btn-sm btn-primary add_field_button">Add Specifications</button>
+              </div>
+              <div class="input_fields_wrap row col-12">
+                <div class="d-flex col-9">
+                </div>
+              </div>
+            </div>
+
+             <div class="form-group mb-4">
               <label for="description">Description</label>
               <textarea class="form-control form-control-sm" id = "product_description" name="product_description" cols="20" rows="5" ></textarea>
             </div>
@@ -815,7 +826,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLongTitle">Add New Product</h4>
+        <h4 class="modal-title" id="exampleModalLongTitle">Update Product</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -867,6 +878,17 @@
               </div>
             </div>
 
+            <div class="form-group mb-4">
+              <div class="row col-12 justify-content-between">
+                <label for="specifications">Specifications</label>
+                <button class="btn btn-sm btn-primary update_add_field_button">Add Specifications</button>
+              </div>
+              <div class="update_input_fields_wrap row col-12">
+                <div class="d-flex col-9">
+                </div>
+              </div>
+            </div>
+            
             <div class="form-group mb-4">
               <label for="description">Description</label>
               <textarea class="form-control form-control-sm" id = "update_product_description" name="update_product_description" cols="20" rows="5" ></textarea>
@@ -1021,14 +1043,67 @@ $(document).ready(function(){
 
   $('#productTable tbody').on('dblclick', 'tr', function () {
         // $(this).toggleClass('selected');
-        if ( $(this).hasClass('selected') ) {
-            $(this).removeClass('selected');
-        } 
-        else {
-            table.$('tr.selected').removeClass('selected');
-            $(this).addClass('selected');
-        }
+          $.each($('#productTable tbody tr'), function(idx, val) {
+          $(this).removeClass('selected');
+        });
+        
+        table.$('tr.selected').removeClass('selected');
+        $(this).addClass('selected');
     } );  
+
+    //Add Specifications New Product
+    var wrapper       = $(".input_fields_wrap"); //Fields wrapper
+    var add_button      = $(".add_field_button"); //Add button ID
+    var x = 0; //initlal text box count
+    $(add_button).click(function(e){ //on add input button click
+      e.preventDefault();
+      console.log("insode add")
+      if(x < 10){ //max input box allowed
+        x++; //text box increment
+          var e = $('<div class="d-flex col-9"></div>')
+          var spec = $('<input class="form-control form-control-sm" type="text">')
+          $(spec).attr('id', 'specification_'+x)
+          $(spec).attr('name', 'specification_'+x)
+          $(e).append(spec)
+          $(e).append('<h4>:</h4>')
+          var desc = $('<input class="form-control form-control-sm" type="text">')
+          $(desc).attr('id', 'description_'+x)
+          $(desc).attr('name', 'description_'+x)
+          $(e).append(desc)
+          $(e).append('<a href="#" class="btn btn-sm btn-light remove_field" type="button" role="button">Remove</a>')
+          $(wrapper).append(e);
+          }
+  });
+  $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+    e.preventDefault(); $(this).parent('div').remove(); x--;
+  })
+  
+   //Add Specifications Update Prodcuts
+    var wrapper2       = $(".update_input_fields_wrap"); //Fields wrapper
+    var add_button2      = $(".update_add_field_button"); //Add button ID
+    var x2 = 10; //initlal text box count
+    $(add_button2).click(function(e){ //on add input button click
+      e.preventDefault();
+      if(x2 < 10){ //max input box allowed
+        x2++; //text box increment
+          var e2 = $('<div class="d-flex col-9"></div>')
+          var spec2 = $('<input class="form-control form-control-sm" type="text">')
+          $(spec2).attr('id', 'updateSpecification_'+x2)
+          $(spec2).attr('name', 'updateSpecification_'+x2)
+          $(e2).append(spec2)
+          $(e2).append('<h4>:</h4>')
+          var desc2 = $('<input class="form-control form-control-sm" type="text">')
+          $(desc2).attr('id', 'updateDescription_'+x2)
+          $(desc2).attr('name', 'updateDescription_'+x2)
+          $(e2).append(desc2)
+          $(e2).append('<a href="#" class="btn btn-sm btn-light remove_field" type="button" role="button">Remove</a>')
+          $(wrapper2).append(e2);
+          }
+    });
+      $(wrapper2).on("click",".remove_field", function(e){ //user click on remove text
+         e.preventDefault(); $(this).parent('div').remove(); x2--;
+      })
+
 })
 
 $(document).on('submit','#updatePersonalDetail', function(e){
@@ -1254,8 +1329,68 @@ function getUpdateCategory(value){
       allCat = response.allCategory
       mainCategoryName = response.mainCategoryName
       subCategoryName = response.subCategoryName
-      console.log("Sub Category", allSub)
-      console.log("Category", allCat)
+      spec1 = response.spec1
+      spec2 = response.spec2
+      spec3 = response.spec3
+      spec4 = response.spec4
+      spec5 = response.spec5
+      spec6 = response.spec6
+      spec7 = response.spec7
+      spec8 = response.spec8
+      spec9 = response.spec9
+      spec10 = response.spec10
+
+      desc1 = response.desc1
+      desc2 = response.desc2
+      desc3 = response.desc3
+      desc4 = response.desc4
+      desc5 = response.desc5
+      desc6 = response.desc6
+      desc7 = response.desc7
+      desc8 = response.desc8
+      desc9 = response.desc9
+      desc10 = response.desc10
+
+    var wrapper2       = $(".update_input_fields_wrap"); //Fields wrapper
+    var add_button2      = $(".update_add_field_button"); //Add button ID
+
+    for(var i = 1; i <= 9; i++){
+         var e = $('<div class="d-flex col-9"></div>')
+          var spec = $('<input class="form-control form-control-sm" type="text">')
+          $(spec).attr('id', 'updateSpecification_'+i)
+          $(spec).attr('name', 'updateSpecification_'+i)
+          $(e).append(spec)
+          $(e).append('<h4>:</h4>')
+          var desc = $('<input class="form-control form-control-sm" type="text">')
+          $(desc).attr('id', 'updateDescription_'+i)
+          $(desc).attr('name', 'updateDescription_'+i)
+          $(e).append(desc)
+          $(e).append('<a href="#" class="btn btn-sm btn-light remove_field" type="button" role="button">Remove</a>')
+          $(wrapper2).append(e);
+    }
+
+      $('#updateSpecification_1').val(spec1)
+      $('#updateSpecification_2').val(spec2)
+      $('#updateSpecification_3').val(spec3)
+      $('#updateSpecification_4').val(spec4)
+      $('#updateSpecification_5').val(spec5)
+      $('#updateSpecification_6').val(spec6)
+      $('#updateSpecification_7').val(spec7)
+      $('#updateSpecification_8').val(spec8)
+      $('#updateSpecification_9').val(spec9)
+      $('#updateSpecification_10').val(spec10)
+
+
+      $('#updateDescription_1').val(desc1)
+      $('#updateDescription_2').val(desc2)
+      $('#updateDescription_3').val(desc3)
+      $('#updateDescription_4').val(desc4)
+      $('#updateDescription_5').val(desc5)
+      $('#updateDescription_6').val(desc6)
+      $('#updateDescription_7').val(desc7)
+      $('#updateDescription_8').val(desc8)
+      $('#updateDescription_9').val(desc9)
+      $('#updateDescription_10').val(desc10)
 
       $('#update_sub_main_category').empty()
       $('#update_category').empty()
@@ -1274,6 +1409,11 @@ function getUpdateCategory(value){
       $('#update_sub_main_category').val(subCategoryName)
       $("#update_product_description").val(response.description)
       $("#update_product_additional_information").val(response.additional)
+
+
+
+
+
       }
     });
   $('.updateProduct').modal('show');

@@ -52,8 +52,6 @@ def returnPage(request):
         clicks = Product.objects.filter(business = business).aggregate(Sum('clicks'))
         productCount = len(product)
         profileViews = business.profile_views
-
-        print("These are profile Views", profileViews)
     context = {
         'supplier' : supplier,
         'business' : business,
@@ -221,8 +219,17 @@ def addProduct(request):
         productMainCategory = request.POST['main_category']
         productSubMainCategory = request.POST['sub_main_category']
         productCategory = request.POST['category']
-        productAdditionalInfo = request.POST['product_additional_information']
+        productAdditionalInfo = request.POST['product_additional_information']  
+        specification = []
+        description = []
+        for i in range(1, 11) :
+            specification.append(request.POST.get('specification_' + str(i), None))
 
+        for i in range(1, 11) :
+            description.append(request.POST.get('description_' + str(i), None))
+            
+            
+        print("Desc--------", description[0])
         supplierEmail = request.session.get('email', False)
         supplier = Supplier.objects.get(email = supplierEmail)
         business = Business.objects.get(supplier = supplier)
@@ -230,11 +237,15 @@ def addProduct(request):
         arrival = productArrival, unit = productUnit, description = productDescription,
         main_category = productMainCategory, sub_main_category = productSubMainCategory,
         category = productCategory, brand = productBrand, code = productCode, additional_information = productAdditionalInfo,
-        created_date = timezone.now(), updated_date = timezone.now(), clicks = 0, requested_quote = 0, business = business)
-        print("Products DAte before------", product.created_date)
-        print("Products DAte------", product.created_date.strftime("%m%d%y"))
-
-        #date = json.loads(str(product.created_date))
+        created_date = timezone.now(), updated_date = timezone.now(), clicks = 0, business = business,
+        specification_1 = specification[0], specification_2 = specification[1], specification_3 = specification[2],
+        specification_4 = specification[3], specification_5 = specification[4], specification_6 = specification[5], 
+        specification_7 = specification[6], specification_8 = specification[7], specification_9 = specification[8], 
+        specification_10 = specification[9],description_1 = description[0], description_2 = description[1],
+        description_3 = description[2], description_4 = description[3], description_5 = description[4], 
+        description_6 = description[5], description_7 = description[6], description_8 = description[7],
+        description_9 = description[8], description_10  = description[9], 
+        )
         response = {'status': 0, 'code' : productCode, 'name' : productName
         ,'category' : productCategory,'price' : productPrice, 'arrival' : productArrival,
         'unit' : productUnit, 'brand' : productBrand, 'clicks' : str(0),
@@ -257,6 +268,16 @@ def updateProduct(request):
         productSubMainCategory = request.POST['update_sub_main_category']
         productCategory = request.POST['update_category']
         productAdditionalInfo = request.POST['update_product_additional_information']
+        specification = []
+        description = []
+
+        for i in range(1, 11) :
+            specification.append(request.POST.get('updateSpecification_' + str(i), None))
+
+        for i in range(1, 11) :
+            description.append(request.POST.get('updateDescription_' + str(i), None))
+
+        print("Description fro update", specification[0])
 
         supplierEmail = request.session.get('email')
         supplier = Supplier.objects.get(email = supplierEmail)
@@ -264,7 +285,6 @@ def updateProduct(request):
         product = Product.objects.filter(business = business).filter(code = productCode)
         product = product[0]
         creationDate = product.created_date
-
         product.image = productImage
         product.name = productName
         product.brand = productBrand
@@ -278,6 +298,27 @@ def updateProduct(request):
         product.category = productCategory
         product.additional_information =  productAdditionalInfo
         product.update_date = timezone.now()
+        product.specification_1 = specification[0]
+        product.specification_2 = specification[1]
+        product.specification_3 = specification[2]
+        product.specification_4 = specification[3]
+        product.specification_5 = specification[4]
+        product.specification_6 = specification[5]
+        product.specification_7 = specification[6]
+        product.specification_8 = specification[7]
+        product.specification_9 = specification[8]
+        product.specification_10 = specification[9]
+
+        product.description_1 = description[0]
+        product.description_2 = description[1]
+        product.description_3 = description[2]
+        product.description_4 = description[3]
+        product.description_5 = description[4]
+        product.description_6 = description[5]
+        product.description_7 = description[6]
+        product.description_8 = description[7]
+        product.description_9 = description[8]
+        product.description_10 = description[9]
         
         product.save()
         print("Date berfore str", creationDate)
@@ -307,6 +348,7 @@ def getCategory(request):
         
 def getCategoryUpdate(request):
     if request.method == "POST":
+        limit = 0
         categoryName = request.POST['category']
         print("Category Name from Updateee", categoryName)
         category = Category.objects.get(name = categoryName)
@@ -330,13 +372,35 @@ def getCategoryUpdate(request):
         supplier = Supplier.objects.get(email = email)
         business = Business.objects.get(supplier = supplier)
         product = Product.objects.filter(business = business).filter(code = request.POST['productCode'])
-        print("Product-----------", product[0].description)
+
         response = {'mainCategoryName' : mainCategoryName,
         'subCategoryName' : subCategoryName,
         'allSubCategory' : allSubCategory,
         'allCategory' : allCategory,
         'description' : product[0].description,
-        'additional' : product[0].additional_information
+        'additional' : product[0].additional_information,
+        "spec1" : product[0].specification_1,
+        "spec2" : product[0].specification_2,
+        "spec3" : product[0].specification_3,
+        "spec4" : product[0].specification_4,
+        "spec5" : product[0].specification_5,
+        "spec6" : product[0].specification_6,
+        "spec7" : product[0].specification_7,
+        "spec8" : product[0].specification_8,
+        "spec9" : product[0].specification_9,
+        "spec10" : product[0].specification_10,
+
+        "desc1" : product[0].description_1,
+        "desc2" : product[0].description_2,
+        "desc3" : product[0].description_3,
+        "desc4" : product[0].description_4,
+        "desc5" : product[0].description_5,
+        "desc6" : product[0].description_6,
+        "desc7" : product[0].description_7,
+        "desc8" : product[0].description_8,
+        "desc9" : product[0].description_9,
+        "desc10" : product[0].description_10,
+
         }
         return HttpResponse(json.dumps(response), content_type = 'application/json')
 

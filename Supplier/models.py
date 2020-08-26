@@ -81,6 +81,28 @@ class Product(models.Model):
     price = models.DecimalField(decimal_places = 2, max_digits = 12, blank = False, null = False)
     clicks = models.DecimalField(decimal_places = 0, max_digits = 12, blank = False, null = False)
     business = models.ForeignKey(Business, on_delete = models.CASCADE)
+    specification_1 = models.CharField(max_length = 255, null = True, blank = True, default = "")
+    specification_2 = models.CharField(max_length = 255, null = True, blank = True, default = "")
+    specification_3 = models.CharField(max_length = 255, null = True, blank = True, default = "")
+    specification_4 = models.CharField(max_length = 255, null = True, blank = True, default = "")
+    specification_5 = models.CharField(max_length = 255, null = True, blank = True, default = "")
+    specification_6 = models.CharField(max_length = 255, null = True, blank = True, default = "")
+    specification_7 = models.CharField(max_length = 255, null = True, blank = True, default = "")
+    specification_8 = models.CharField(max_length = 255, null = True, blank = True, default = "")
+    specification_9 = models.CharField(max_length = 255, null = True, blank = True, default = "")
+    specification_10 = models.CharField(max_length = 255, null = True, blank = True, default = "")
+
+    description_1 = models.CharField(max_length = 255, null = True, blank = True, default = "")
+    description_2 = models.CharField(max_length = 255, null = True, blank = True, default = "")
+    description_3 = models.CharField(max_length = 255, null = True, blank = True, default = "")
+    description_4 = models.CharField(max_length = 255, null = True, blank = True, default = "")
+    description_5 = models.CharField(max_length = 255, null = True, blank = True, default = "")
+    description_6 = models.CharField(max_length = 255, null = True, blank = True, default = "")
+    description_7 = models.CharField(max_length = 255, null = True, blank = True, default = "")
+    description_8 = models.CharField(max_length = 255, null = True, blank = True, default = "")
+    description_9 = models.CharField(max_length = 255, null = True, blank = True, default = "")
+    description_10 = models.CharField(max_length = 255, null = True, blank = True, default = "")
+
 
     def __str__(self):
         return str(self.pk) + '|' + self.name
@@ -117,4 +139,4 @@ class Quote(models.Model):
     supplier = models.ForeignKey(Supplier, on_delete = models.CASCADE) 
     
     def __str__(self):
-        return str(self.pk) + "| Supplier ==>  " + str(self.supplier.name)
+        return str(self.pk) + "| Supplier ==>  " + str(self.supplier.full_name)
