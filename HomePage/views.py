@@ -158,3 +158,7 @@ def customerSignIn(request):
 def customerSignOut(request):
     request.session.pop('customer')
     return redirect('homepage:landingPage')
+
+
+def GovermentQuick(request):
+    return render(request, 'GovermentLink.html')

@@ -20,7 +20,7 @@
             <a class="nav-link" href="#" data-toggle="modal" data-target=".supplierSignUp">List Business</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Get Quotes</a>
+            <a class="nav-link" href="GovermentQuickLinks">Goverment Links</a>
             </li>
             <li class="nav-item">
             <div class="dropdown">
@@ -39,107 +39,105 @@
             </li> -->
  </ul>
 {%endblock%}
-{% comment %} 
-{%block sidebar%}
-<div class="side-nav">
-  <div id="btn1" class="btn1">
-    <button class="btn side-nav-btn Tender" id="SoilCare">Soil Care <img src = "{%static 'assets/Sidebar.png' %}"></button>
-  </div>
-  <div id="btn3" class="btn3">
-    <button class="btn side-nav-btn GovtQuickLinks" id="GovtQuickLinks">Govt Quick Links <img src = "{%static 'assets/GovtQuickLinks.png' %}"></button>
-  </div>
-  <div id="btn4" class="btn4">
-    <button class="btn side-nav-btn Weather" id="Weather">Weather <img src = "{%static 'assets/Weather.svg' %}"></button>
-  </div>  
-</div>
-{%endblock%}  {% endcomment %}
 
 {% block mainblock %}
 <!-- ------------Categories -->
-<div class="container categories">
-    <h3>Categories</h3>
-    <div class="row m-0 categoriesCompart">     
-        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
-          <a class = "categoriesAnchor" href="SubCategories/sub/Farming Tools, Equipment & Machines/">
-            <img src="{%static 'assets/shovel-svgrepo-com.svg' %}" alt="Shovel icon" class="img-fluid">
-            <h5>Farming Tools, <br> Equipment & Machines</h5>
-          </a>
-        </div>
-        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
-          <a class = "categoriesAnchor" href="SubCategories/sub/Flowers, Plants & Trees/">
-            <img src="{%static 'assets/plant.svg' %}" alt="Shovel icon" class="img-fluid">
-            <h5>Flowers, Plants <br> & Trees</h5>
-           </a>
-        </div>
-        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
-          <a class = "categoriesAnchor" href="SubCategories/sub/Seeds Plants & Saplings/">
-            <img src="{%static 'assets/seed.svg' %}" alt="Shovel icon" class="img-fluid">
-            <h5>Seeds Plants <br> & Saplings</h5>
-          </a>
-        </div>
-        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
-          <a class = "categoriesAnchor" href="SubCategories/sub/Tractor, Tractor Parts & Assemblies/">
-            <img src="{%static 'assets/tractor.svg' %}" alt="Shovel icon" class="img-fluid">
-            <h5>Tractor, Tractor Parts <br> & Assemblies</h5>
-          </a>
-        </div>
+<div class="row">
+  <div class="col-md-1 p-0 pl-1">
+    <div class="LinksForecasting-lg ">
+      <div class="weatherWidget">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/19d7575d71/maharashtra/" data-label_2="WEATHER" data-font="Helvetica" data-icons="Climacons Animated" data-mode="Forecast" data-days="5" data-theme="clear" data-basecolor="#EDF1F5" >
+         WEATHER
+        </a>
+      </div>
     </div>
+  </div>
+  <div class="col-md-10 p-0">
+    <div class="categories">
+        <h3>Categories</h3>
+        <div class="row m-0 categoriesCompart">     
+            <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+              <a class = "categoriesAnchor" href="SubCategories/sub/Farming Tools, Equipment & Machines/">
+                <img src="{%static 'assets/shovel-svgrepo-com.svg' %}" alt="Shovel icon" class="img-fluid">
+                <h5>Farming Tools, <br> Equipment & Machines</h5>
+              </a>
+            </div>
+            <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+              <a class = "categoriesAnchor" href="SubCategories/sub/Flowers, Plants & Trees/">
+                <img src="{%static 'assets/plant.svg' %}" alt="Shovel icon" class="img-fluid">
+                <h5>Flowers, Plants <br> & Trees</h5>
+              </a>
+            </div>
+            <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+              <a class = "categoriesAnchor" href="SubCategories/sub/Seeds Plants & Saplings/">
+                <img src="{%static 'assets/seed.svg' %}" alt="Shovel icon" class="img-fluid">
+                <h5>Seeds Plants <br> & Saplings</h5>
+              </a>
+            </div>
+            <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+              <a class = "categoriesAnchor" href="SubCategories/sub/Tractor, Tractor Parts & Assemblies/">
+                <img src="{%static 'assets/tractor.svg' %}" alt="Shovel icon" class="img-fluid">
+                <h5>Tractor, Tractor Parts <br> & Assemblies</h5>
+              </a>
+            </div>
+        </div>
 
-    <div class="row m-0 categoriesCompart">
-        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
-          <a class = "categoriesAnchor" href="SubCategories/sub/Bird Food, Poultry & Animal Food/">
-             <img src="{%static 'assets/cow.svg' %}" alt="Shovel icon" class="img-fluid">
-             <h5>Bird Food, Poultry <br> & Animal Food</h5>
-          </a>
+        <div class="row m-0 categoriesCompart">
+            <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+              <a class = "categoriesAnchor" href="SubCategories/sub/Bird Food, Poultry & Animal Food/">
+                <img src="{%static 'assets/cow.svg' %}" alt="Shovel icon" class="img-fluid">
+                <h5>Bird Food, Poultry <br> & Animal Food</h5>
+              </a>
+            </div>
+            <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+              <a class = "categoriesAnchor" href="SubCategories/sub/Irrigation & Harvesting Machines/">
+                <img src="{%static 'assets/harvester.svg' %}" alt="Shovel icon" class="img-fluid">
+                <h5>Irrigation & <br> Harvesting Machines</h5>
+              </a>
+            </div>
+            <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+              <a class = "categoriesAnchor" href="SubCategories/sub/Fertilizers and Soil Additives/">
+                <img src="{%static 'assets/fertilizer.svg' %}" alt="Shovel icon" class="img-fluid">
+                <h5>Fertilizers and Soil Additives</h5>
+              </a>
+            </div>
+            <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+              <a class = "categoriesAnchor" href="SubCategories/sub/Coir & Agro Products/">
+                <img src="{%static 'assets/coir.svg' %}" alt="Shovel icon" class="img-fluid">
+                <h5>Coir and Agro Products</h5>
+              </a>  
+            </div>
         </div>
-        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
-          <a class = "categoriesAnchor" href="SubCategories/sub/Irrigation & Harvesting Machines/">
-            <img src="{%static 'assets/harvester.svg' %}" alt="Shovel icon" class="img-fluid">
-            <h5>Irrigation & <br> Harvesting Machines</h5>
-          </a>
-        </div>
-        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
-          <a class = "categoriesAnchor" href="SubCategories/sub/Fertilizers and Soil Additives/">
-            <img src="{%static 'assets/fertilizer.svg' %}" alt="Shovel icon" class="img-fluid">
-            <h5>Fertilizers and Soil Additives</h5>
-          </a>
-        </div>
-        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
-          <a class = "categoriesAnchor" href="SubCategories/sub/Coir & Agro Products/">
-            <img src="{%static 'assets/coir.svg' %}" alt="Shovel icon" class="img-fluid">
-            <h5>Coir and Agro Products</h5>
-          </a>  
-        </div>
-    </div>
 
-    <div class="row m-0 categoriesCompart">
-        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
-          <a class = "categoriesAnchor" href="SubCategories/sub/Farming and Pet Animals/">
-          <img src="{%static 'assets/chicken.svg' %}" alt="Shovel icon" class="img-fluid">
-           <h5>Farming and Pet Animals</h5>
-          </a>           
+        <div class="row m-0 categoriesCompart">
+            <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+              <a class = "categoriesAnchor" href="SubCategories/sub/Farming and Pet Animals/">
+              <img src="{%static 'assets/chicken.svg' %}" alt="Shovel icon" class="img-fluid">
+              <h5>Farming and Pet Animals</h5>
+              </a>           
+            </div>
+            <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+              <a class = "categoriesAnchor" href="SubCategories/sub/Agri Finance/">
+                <img src="{%static 'assets/rupee.svg' %}" alt="Shovel icon" class="img-fluid">
+                <h5>Agri Finance</h5>
+              </a>
+            </div>
+            <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+              <a class = "categoriesAnchor" href="SubCategories/sub/Agri Insurance/">
+                <img src="{%static 'assets/insurance.svg' %}" alt="Shovel icon" class="img-fluid">
+                <h5>Agri Insurance</h5>
+              </a>
+            </div>
+            <div class="col-6 col-sm-3 col-md-3 col-lg-3">
+              <a class = "categoriesAnchor" href="SubCategories/sub/Agri Related Business/">
+                <img src="{%static 'assets/agriBussiness.svg'%}" alt="Shovel icon" class="img-fluid">
+                <h5>Agri Related Business </h5>
+              </a>
+            </div>               
         </div>
-        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
-          <a class = "categoriesAnchor" href="SubCategories/sub/Agri Finance/">
-            <img src="{%static 'assets/rupee.svg' %}" alt="Shovel icon" class="img-fluid">
-            <h5>Agri Finance</h5>
-          </a>
-        </div>
-        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
-          <a class = "categoriesAnchor" href="SubCategories/sub/Agri Insurance/">
-            <img src="{%static 'assets/insurance.svg' %}" alt="Shovel icon" class="img-fluid">
-            <h5>Agri Insurance</h5>
-          </a>
-        </div>
-        <div class="col-6 col-sm-3 col-md-3 col-lg-3">
-          <a class = "categoriesAnchor" href="SubCategories/sub/Agri Related Business/">
-            <img src="{%static 'assets/agriBussiness.svg'%}" alt="Shovel icon" class="img-fluid">
-            <h5>Agri Related Business </h5>
-          </a>
-        </div>               
     </div>
+  </div>
 </div>
-
 <!-- ---------RegisterWithUs -->
 
 <div class="row m-0 text-center registerWithUs">
@@ -165,22 +163,22 @@
     <div id="home" class="tab-pane fade show active">
      <!-- -----------------------------------------------Carousel Starts Here -->
        <div class="con-slider">
-    <ul id="autoWidth" class="cs-hidden">
-      {% for arrival in newArrival %}
-      <li class="item-a">
-         <a href="/product/productDescription/{{arrival.pk}}">
-          <div class="card crd-slider">
-            <img src = {{arrival.image.url}} class="model ">
-            <div class="card-body details">
-              <h5>{{arrival.name}}</h5>
-              <b><h6>Price : &nbsp₹ {{arrival.price}}</h6></b>
-            </div>
-          </div>
-        </a>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
+        <ul id="autoWidth" class="cs-hidden">
+          {% for arrival in newArrival %}
+          <li class="item-a">
+            <a href="/product/productDescription/{{arrival.pk}}">
+              <div class="card crd-slider">
+                <img src = {{arrival.image.url}} class="model ">
+                <div class="card-body details">
+                  <h5>{{arrival.name}}</h5>
+                  <b><h6>Price : &nbsp₹ {{arrival.price}}</h6></b>
+                </div>
+              </div>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
       <!-- -----------------------------------------------Carousel Ends Here -->
     </div>  
     <div id="menu1" class="tab-pane fade">
@@ -978,8 +976,9 @@
         } 
     });  
   });
+{% comment %} weather {% endcomment %}
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
 </script>
-
-{% endblock %}b
+{% endblock %}
 
 

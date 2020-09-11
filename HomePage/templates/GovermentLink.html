@@ -1,0 +1,270 @@
+{% extends 'model.html' %}
+{% load static %}
+
+
+{%block cssBlock %}
+    <link rel="stylesheet" href="{%static 'pageCss/GovermentLink.css'%}">
+{% endblock %}
+
+{% block scriptBlock%}
+  <script src="{%static 'js/lightslider.js'%}"></script>
+{% endblock %}  
+
+{%block menu%}
+ <ul class="nav justify-content-center">
+            <li class="nav-item">
+            <a class="nav-link active" href="/HomePage">Home</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target=".supplierSignUp">List Business</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Tenders</a>
+            </li>
+            <li class="nav-item">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: transparent;
+                border: transparent; font-size: 2.5vh;">
+                    Login
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item" type="button" data-toggle="modal" data-target="#supplierSignIn">Seller</button>
+                    <button class="dropdown-item" type="button" data-toggle="modal" data-target="#customerSignIn">Customer</button>
+                </div>
+            </div>
+            </li>
+            <!-- <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+            </li> -->
+ </ul>
+{%endblock%}
+
+{% block mainblock %}
+
+    <div class="GovtQuickLinks">
+        <header>
+            <h5 class="container heading">Government Quick Links</h5>
+        </header>
+        <div class="container con-govtlink">
+            <div class="row justify-content-around ">
+                <div class="col-sm-12 col-md-2 col-lg-2 col-xl-2 ">
+                    <div class="card">
+                        <a href="http://agricoop.nic.in/">
+                          <div class="card-body">
+                            <h6 class="card-title">Agriculture, Cooperation and Farmer Welfare</h6>
+                            <p class="card-subtitle text-muted">Discription</p>
+                            <p class="card-text">Some quick example text to build on the card title.</p>
+                          </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                      <a href="http://fert.nic.in">
+                          <div class="card-body">
+                            <h6 class="card-title">Government Of India Department of Fertilizers</h6>
+                            <p class="card-subtitle text-muted">Discription</p>
+                            <p class="card-text">Some quick example text to build on the card title.</p>
+                          </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                      <a href="http://www.nationalfertilizers.com/">
+                          <div class="card-body">
+                            <h6 class="card-title">National Fertilizers Limited</h6>
+                            <p class="card-subtitle text-muted">Discription</p>
+                            <p class="card-text">Some quick example text to build on the card title.</p>
+                          </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                      <a href="https://vikaspedia.in/">
+                          <div class="card-body">
+                            <h6 class="card-title">Vikaspedia</h6>
+                            <p class="card-subtitle text-muted">Discription</p>
+                            <p class="card-text">Some quick example text to build on the card title.</p>
+                          </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                      <a href="https://icar.org.in/">
+                          <div class="card-body">
+                            <h6 class="card-title">Indian Council of Agricultural Research</h6>
+                            <p class="card-subtitle text-muted">Discription</p>
+                            <p class="card-text">Some quick example text to build on the card title.</p>
+                          </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                <div class="card">
+                  <a href="http://www.rkmp.co.in/">
+                      <div class="card-body">
+                        <h6 class="card-title">Rice Knowledge Management Portal</h6>
+                        <p class="card-subtitle text-muted">Discription</p>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                      </div>
+                    </a>
+                </div>
+                <div class="card">
+                  <a href="http://krishi.maharashtra.gov.in/">
+                      <div class="card-body">
+                        <h6 class="card-title">Krishi Vibhag Maharashtra Shasan</h6>
+                        <p class="card-subtitle text-muted">Discription</p>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                      </div>
+                    </a>
+                </div>
+                <div class="card">
+                  <a href="https://farmer.gov.in/">
+                      <div class="card-body">
+                        <h6 class="card-title">Farmer's Portal</h6>
+                        <p class="card-subtitle text-muted">Discription</p>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                      </div>
+                    </a>
+                </div>
+                <div class="card">
+                  <a href="https://www.enam.gov.in/">
+                      <div class="card-body">
+                        <h6 class="card-title">e-National Agriculture Market</h6>
+                        <p class="card-subtitle text-muted">Discription</p>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                      </div>
+                    </a>
+                </div>
+                <div class="card">
+                  <a href="http://agritech.tnau.ac.in">
+                      <div class="card-body">
+                        <h6 class="card-title">TNAU Agritech Portal</h6>
+                        <p class="card-subtitle text-muted">Discription</p>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                      </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                <div class="card">
+                  <a href="http://atmamaharashtra.org/">
+                      <div class="card-body">
+                        <h6 class="card-title">ATMA Maharashtra</h6>
+                        <p class="card-subtitle text-muted">Discription</p>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                      </div>
+                    </a>
+                </div>
+                <div class="card">
+                  <a href="https://nmsa.dac.gov.in/">
+                      <div class="card-body">
+                        <h6 class="card-title">National Mission For Sustainable Agriculture</h6>
+                        <p class="card-subtitle text-muted">Discription</p>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                      </div>
+                    </a>
+                </div>
+                <div class="card">
+                  <a href="https://pmksy.gov.in/">
+                      <div class="card-body">
+                        <h6 class="card-title">Pradhan Mantri Krishi Sinchayee Yojana</h6>
+                        <p class="card-subtitle text-muted">Discription</p>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                      </div>
+                    </a>
+                </div>
+                <div class="card">
+                  <a href="https://agmarknet.gov.in/">
+                      <div class="card-body">
+                        <h6 class="card-title">AgMarknet</h6>
+                        <p class="card-subtitle text-muted">Discription</p>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                      </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="http://dahd.nic.in/">
+                      <div class="card-body">
+                        <h6 class="card-title">Department Of Animal Husbandry and Dairying</h6>
+                        <p class="card-subtitle text-muted">Discription</p>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                      </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <div class="card">
+                  <a href="http://mofpi.nic.in/">
+                      <div class="card-body">
+                        <h6 class="card-title">Food Processing Industries</h6>
+                        <p class="card-subtitle text-muted">Discription</p>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                      </div>
+                    </a>
+                </div>
+                <div class="card">
+                  <a href="https://fci.gov.in/">
+                      <div class="card-body">
+                        <h6 class="card-title">Food Corporation Of India</h6>
+                        <p class="card-subtitle text-muted">Discription</p>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                      </div>
+                    </a>
+                </div>
+                <div class="card">
+                  <a href="https://www.safl.in/">
+                      <div class="card-body">
+                        <h6 class="card-title">SAFL-Sustainable Agro-commercial Finance Ltd.</h6>
+                        <p class="card-subtitle text-muted">Discription</p>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                      </div>
+                    </a>
+                </div>
+                <div class="card">
+                  <a href="https://pmfby.gov.in/">
+                      <div class="card-body">
+                        <h6 class="card-title">Pradhan Mantri Fasal Bima Yojana - Crop Insurance | PMFBY</h6>
+                        <p class="card-subtitle text-muted">Discription</p>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                      </div>
+                    </a>
+                </div>
+                <div class="card">
+                  <a href="https://uiic.co.in/">
+                      <div class="card-body">
+                        <h6 class="card-title">United India Insurance Company Limited</h6>
+                        <p class="card-subtitle text-muted">Discription</p>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                      </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <div class="card">
+                  <a href="https://life.futuregenerali.in/">
+                      <div class="card-body">
+                        <h6 class="card-title">Future Generali India Life Insurance Co. Ltd</h6>
+                        <p class="card-subtitle text-muted">Discription</p>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                      </div>
+                    </a>
+                </div>
+                <div class="card">
+                  <a href="https://www.india.gov.in/">
+                      <div class="card-body">
+                        <h6 class="card-title">india.gov.in National Portal Of India</h6>
+                        <p class="card-subtitle text-muted">Discription</p>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                      </div>
+                    </a>
+                </div>
+                <div class="card">
+                  <a href="https://pmmodiyojana.in/">
+                      <div class="card-body">
+                        <h6 class="card-title">PM Modi Yojana</h6>
+                        <p class="card-subtitle text-muted">Discription</p>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                      </div>
+                    </a>
+                </div>
+            </div>
+         </div>
+    </div>
+
+{% endblock %}

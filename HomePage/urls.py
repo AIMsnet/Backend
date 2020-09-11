@@ -9,4 +9,5 @@ urlpatterns = [
     url('SupplierSignUp', views.supplierSignUp, name = "supplierSignUp"),
     url('CustomerSignUp', views.customerSignUp, name = "customerSignUp"),
     url('CustomerSignIn', views.customerSignIn, name = "customerSignIn"), 
+    url('GovermentQuickLinks', views.GovermentQuick, name = "GovermentQuick")
 ]

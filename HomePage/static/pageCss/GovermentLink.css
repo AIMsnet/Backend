@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
+
+
+body{
+    font-family: 'Baloo Tammudu 2', cursive;
+    background-color:#EDF1F5;
+}
+
+.con-govtlink{
+    text-align: -webkit-center;
+}
+
+
+.GovtQuickLinks{
+	justify-content: center;
+
+}
+.GovtQuickLinks header{
+	background-color: white;    
+}
+.GovtQuickLinks header .heading{
+	font-size: 19px;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+	padding: 1rem;
+	padding:1.2rem;
+	color: #303a52;
+	text-align: center;
+}
+
+.GovtQuickLinks .card{
+	margin-bottom: 5px;
+	width: 14rem;
+	height: 9rem;
+}
+.GovtQuickLinks .card p{
+	font-size: 12px;
+	color: #000;
+}

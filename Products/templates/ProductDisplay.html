@@ -104,11 +104,13 @@
                       </a>
                         <div class="row">
                             <div class="col-sm-12 col-md-8 col-lg-8 productDetails">
-                                <p class="productPara"><b>Average width of cut:</b> &nbsp; 2 ft.</p>
-                                <p class="productPara"><b>Fuel Tank Capacity:</b> &nbsp; 20 L.</p>
-                                <p class="productPara"><b>Engine Type:</b> &nbsp; Four stroke, water cooled, Horizontal, Single cylinder, D1</p>
-                                <p class="productPara"><b>Fuel: </b> &nbsp; Diesel</p>
-                                <p class="productPara"><b>No. Of Blades:</b> &nbsp; 20 + 2 Straight</p>
+                                <p class="productPara"><b>{{p.specification_1}}:</b> &nbsp; {{p.description_1}}</p>
+                                <p class="productPara"><b>{{p.specification_2}}:</b> &nbsp; {{p.description_2}}</p>
+                                <p class="productPara"><b>{{p.specification_3}}:</b> &nbsp; {{p.description_3}}</p>
+                                <p class="productPara"><b>{{p.specification_4}}: </b> &nbsp; {{p.description_4}}</p>
+                                {% if p.specification_5 is not None %}
+                                <p class="productPara"><b>{{p.specification_5}}:</b> &nbsp;{{p.description_5}}</p>
+                                {% endif %}
                                 <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star checked"></span>

@@ -2,6 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
 
 /* Copied Till Here */
+.LinksForecasting-lg{
+    margin:0px;
+}
+.LinksForecasting-lg .weatherWidget{
+    width: 124px;
+    height: 90%;
+    margin-top: 40px;
+   padding:10px;
+
+}
 
 .categories{
     text-align: center;
@@ -169,19 +179,15 @@
     display: flex;
     justify-content: center;
     margin-top: 10px;
-    align-items: center;
   }
   
   .crd-slider{
     width: 260px;
     background-color: #fff;
     border: 1px solid #b6b6b4; 
-    /*padding-left: 10px;
-    padding-right:10px;
-    padding-bottom: 20px;*/
-   
+    justify-content: center;
+    align-items: center;
     }
-  
   
   .details{
     align-items: left;

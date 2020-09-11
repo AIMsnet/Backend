@@ -53,21 +53,23 @@
     <h2>{{category}}</h2>
   </div>
 
-  <section class="ftco-section ftco-no-pt ftco-intro mt-3">
-      <div class="container mt-3">
+  <section class="SubCategory-cards">
+      <div class="container">
       {% for sub in subCategory %}
-        {% if forloop.first %}<div class="row">{% endif %}
+        {% if forloop.first %}<div class="row SubCategory-cardsRow">{% endif %}
           {% csrf_token %}
-          <div class="col-md-4 d-flex align-self-stretch subCategory" id = "{{sub.id}}">
-            <div class="d-block services text-center">
-              <div class="media-body">
+          <div class="col-md-3 subCategory" id = "{{sub.id}}">
+            <div class="card">
+            <div class="card-body text-center">
+              <div class="card-title">
                 <h3 class="heading" data-id = "{{sub.id}}">{{sub.name}}</h3>
                 <img src="{{ sub.image.url }}"/>
                 <h6>{{sub.image}}</h6>
               </div>
             </div>    
+            </div>
           </div>
-        {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
+        {% if forloop.counter|divisibleby:4 %}</div><div class="row">{% endif %}
         {% if forloop.last %}</div>{% endif %}
         {% endfor %}
         
@@ -128,4 +130,3 @@ $(document).on("click", ".subCategory", function () {
 </script>
 
 {%  endblock %}
-
