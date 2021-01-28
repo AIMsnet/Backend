@@ -86,24 +86,24 @@ WSGI_APPLICATION = 'kisanjanab.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'aims',
-    #     'USER': 'root',
-    #     'PASSWORD': 'root',
-    #     'HOST': 'localhost',
-    #     'PORT': '3306',
-    # }
-    
-    # AWS Cred..
-        'default': {
+    'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'baliraja',
-        'USER': 'gismaster',
-        'PASSWORD': 'first#1234',
-        'HOST': 'aim.cvot3mbu0m9d.us-east-2.rds.amazonaws.com',
+        'NAME': 'aims',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
+    
+    # AWS Cred..
+    #     'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'baliraja',
+    #     'USER': 'gismaster',
+    #     'PASSWORD': 'first#1234',
+    #     'HOST': 'aim.cvot3mbu0m9d.us-east-2.rds.amazonaws.com',
+    #     'PORT': '3306',
+    # }
 }
 
 
@@ -131,7 +131,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = ''
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 

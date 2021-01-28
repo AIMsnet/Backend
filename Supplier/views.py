@@ -15,6 +15,13 @@ from django.db.models import Sum
 def returnPage(request):
     businessProfileForm = BusinessProfileForm()
     email = request.session.get('email', False)
+    
+    quotes = 0
+    leads = 0
+    clicks = 0
+    productCount = 0
+    profileViews = 0
+
     business = None
     designation = None
     mainCategories = None

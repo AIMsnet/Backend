@@ -239,6 +239,7 @@
   <h4>Flower Plants & Trees</h4>
   <div class="row">
     {% for f in flowerPlant  %}
+    <a href="/product/productDescription/{{f.pk}}">
     <div class="col-sm-6 col-md-3 col-lg-2">
       <div class="card crd-slider">
         <img src = {{f.image.url}} class="model">
@@ -247,15 +248,18 @@
         </div>
       </div>
     </div>
+    </a>
     {% endfor %} 
   </div>
 </div>
 
   <!-- Seeds Plant & Sapling -->
 <div class="container-fluid py-4 bg-white px-5">
+
     <h4>Seeds Plant & Sapling</h4>
     <div class="row">
       {% for f in seedsPlan  %}
+      <a href="/product/productDescription/{{f.pk}}">
       <div class="col-sm-6 col-md-3 col-lg-2">
         <div class="card crd-slider">
           <img src = {{f.image.url}} class="model">
@@ -264,6 +268,7 @@
           </div>
         </div>
       </div>
+      </a>
       {% endfor %} 
     </div>
 </div>
@@ -273,6 +278,7 @@
   <h4>Tractor, Tractor Parts & Assemblies</h4>
   <div class="row">
     {% for f in tractor  %}
+    <a href="/product/productDescription/{{f.pk}}">
     <div class="col-sm-6 col-md-3 col-lg-2">
       <div class="card crd-slider">
         <img src = {{f.image.url}} class="model">
@@ -281,6 +287,7 @@
         </div>
       </div>
     </div>
+    </a>
     {% endfor %} 
   </div>
 </div>
@@ -290,6 +297,7 @@
   <h4>Bird Poultry & Animal Food</h4>
   <div class="row">
     {% for f in birdPoultry  %}
+    <a href="/product/productDescription/{{f.pk}}">
     <div class="col-sm-6 col-md-3 col-lg-2">
       <div class="card crd-slider">
         <img src = {{f.image.url}} class="model">
@@ -298,6 +306,7 @@
         </div>
       </div>
     </div>
+    </a>
     {% endfor %} 
   </div>
 </div>
@@ -307,6 +316,7 @@
   <h4>Irrigation & Harvesting Machine</h4>
   <div class="row">
     {% for f in irrigationHarvesting  %}
+    <a href="/product/productDescription/{{f.pk}}">
     <div class="col-sm-6 col-md-3 col-lg-2">
       <div class="card crd-slider">
         <img src = {{f.image.url}} class="model">
@@ -315,15 +325,17 @@
         </div>
       </div>
     </div>
+    </a>
     {% endfor %} 
   </div>
 </div>
 
-  <!-- Fertilizers & Soil Addictive -->
+  {% comment %} <!-- Fertilizers & Soil Addictive -->
 <div class="container-fluid py-4 bg-white px-5">
   <h4>Fertilizers & Soil Addictive</h4>
   <div class="row">
     {% for f in fertilizerSoil  %}
+    <a href="/product/productDescription/{{f.pk}}">
     <div class="col-sm-6 col-md-3 col-lg-2">
       <div class="card crd-slider">
         <img src = {{f.image.url}} class="model">
@@ -332,6 +344,7 @@
         </div>
       </div>
     </div>
+    </a>
     {% endfor %} 
   </div>
 </div>
@@ -341,6 +354,7 @@
   <h4>Coir & Agro Products</h4>
   <div class="row">
     {% for f in coirAgro  %}
+    <a href="/product/productDescription/{{f.pk}}">
     <div class="col-sm-6 col-md-3 col-lg-2">
       <div class="card crd-slider">
         <img src = {{f.image.url}} class="model">
@@ -349,6 +363,7 @@
         </div>
       </div>
     </div>
+    </a>
     {% endfor %} 
   </div>
 </div>
@@ -368,7 +383,7 @@
     </div>
     {% endfor %} 
   </div>
-</div>
+</div> {% endcomment %}
 
 <!-- --------------------Location Model -->
 <div class="modal fade" id="locationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
